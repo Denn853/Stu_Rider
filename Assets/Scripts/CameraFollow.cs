@@ -5,15 +5,56 @@ using UnityEngine;
 public class CameraFollow : MonoBehaviour
 {
 
-    public Transform target;
+    public GameObject target;
+    public float speed;
+    public float offsetX;
+    public float offsetY;
+    
+    public Vector3 offset;
+    Rigidbody2D rb;
+    HorizontalMovement targetMovement;
+    GroundDetector gd;
 
-    [Range(0, 1)]
-    public float smoothTime;
-
-
-    void Update()
+    private void Start()
     {
-        Vector3 newPosition = new Vector3(target.position.x, target.position.y, -10f);
-        transform.position = Vector3.Lerp(transform.position, newPosition, smoothTime * Time.deltaTime);
+        targetMovement = target.GetComponent<HorizontalMovement>();
+        rb = targetMovement.GetComponent<Rigidbody2D>();
+        gd = targetMovement.GetComponent<GroundDetector>();
+    }
+
+    void LateUpdate()
+    {
+        offset = new Vector3(0, offsetY, -10);
+        speed = 1.5f;
+        if (targetMovement != null)
+        {
+            if (targetMovement.dir == HorizontalMovement.Directions.RIGHT)
+            {
+                offset += Vector3.right * offsetX;
+            }
+            else if (targetMovement.dir == HorizontalMovement.Directions.LEFT)
+            {
+                offset += Vector3.left * offsetX;
+            }
+
+            if (targetMovement.currentSpeed != 0)
+            {
+                offset.x += offsetX;
+            }
+
+            if (rb.velocity.y < -20 && !gd.grounded)
+            {
+                offsetY = -10;
+                offset.y = offsetY;
+            }
+            else if (rb.velocity.y > 0 || gd.grounded)
+            {
+                offsetY = 1;
+                offset.y = offsetY;
+            }
+
+            transform.position = Vector3.Lerp(transform.position, target.transform.position + offset, speed * Time.deltaTime);
+        }
+   
     }
 }
