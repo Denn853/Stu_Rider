@@ -138,7 +138,7 @@ GameObject:
   - component: {fileID: 263751159}
   - component: {fileID: 263751158}
   m_Layer: 0
-  m_Name: MopedFrontWheel
+  m_Name: RearWheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -157,7 +157,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 659749441}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &263751158
 MonoBehaviour:
@@ -300,8 +300,9 @@ GameObject:
   - component: {fileID: 659749439}
   - component: {fileID: 659749438}
   - component: {fileID: 659749437}
+  - component: {fileID: 659749442}
   m_Layer: 0
-  m_Name: MopedFrame
+  m_Name: Moto
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -601,11 +602,26 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 263751157}
   - {fileID: 1206331858}
+  - {fileID: 263751157}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &659749442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 659749436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b10b85f487578734e9c805bc0e46fd7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpForce: 10
+  jumpGravityScale: 2.2
+  fallingGravityScale: 3
 --- !u!1 &1206331857
 GameObject:
   m_ObjectHideFlags: 0
@@ -621,7 +637,7 @@ GameObject:
   - component: {fileID: 1206331860}
   - component: {fileID: 1206331859}
   m_Layer: 0
-  m_Name: MopedRearWheel
+  m_Name: FrontWheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -640,7 +656,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 659749441}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1206331859
 MonoBehaviour:
