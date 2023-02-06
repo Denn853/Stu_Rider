@@ -1,13 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class GameplayUI : MonoBehaviour
 {
-    public TMP_Text score;
+    /*public TMP_Text score;
     public TMP_Text lifes;
 
     [SerializeField] AudioClip sound;
+    private object GameManager;
 
     // Start is called before the first frame update
     void Start()
@@ -27,5 +29,5 @@ public class GameplayUI : MonoBehaviour
             AudioSource.PlayClipAtPoint(sound, Camera.main.transform.position);
             SceneManager.LoadScene("GameOver");
         }
-    }
+    }*/
 }

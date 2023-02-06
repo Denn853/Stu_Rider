@@ -11,17 +11,20 @@ public class Jump : MonoBehaviour
 
     Rigidbody2D rb;
 
+    GroundDetector groundDetector;
+
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        groundDetector = GetComponent<GroundDetector>();
     }
 
     // Update is called once per frame
     void Update()
     {
 
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump") && groundDetector.grounded)
         {
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             rb.gravityScale = jumpGravityScale;
