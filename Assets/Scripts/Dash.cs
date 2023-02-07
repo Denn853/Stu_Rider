@@ -26,7 +26,7 @@ public class Dash : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetButtonDown("Fire2") && canDash) {
+        if (Input.GetButtonDown("Dash") && canDash) {
 
             StartCoroutine(Dash_Corutine());
 
