@@ -46,9 +46,8 @@ public class Dash : MonoBehaviour
             rb.velocity = new Vector2(Vector2.right.x * force, 0f);
         }
 
-        tr.emitting = true;
         yield return new WaitForSeconds(dashingTime);
-        tr.emitting = false;
+        rb.velocity = new Vector2(0f, 0f);
         yield return new WaitForSeconds(coolDownTime);  
         canDash = true;
     }
