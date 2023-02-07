@@ -5,6 +5,7 @@ using UnityEngine;
 public class ProtectiveMass : MonoBehaviour
 {
 
+    public bool massIsActive = false;
     public GameObject massParticles;
     private GameObject temp;
 
@@ -13,7 +14,7 @@ public class ProtectiveMass : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        coll = GetComponent<CircleCollider2D>();        
+        coll = GetComponent<CircleCollider2D>();  
     }
 
     // Update is called once per frame
@@ -26,7 +27,7 @@ public class ProtectiveMass : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Enemy") {
+        if (collision.gameObject.tag == "Enemy" && !massIsActive) {
             StartCoroutine(Protective_Mass_Corutine());
         }
     }
@@ -34,10 +35,12 @@ public class ProtectiveMass : MonoBehaviour
     IEnumerator Protective_Mass_Corutine()
     {
 
+        massIsActive = true;
         coll.isTrigger = false;
         temp = Instantiate(massParticles, transform.position, transform.rotation);
         yield return new WaitForSeconds(2.5f);
         Destroy(temp);
+        massIsActive = false;
         coll.isTrigger = true;
 
     }
