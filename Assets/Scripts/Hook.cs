@@ -53,7 +53,7 @@ public class Hook : MonoBehaviour
 
         if (Input.GetButtonDown("Hook") && hook)
         {
-            transform.position = Vector3.Lerp(transform.position, positionToMove, speedHook * Time.deltaTime)
+            transform.position = Vector3.Lerp(transform.position, positionToMove, speedHook * Time.deltaTime);
         }
     }
 }
