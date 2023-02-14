@@ -13,6 +13,7 @@ public class Punch : MonoBehaviour
     void Start()
     {
         coll = GetComponent<CapsuleCollider2D>();
+        transform.eulerAngles += new Vector3(0, 0, 90);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
