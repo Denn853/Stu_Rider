@@ -6,6 +6,7 @@ TagManager:
   tags:
   - CameraObjective
   - Enemy
+  - HookPlatform
   layers:
   - Default
   - TransparentFX
@@ -15,7 +16,7 @@ TagManager:
   - UI
   - Platforms
   - Enemies
-  - 
+  - HookPlatforms
   - 
   - 
   - 
