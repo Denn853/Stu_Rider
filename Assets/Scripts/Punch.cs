@@ -5,7 +5,7 @@ using UnityEngine;
 public class Punch : MonoBehaviour
 {
 
-    //public GameObject punchParticles;
+    public GameObject punchParticles;
 
     CapsuleCollider2D coll;
 
@@ -20,7 +20,9 @@ public class Punch : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy") {
 
+            GameObject temp = Instantiate(punchParticles, transform.position, transform.rotation);
             Destroy(collision.gameObject);
+            Destroy(temp, 0.45f);
 
         }
     }

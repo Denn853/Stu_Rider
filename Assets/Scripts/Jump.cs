@@ -13,31 +13,32 @@ public class Jump : MonoBehaviour
     Rigidbody2D rb;
 
     GroundDetector groundDetector;
-    GunShot gunShot;
+    SpawnPunch punch;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         groundDetector = GetComponent<GroundDetector>();
-        gunShot = GetComponent<GunShot>();
+        punch = GetComponent<SpawnPunch>();
     }
 
     // Update is called once per frame
     void Update()
     {
 
-        canJump = gunShot.hasShooted || groundDetector.grounded;
-
-        if (Input.GetButtonDown("Jump") && canJump)
-        {
-            rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-            rb.gravityScale = jumpGravityScale;
-        }
+        canJump = !punch.canPuch || groundDetector.grounded;
 
         if (rb.velocity.y < 0)
         {
             rb.gravityScale = fallingGravityScale;
         }
+
+        if (Input.GetButtonDown("Jump") && canJump)
+        { 
+            rb.AddForce(Vector2.up * (jumpForce + rb.gravityScale * 2), ForceMode2D.Impulse);
+            rb.gravityScale = jumpGravityScale;
+        }
+
     }
 }
