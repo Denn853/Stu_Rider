@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WeelsMovement : MonoBehaviour
+public class WheelsMovement : MonoBehaviour
 {
     public KeyCode RuedaPositivo = KeyCode.A;
     public KeyCode RuedaNegativo = KeyCode.B;

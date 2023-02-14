@@ -6,12 +6,14 @@ public class Hook : MonoBehaviour
 {
 
     public bool hook = false;
+    public GameObject hookPrefab;
     public float speedHook;
     public float hookDistance = 5;
     public LayerMask hookMask;
     public List<Vector3> rays;
 
     float offset;
+    float angle;
     Vector3 dir;
     Vector3 positionToMove;
 
@@ -25,11 +27,11 @@ public class Hook : MonoBehaviour
     void Update()
     {
 
-        int count = 0;
-
         for (int i = 0; i < rays.Count; i++)
         {
-            dir = Quaternion.Euler(0, 0, i * offset) * transform.right;
+            angle = i * offset;
+
+            dir = Quaternion.Euler(0, 0, angle) * transform.right;
             Debug.DrawRay(transform.position, dir * hookDistance, Color.red);
             RaycastHit2D hit = Physics2D.Raycast(transform.position, dir, hookDistance, hookMask);
         
@@ -37,23 +39,21 @@ public class Hook : MonoBehaviour
             {
                 Debug.DrawRay(transform.position, dir * hit.distance, Color.cyan);
                 positionToMove = hit.transform.position;
-                count++;
+                hook = true;
+                break;
             }
 
-            if (count > 0)
-            {
-                hook = true;
-            }
-            else
-            {
-                hook = false;
-            }
+            hook = false;
         
         }
 
         if (Input.GetButtonDown("Hook") && hook)
         {
             transform.position = Vector3.Lerp(transform.position, positionToMove, speedHook * Time.deltaTime);
+
+            GameObject temp = Instantiate(hookPrefab, transform.position, transform.rotation);
+            temp.transform.eulerAngles += new Vector3(0, 0, angle - 90);
+            Destroy(temp, 0.4f);
         }
     }
 }

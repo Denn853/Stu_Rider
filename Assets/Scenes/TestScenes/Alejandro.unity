@@ -1861,6 +1861,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hook: 0
+  hookPrefab: {fileID: 7804800844122795507, guid: d371d87a042d3e4428361273d26d25ed, type: 3}
+  speedHook: 300
   hookDistance: 5
   hookMask:
     serializedVersion: 2
