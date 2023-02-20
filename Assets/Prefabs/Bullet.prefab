@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2830516695194522217}
   - component: {fileID: 2492605773052659115}
   m_Layer: 0
-  m_Name: Circle
+  m_Name: Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -137,3 +137,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3000
+  dir: 0
+  explosion: {fileID: 3940371405035709921, guid: 030a4c0c8fe61be4cabefdfe7ef4ecc9, type: 3}
