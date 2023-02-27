@@ -9,6 +9,11 @@ public class HorizontalMovement : MonoBehaviour
     public float currentSpeed;
     public SpriteRenderer sr;
 
+    public Animator anim;
+    public GroundDetector ground;
+
+
+
     public enum Directions { NONE, RIGHT, LEFT };
     public Directions dir = Directions.NONE;
 
@@ -16,6 +21,8 @@ public class HorizontalMovement : MonoBehaviour
     {
         dir = Directions.NONE;
         sr = GetComponent<SpriteRenderer>();
+        anim = GetComponent<Animator>();
+
     }
 
     private void FixedUpdate()
@@ -35,6 +42,6 @@ public class HorizontalMovement : MonoBehaviour
         }
 
         transform.position += new Vector3(horizontal * speed * Time.fixedDeltaTime, 0, 0);
-
+        anim.SetBool("isWalking", horizontal != 0);
     }
 }
