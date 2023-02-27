@@ -5,12 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class EndProc : MonoBehaviour
 {
-
-    void OnCollisionEnter2D(Collision2D col)
+    public bool passed = false;
+    private void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.tag == "Player")
         {
-            SceneManager.LoadScene("EndOfScene");
+            passed = true;
+            SceneManager.LoadScene("EndOfStage");
         }
     }
 }
