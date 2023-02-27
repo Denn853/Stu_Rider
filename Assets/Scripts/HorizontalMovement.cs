@@ -9,7 +9,7 @@ public class HorizontalMovement : MonoBehaviour
     public float currentSpeed;
     public SpriteRenderer sr;
 
-    public enum Directions {NONE, RIGHT, LEFT };
+    public enum Directions { NONE, RIGHT, LEFT };
     public Directions dir = Directions.NONE;
 
     private void Start()

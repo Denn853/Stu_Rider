@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 8354736308757395537}
   - component: {fileID: 8354736308757395538}
   - component: {fileID: 8354736308757395543}
+  - component: {fileID: 8808147413839142868}
+  - component: {fileID: 8039063447057174068}
   m_Layer: 7
   m_Name: Enemy1
   m_TagString: Enemy
@@ -127,3 +129,42 @@ MonoBehaviour:
   lifes: 1
   speed: 5
   target: {fileID: 0}
+--- !u!114 &8808147413839142868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8354736308757395539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09669e1a5bc0a4c4fb1181f699bc3c10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  points:
+  - {fileID: 0}
+  - {fileID: 0}
+  nextPoint: 0
+  speed: 3
+  distance: 0
+--- !u!114 &8039063447057174068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8354736308757395539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e20dd4c7ab2b20c4a91c3b894e31c8f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 2
+  angle: 30
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 8
+  obstructionLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  player: {fileID: 0}
