@@ -28,6 +28,7 @@ public class ProtectiveMass : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Enemy" && !massIsActive) {
+            GameManager.instance.lifes--;
             StartCoroutine(Protective_Mass_Corutine());
         }
     }
