@@ -6,7 +6,6 @@ public class Hook : MonoBehaviour
 {
 
     public bool hook = false;
-    public GameObject hookPrefab;
     public float speedHook;
     public float hookDistance = 5;
     public LayerMask hookMask;
