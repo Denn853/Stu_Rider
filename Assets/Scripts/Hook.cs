@@ -39,7 +39,7 @@ public class Hook : MonoBehaviour
             {
                 Debug.DrawRay(transform.position, dir * hit.distance, Color.cyan);
                 positionToMove = hit.transform.position;
-                hook = true;
+                hook = true;             
                 break;
             }
 
@@ -50,10 +50,6 @@ public class Hook : MonoBehaviour
         if (Input.GetButtonDown("Hook") && hook)
         {
             transform.position = Vector3.Lerp(transform.position, positionToMove, speedHook * Time.deltaTime);
-
-            GameObject temp = Instantiate(hookPrefab, transform.position, transform.rotation);
-            temp.transform.eulerAngles += new Vector3(0, 0, angle - 90);
-            Destroy(temp, 0.4f);
         }
     }
 }
