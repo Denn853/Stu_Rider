@@ -36,14 +36,20 @@ public class Jump : MonoBehaviour
         if (Input.GetButtonDown("Jump") && canJump)
         {
             rb.velocity = Vector2.up * jumpForce;
-            timer = 1.25f;
             jumpsLeft--;
-        } else if (!canJump && timer <= 0)
+
+            if (jumpsLeft == 0)
+            {
+                canJump = false;
+                timer = 1.25f;
+            }
+
+        } else if (!canJump && timer <= 0 && groundDetector.grounded)
         {
             jumpsLeft = jumps;
         }
 
         timer -= Time.deltaTime;
-
+    
     }
 }

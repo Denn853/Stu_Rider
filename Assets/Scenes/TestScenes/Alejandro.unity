@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 60737237}
   m_Layer: 6
   m_Name: Square (1)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -247,7 +247,7 @@ GameObject:
   - component: {fileID: 158743676}
   m_Layer: 6
   m_Name: Square
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -358,7 +358,7 @@ GameObject:
   - component: {fileID: 227302862}
   m_Layer: 6
   m_Name: Square (2)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -548,8 +548,16 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3141044407486067755, guid: f37d79f4a4f340b478dc2bfda0515bed, type: 3}
+      propertyPath: jumps
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3141044407486067755, guid: f37d79f4a4f340b478dc2bfda0515bed, type: 3}
       propertyPath: jumpForce
-      value: 14
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 3141044407486067755, guid: f37d79f4a4f340b478dc2bfda0515bed, type: 3}
+      propertyPath: jumpTimer
+      value: 1.25
       objectReference: {fileID: 0}
     - target: {fileID: 3141044407486067756, guid: f37d79f4a4f340b478dc2bfda0515bed, type: 3}
       propertyPath: m_Name
@@ -598,6 +606,10 @@ PrefabInstance:
     - target: {fileID: 3141044407486067758, guid: f37d79f4a4f340b478dc2bfda0515bed, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7147433602875793699, guid: f37d79f4a4f340b478dc2bfda0515bed, type: 3}
+      propertyPath: wallLayer.m_Bits
+      value: 64
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f37d79f4a4f340b478dc2bfda0515bed, type: 3}

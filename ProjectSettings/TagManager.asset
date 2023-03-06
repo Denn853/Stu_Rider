@@ -9,6 +9,7 @@ TagManager:
   - HookPlatform
   - Platform
   - Pointers
+  - Wall
   layers:
   - Default
   - TransparentFX
