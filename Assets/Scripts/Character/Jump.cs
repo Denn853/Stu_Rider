@@ -1,44 +1,49 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 
 public class Jump : MonoBehaviour
 {
-
+    [Header("Jump Settings")]
     public float jumpForce = 10;
-    public float jumpGravityScale = 2.2f;
-    public float fallingGravityScale = 3.0f;
-    public bool canJump;
+    public float jumpTimer;
+    public float jumps;
+
+    [Header("Jump status")]
+    public bool canJump; 
+    public float jumpsLeft;
 
     Rigidbody2D rb;
-
     GroundDetector groundDetector;
-    SpawnPunch punch;
+    float timer;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         groundDetector = GetComponent<GroundDetector>();
-        punch = GetComponent<SpawnPunch>();
+        timer = jumpTimer;
+        jumpsLeft = jumps;
     }
 
     // Update is called once per frame
     void Update()
     {
 
-        canJump = !punch.canPuch || groundDetector.grounded;
-
-        if (rb.velocity.y < 0)
-        {
-            rb.gravityScale = fallingGravityScale;
-        }
+        canJump = jumpsLeft > 0;
 
         if (Input.GetButtonDown("Jump") && canJump)
-        { 
-            rb.AddForce(Vector2.up * (jumpForce + rb.gravityScale * 2), ForceMode2D.Impulse);
-            rb.gravityScale = jumpGravityScale;
+        {
+            rb.velocity = Vector2.up * jumpForce;
+            timer = 1.25f;
+            jumpsLeft--;
+        } else if (!canJump && timer <= 0)
+        {
+            jumpsLeft = jumps;
         }
+
+        timer -= Time.deltaTime;
 
     }
 }

@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 3141044407486067744}
   - component: {fileID: 3141044407486067746}
   - component: {fileID: 3141044407486067747}
+  - component: {fileID: 5301976315692349138}
   m_Layer: 3
   m_Name: Character
   m_TagString: Player
@@ -85,7 +86,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
+  m_Sprite: {fileID: 1654608246, guid: 640cf704b6a2f3d41b2819ed7f65ffc0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -131,7 +132,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.99999994, y: 2}
+  m_Size: {x: 0.7, y: 1.8}
   m_Direction: 0
 --- !u!58 &3141044407486067745
 CircleCollider2D:
@@ -148,7 +149,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0.1}
   serializedVersion: 2
-  m_Radius: 0.6459159
+  m_Radius: 0.9
 --- !u!114 &3141044407486067753
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -164,6 +165,8 @@ MonoBehaviour:
   speed: 10
   currentSpeed: 0
   sr: {fileID: 0}
+  anim: {fileID: 0}
+  ground: {fileID: 0}
   dir: 0
 --- !u!114 &3141044407486067755
 MonoBehaviour:
@@ -383,7 +386,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hook: 0
-  hookPrefab: {fileID: 7804800844122795507, guid: d371d87a042d3e4428361273d26d25ed, type: 3}
   speedHook: 300
   hookDistance: 5
   hookMask:
@@ -410,3 +412,23 @@ MonoBehaviour:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
+--- !u!95 &5301976315692349138
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3141044407486067756}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ca7346ab3354ffd4aac3c57509c6a2ba, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
