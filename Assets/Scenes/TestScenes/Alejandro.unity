@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 60737236}
   - component: {fileID: 60737235}
   - component: {fileID: 60737237}
-  m_Layer: 6
+  m_Layer: 9
   m_Name: Square (1)
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -245,7 +245,7 @@ GameObject:
   - component: {fileID: 158743675}
   - component: {fileID: 158743674}
   - component: {fileID: 158743676}
-  m_Layer: 6
+  m_Layer: 9
   m_Name: Square
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -553,7 +553,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3141044407486067755, guid: f37d79f4a4f340b478dc2bfda0515bed, type: 3}
       propertyPath: jumpForce
-      value: 11
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 3141044407486067755, guid: f37d79f4a4f340b478dc2bfda0515bed, type: 3}
       propertyPath: jumpTimer
@@ -606,6 +606,14 @@ PrefabInstance:
     - target: {fileID: 3141044407486067758, guid: f37d79f4a4f340b478dc2bfda0515bed, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7147433602875793699, guid: f37d79f4a4f340b478dc2bfda0515bed, type: 3}
+      propertyPath: jump
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7147433602875793699, guid: f37d79f4a4f340b478dc2bfda0515bed, type: 3}
+      propertyPath: distance
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 7147433602875793699, guid: f37d79f4a4f340b478dc2bfda0515bed, type: 3}
       propertyPath: wallLayer.m_Bits

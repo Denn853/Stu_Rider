@@ -35,7 +35,7 @@ public class Jump : MonoBehaviour
 
         if (Input.GetButtonDown("Jump") && canJump)
         {
-            rb.velocity = Vector2.up * jumpForce;
+            rb.AddForce(Vector2.up * jumpForce);
             jumpsLeft--;
 
             if (jumpsLeft == 0)

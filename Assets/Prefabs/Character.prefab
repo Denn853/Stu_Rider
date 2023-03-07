@@ -181,9 +181,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e71a1a2c1493fc41b481ff2916c4d83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 9
+  jumpForce: 1000
   jumpTimer: 0
-  jumps: 0
+  jumps: 2
   canJump: 0
   jumpsLeft: 0
 --- !u!114 &7147433602875793699
@@ -198,7 +198,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b820156654c8d5c4a80ec83f28545a6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distance: 2
+  distance: 0.3
+  wallLayer:
+    serializedVersion: 2
+    m_Bits: 512
   isInWall: 0
 --- !u!114 &3141044407486067748
 MonoBehaviour:

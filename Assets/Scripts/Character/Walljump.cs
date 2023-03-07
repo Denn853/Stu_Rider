@@ -6,7 +6,6 @@ public class Walljump : MonoBehaviour
 {
     [Header("Walljump Settings")]
     public float distance;
-    public float jump;
     public LayerMask wallLayer;
 
     [Header("Walljump Settings")]
@@ -15,7 +14,7 @@ public class Walljump : MonoBehaviour
     Rigidbody2D rb;
     SpriteRenderer sr;
     Jump jumpScript;
-    public float jumpTimer;
+    GroundDetector ground;
 
     // Start is called before the first frame update
     void Start()
@@ -24,7 +23,7 @@ public class Walljump : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
         jumpScript = GetComponent<Jump>();
-        jumpTimer = jump;
+        ground = GetComponent<GroundDetector>();
     }
 
     // Update is called once per frame
@@ -62,12 +61,6 @@ public class Walljump : MonoBehaviour
         else
         {
             isInWall = true;
-            jumpTimer -= Time.deltaTime;
-
-            if (jumpTimer <= 0)
-            {
-                rb.velocity = Vector2.up * -1;
-            }
 
             if (dir > 0 ) {
                 sr.flipX = true;
@@ -79,9 +72,12 @@ public class Walljump : MonoBehaviour
 
             if (Input.GetButtonDown("Jump"))
             {
-                rb.velocity = new Vector2(0, jumpScript.jumpForce);
+                //    if (ground.grounded)
+                //    {
+                //        return;
+                //    }
+                //    rb.AddForce(Vector2.up * jumpScript.jumpForce);
                 jumpScript.jumpsLeft = 1;
-                jumpTimer = jump;
             }
         }
     }
