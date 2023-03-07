@@ -182,7 +182,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpForce: 1000
-  jumpTimer: 0
   jumps: 2
   canJump: 0
   jumpsLeft: 0

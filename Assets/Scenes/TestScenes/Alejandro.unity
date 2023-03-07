@@ -553,7 +553,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3141044407486067755, guid: f37d79f4a4f340b478dc2bfda0515bed, type: 3}
       propertyPath: jumpForce
-      value: 1000
+      value: 1500
       objectReference: {fileID: 0}
     - target: {fileID: 3141044407486067755, guid: f37d79f4a4f340b478dc2bfda0515bed, type: 3}
       propertyPath: jumpTimer
