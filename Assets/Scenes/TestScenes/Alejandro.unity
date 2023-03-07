@@ -617,7 +617,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7147433602875793699, guid: f37d79f4a4f340b478dc2bfda0515bed, type: 3}
       propertyPath: wallLayer.m_Bits
-      value: 64
+      value: 512
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f37d79f4a4f340b478dc2bfda0515bed, type: 3}

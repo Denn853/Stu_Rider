@@ -72,11 +72,6 @@ public class Walljump : MonoBehaviour
 
             if (Input.GetButtonDown("Jump"))
             {
-                //    if (ground.grounded)
-                //    {
-                //        return;
-                //    }
-                //    rb.AddForce(Vector2.up * jumpScript.jumpForce);
                 jumpScript.jumpsLeft = 1;
             }
         }

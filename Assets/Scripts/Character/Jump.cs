@@ -7,7 +7,6 @@ public class Jump : MonoBehaviour
 {
     [Header("Jump Settings")]
     public float jumpForce = 10;
-    public float jumpTimer;
     public float jumps;
 
     [Header("Jump status")]
@@ -16,15 +15,16 @@ public class Jump : MonoBehaviour
 
     Rigidbody2D rb;
     GroundDetector groundDetector;
-    float timer;
+    Walljump walljump;
+
 
     // Start is called before the first frame update
     void Start()
     {
+        jumpsLeft = jumps;
         rb = GetComponent<Rigidbody2D>();
         groundDetector = GetComponent<GroundDetector>();
-        timer = jumpTimer;
-        jumpsLeft = jumps;
+        walljump = GetComponent<Walljump>();
     }
 
     // Update is called once per frame
@@ -35,21 +35,21 @@ public class Jump : MonoBehaviour
 
         if (Input.GetButtonDown("Jump") && canJump)
         {
+            rb.velocity = new Vector2(rb.velocity.x, 0);
             rb.AddForce(Vector2.up * jumpForce);
+
             jumpsLeft--;
 
             if (jumpsLeft == 0)
             {
                 canJump = false;
-                timer = 1.25f;
             }
 
-        } else if (!canJump && timer <= 0 && groundDetector.grounded)
+        } else if (!canJump && groundDetector.grounded)
         {
             jumpsLeft = jumps;
         }
 
-        timer -= Time.deltaTime;
     
     }
 }
