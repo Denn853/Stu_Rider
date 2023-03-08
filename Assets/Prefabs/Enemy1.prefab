@@ -147,6 +147,7 @@ MonoBehaviour:
   nextPoint: 0
   speed: 3
   distance: 0
+  direction: 0
 --- !u!114 &8039063447057174068
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -159,12 +160,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e20dd4c7ab2b20c4a91c3b894e31c8f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 2
-  angle: 30
+  radius: 8
+  angle: 120
   targetLayer:
     serializedVersion: 2
     m_Bits: 8
   obstructionLayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 576
   player: {fileID: 0}
+  canSeePlayer: 0

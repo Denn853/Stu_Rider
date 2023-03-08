@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class EnemyHorizontalMovement : MonoBehaviour
 {
+    [Header("Movement Settings")]
     public List<Transform> points;
     public int nextPoint = 0;
     public float speed = 5;
     public float distance;
 
+    [Header("Movement Status")]
     public float direction;
 
     // Start is called before the first frame update

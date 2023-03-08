@@ -5,12 +5,15 @@ using UnityEngine;
 public class EnemyFieldOfView : MonoBehaviour
 {
 
+    [Header("Enemy Field of View Settings")]
     public float radius = 5f;
     [Range (1, 360)] public float angle = 45f;
     public LayerMask targetLayer;
     public LayerMask obstructionLayer;
     public GameObject player;
-    public bool canSeePlayer { get; private set; }
+
+    [Header("Enemy FoV Status")]
+    public bool canSeePlayer;
 
     EnemyHorizontalMovement ehm;
 
@@ -36,11 +39,18 @@ public class EnemyFieldOfView : MonoBehaviour
             Transform target = rangeCheck[0].transform;
             Vector2 directionToTarget = (target.position - transform.position).normalized;
 
-            if (Vector2.Angle(-transform.right * ehm.direction, directionToTarget) < angle + 45 / 2)
+            if (ehm.direction == 1)
+            {
+
+            }
+
+            float angleObjective = Vector2.Angle(transform.right * ehm.direction, directionToTarget);
+
+            if (angleObjective < angle / 2  || angleObjective > (angle + 360) / 2)
             {
                 float distanceToTarget = Vector2.Distance(transform.position, target.position);
 
-                if (!Physics2D.Raycast(transform.position, target.position, distanceToTarget, obstructionLayer))
+                if (Physics2D.Raycast(transform.position, target.position, distanceToTarget, obstructionLayer))
                     canSeePlayer = true;
                 else
                     canSeePlayer = false;
@@ -52,7 +62,7 @@ public class EnemyFieldOfView : MonoBehaviour
             canSeePlayer = false;
     }
 
-    /*private void OnDrawGizmos()
+    private void OnDrawGizmos()
     {
         Gizmos.color = Color.white;
         UnityEditor.Handles.DrawWireDisc(transform.position, Vector3.forward, radius);
@@ -76,5 +86,5 @@ public class EnemyFieldOfView : MonoBehaviour
         angleInDegrees += eulerY + 90;
 
         return new Vector2(Mathf.Sin(angleInDegrees * Mathf.Deg2Rad), Mathf.Cos(angleInDegrees * Mathf.Deg2Rad));
-    }*/
+    }
 }
