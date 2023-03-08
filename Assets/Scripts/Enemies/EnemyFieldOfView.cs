@@ -41,7 +41,7 @@ public class EnemyFieldOfView : MonoBehaviour
 
             float distanceToTarget = Vector2.Distance(transform.position, target.position);
 
-            if (!Physics2D.Raycast(transform.position, target.position, distanceToTarget, obstructionLayer))
+            if (Physics2D.Raycast(transform.position, target.position, distanceToTarget, obstructionLayer))
                 canSeePlayer = true;
             else
                 canSeePlayer = false;
