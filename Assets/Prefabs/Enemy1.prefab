@@ -161,7 +161,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 8
-  angle: 120
+  angle: 60
   targetLayer:
     serializedVersion: 2
     m_Bits: 8

@@ -5,11 +5,14 @@ using UnityEngine;
 public class ProtectiveMass : MonoBehaviour
 {
 
-    public bool massIsActive = false;
+    [Header("Protective Mass Settings")]
     public GameObject massParticles;
-    private GameObject temp;
+
+    [Header("Protective Mass Status")]
+    public bool massIsActive = false;
 
     CircleCollider2D coll;
+    private GameObject temp;
 
     // Start is called before the first frame update
     void Start()

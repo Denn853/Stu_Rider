@@ -39,22 +39,10 @@ public class EnemyFieldOfView : MonoBehaviour
             Transform target = rangeCheck[0].transform;
             Vector2 directionToTarget = (target.position - transform.position).normalized;
 
-            if (ehm.direction == 1)
-            {
+            float distanceToTarget = Vector2.Distance(transform.position, target.position);
 
-            }
-
-            float angleObjective = Vector2.Angle(transform.right * ehm.direction, directionToTarget);
-
-            if (angleObjective < angle / 2  || angleObjective > (angle + 360) / 2)
-            {
-                float distanceToTarget = Vector2.Distance(transform.position, target.position);
-
-                if (Physics2D.Raycast(transform.position, target.position, distanceToTarget, obstructionLayer))
-                    canSeePlayer = true;
-                else
-                    canSeePlayer = false;
-            }
+            if (!Physics2D.Raycast(transform.position, target.position, distanceToTarget, obstructionLayer))
+                canSeePlayer = true;
             else
                 canSeePlayer = false;
         }
@@ -67,24 +55,10 @@ public class EnemyFieldOfView : MonoBehaviour
         Gizmos.color = Color.white;
         UnityEditor.Handles.DrawWireDisc(transform.position, Vector3.forward, radius);
 
-        Vector3 angle1 = DirectionFromAngle(-transform.eulerAngles.z, -angle / 2);
-        Vector3 angle2 = DirectionFromAngle(-transform.eulerAngles.z, angle / 2);
-
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawLine(transform.position, transform.position + (angle1 * radius ));
-        Gizmos.DrawLine(transform.position, transform.position + (angle2 * radius ));
-
         if (canSeePlayer)
         {
             Gizmos.color = Color.green;
             Gizmos.DrawLine(transform.position, player.transform.position);
         }
-    }
-
-    private Vector2 DirectionFromAngle(float eulerY, float angleInDegrees)
-    {
-        angleInDegrees += eulerY + 90;
-
-        return new Vector2(Mathf.Sin(angleInDegrees * Mathf.Deg2Rad), Mathf.Cos(angleInDegrees * Mathf.Deg2Rad));
     }
 }
