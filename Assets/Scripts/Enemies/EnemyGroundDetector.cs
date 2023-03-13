@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GroundDetector : MonoBehaviour
+public class EnemyGroundDetector : MonoBehaviour
 {
+
     [Header("Ground Settings")]
     public float groundDistance = 1.5f;
     public LayerMask groundMask;
@@ -12,14 +13,7 @@ public class GroundDetector : MonoBehaviour
     [Header("Ground Status")]
     public bool grounded = false;
 
-
-    Rigidbody2D rb;
-
-    private void Start()
-    {
-        rb = GetComponent<Rigidbody2D>();
-    }
-
+    // Update is called once per frame
     void Update()
     {
         int count = 0;
@@ -39,11 +33,9 @@ public class GroundDetector : MonoBehaviour
             if (count > 0)
             {
                 grounded = true;
-                rb.gravityScale = 0;
             }
             else
             {
-                rb.gravityScale = 2.2f;
                 grounded = false;
             }
         }

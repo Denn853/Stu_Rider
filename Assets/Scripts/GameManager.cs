@@ -5,14 +5,23 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
 
-    public static GameManager instance;
+    public static GameManager instance { get; private set; }
 
     public int lifes = 3;
     public bool gameOver = false;
 
     private void Awake()
     {
-        instance = this;
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(this);
+        }
+        else
+        {
+            Debug.Log("Warning: Multiple " + this + " in scene!");
+            Destroy(this);
+        }
     }
 
     // Start is called before the first frame update
