@@ -8,6 +8,7 @@ public class Jump : MonoBehaviour
     [Header("Jump Settings")]
     public float jumpForce = 10;
     public float jumps;
+    public Vector2 wallJumpPower;
 
     [Header("Jump status")]
     public bool canJump; 
@@ -36,7 +37,29 @@ public class Jump : MonoBehaviour
         if (Input.GetButtonDown("Jump") && canJump)
         {
             rb.velocity = new Vector2(rb.velocity.x, 0);
-            rb.AddForce(Vector2.up * jumpForce);
+
+            if (GetComponent<Walljump>().isInWall)
+            {
+                if (GetComponent<HorizontalMovement>().dir == HorizontalMovement.Directions.RIGHT)
+                {
+                    wallJumpPower.x *= -1;
+                    rb.AddForce(wallJumpPower);
+                    GetComponent<HorizontalMovement>().dir = HorizontalMovement.Directions.LEFT;
+                } 
+                else
+                {
+                    if (wallJumpPower.x < 0)
+                        wallJumpPower.x *= -1;
+
+                    rb.AddForce(wallJumpPower);
+                    GetComponent<HorizontalMovement>().dir = HorizontalMovement.Directions.RIGHT;
+                }
+                
+            }
+            else
+            {
+                rb.AddForce(Vector2.up * jumpForce);
+            }
 
             jumpsLeft--;
 
@@ -48,6 +71,7 @@ public class Jump : MonoBehaviour
         } else if (!canJump && groundDetector.grounded)
         {
             jumpsLeft = jumps;
+            rb.AddForce(Vector2.zero);
         }
 
     

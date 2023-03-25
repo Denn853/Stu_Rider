@@ -72,7 +72,7 @@ public class Walljump : MonoBehaviour
 
             if (Input.GetButtonDown("Jump"))
             {
-                jumpScript.jumpsLeft = 1;
+                jumpScript.jumpsLeft = 2;
             }
         }
     }
