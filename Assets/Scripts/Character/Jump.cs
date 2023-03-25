@@ -42,7 +42,9 @@ public class Jump : MonoBehaviour
             {
                 if (GetComponent<HorizontalMovement>().dir == HorizontalMovement.Directions.RIGHT)
                 {
-                    wallJumpPower.x *= -1;
+                    if (wallJumpPower.x > 0)
+                        wallJumpPower.x *= -1;
+
                     rb.AddForce(wallJumpPower);
                     GetComponent<HorizontalMovement>().dir = HorizontalMovement.Directions.LEFT;
                 } 
