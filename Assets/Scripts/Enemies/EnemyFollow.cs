@@ -8,14 +8,14 @@ public class EnemyFollow : MonoBehaviour
 {
     [Header("Enemy Follow Settings")]
     public GameObject target;
-    public GameObject ground;
     public float speed;
     public float distance;
-    public GameObject offsetObject;
     public Transform pointBack;
+    public float distanceToAtatck;
 
     [Header("Follow Status")]
     public bool isFollowing;
+    public bool canAttack = false;
 
     EnemyHorizontalMovement ehm;
     EnemyFieldOfView efov;
@@ -36,6 +36,11 @@ public class EnemyFollow : MonoBehaviour
         if (efov.canSeePlayer)
         {
             FollowPlayer();
+
+            if (distance <= distanceToAtatck)
+            {
+                canAttack = true;
+            }
         }
         else
         {

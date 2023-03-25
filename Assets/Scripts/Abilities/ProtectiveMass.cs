@@ -32,14 +32,13 @@ public class ProtectiveMass : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy" && !massIsActive) {
             GameManager.instance.lifes--;
+            massIsActive = true;
             StartCoroutine(Protective_Mass_Corutine());
         }
     }
 
     IEnumerator Protective_Mass_Corutine()
     {
-
-        massIsActive = true;
         coll.isTrigger = false;
         temp = Instantiate(massParticles, transform.position, transform.rotation);
         yield return new WaitForSeconds(2.5f);

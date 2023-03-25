@@ -7,7 +7,7 @@ public class Bullet : MonoBehaviour
 
     Rigidbody2D rb;
     public float speed;
-    public int dir = 0;
+    public Vector3 dir = new Vector3();
     public GameObject explosion;
 
     EnemyController ec;
@@ -17,12 +17,16 @@ public class Bullet : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        rb.AddForce(transform.right * speed * dir);
+        rb.AddForce(speed * dir);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        if (collision.gameObject.tag == "Player")
+        {
+            GameManager.instance.lifes--;
+        }
+
         if (collision.gameObject.tag == "Enemy")
         {
             GameObject temp = Instantiate(explosion, collision.transform.position, collision.transform.rotation);

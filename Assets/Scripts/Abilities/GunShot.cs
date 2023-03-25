@@ -28,10 +28,10 @@ public class GunShot : MonoBehaviour
 
             if (owner.dir == HorizontalMovement.Directions.RIGHT || owner.dir == HorizontalMovement.Directions.NONE)
             {
-                bulletComponent.dir = 1;
+                bulletComponent.dir = Vector3.right;
             }
             else {
-                bulletComponent.dir = -1;
+                bulletComponent.dir = Vector3.left;
             }
 
             StartCoroutine(Shoot_Corutine());
