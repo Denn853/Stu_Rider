@@ -26,21 +26,24 @@ public class CameraFollow : MonoBehaviour
     {
         offset = new Vector3(0, offsetY, -10);
         speed = 1.5f;
+
         if (targetMovement != null)
         {
-            if (targetMovement.dir == HorizontalMovement.Directions.RIGHT)
+            if (targetMovement.dir == HorizontalMovement.Directions.RIGHT || targetMovement.dir == HorizontalMovement.Directions.NONE)
             {
+                offsetX = 10;
                 offset += Vector3.right * offsetX;
             }
-            else if (targetMovement.dir == HorizontalMovement.Directions.LEFT)
+            else if (targetMovement.dir == HorizontalMovement.Directions.LEFT && targetMovement.currentSpeed != 0)
             {
+                offsetX = 1;
                 offset += Vector3.left * offsetX;
             }
 
-            if (targetMovement.currentSpeed != 0)
-            {
-                offset.x += offsetX;
-            }
+            //if (targetMovement.currentSpeed != 0)
+            //{
+            //    offset.x += offsetX;
+            //}
 
             if (rb.velocity.y < -20 && !gd.grounded)
             {

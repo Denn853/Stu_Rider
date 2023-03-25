@@ -453,6 +453,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &690651852 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6133001436198243598, guid: 4bd6af6d67c5e22488b5162dedbce050, type: 3}
+  m_PrefabInstance: {fileID: 1958003736}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &771908242
 GameObject:
   m_ObjectHideFlags: 0
@@ -752,7 +757,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1028225622}
   m_LocalRotation: {x: -0, y: -0, z: -0.70953023, w: 0.70467496}
-  m_LocalPosition: {x: 9.15, y: -2.75, z: 0}
+  m_LocalPosition: {x: 9.087, y: -2.799, z: 0}
   m_LocalScale: {x: 1, y: 7.691, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -971,10 +976,30 @@ PrefabInstance:
       propertyPath: rays.Array.data[0].x
       value: 0.2
       objectReference: {fileID: 0}
+    - target: {fileID: 3783755970793910895, guid: 4bd6af6d67c5e22488b5162dedbce050, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4814637615568724051, guid: 4bd6af6d67c5e22488b5162dedbce050, type: 3}
+      propertyPath: speed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4814637615568724051, guid: 4bd6af6d67c5e22488b5162dedbce050, type: 3}
+      propertyPath: ground
+      value: 
+      objectReference: {fileID: 690651852}
+    - target: {fileID: 4814637615568724051, guid: 4bd6af6d67c5e22488b5162dedbce050, type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 1580998725}
     - target: {fileID: 4814637615568724051, guid: 4bd6af6d67c5e22488b5162dedbce050, type: 3}
       propertyPath: pointBack
       value: 
       objectReference: {fileID: 368208821}
+    - target: {fileID: 6133001436198243598, guid: 4bd6af6d67c5e22488b5162dedbce050, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8039063447057174068, guid: 4bd6af6d67c5e22488b5162dedbce050, type: 3}
       propertyPath: angle
       value: 60
@@ -1072,7 +1097,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 1580998725}
   speed: 1.5
-  offsetX: 4
+  offsetX: 0
   offsetY: 1
   offset: {x: 0, y: 0, z: 0}
 --- !u!4 &1961537823

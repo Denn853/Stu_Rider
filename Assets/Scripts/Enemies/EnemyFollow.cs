@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEditor.Timeline;
 using UnityEngine;
 
 public class EnemyFollow : MonoBehaviour
 {
     [Header("Enemy Follow Settings")]
     public GameObject target;
+    public GameObject ground;
     public float speed;
     public float distance;
     public GameObject offsetObject;
@@ -23,19 +26,20 @@ public class EnemyFollow : MonoBehaviour
     {
         ehm = GetComponent<EnemyHorizontalMovement>();
         efov = GetComponent<EnemyFieldOfView>();
-        egd = GetComponent<EnemyGroundDetector>();
-        target = GameObject.FindGameObjectWithTag("Player");
+        //egd = ground.GetComponent<EnemyGroundDetector>();
+        //target = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (efov.canSeePlayer && egd.grounded)
+        if (efov.canSeePlayer)
         {
             FollowPlayer();
         }
         else
         {
+            ComeBack();
             ehm.enabled = true;
         }
     }
@@ -44,7 +48,14 @@ public class EnemyFollow : MonoBehaviour
     {
         ehm.enabled = false;
 
-        Vector3 dir = target.transform.position - transform.position;
+        Vector3 dir = new Vector3(target.transform.position.x - transform.position.x, 0, 0);
+        distance = dir.magnitude;
+        dir.Normalize();
+        transform.position += dir * speed * Time.deltaTime;
+    }
+
+    void ComeBack() {
+        Vector3 dir = new Vector3(pointBack.position.x - transform.position.x, 0, 0);
         distance = dir.magnitude;
         dir.Normalize();
         transform.position += dir * speed * Time.deltaTime;
