@@ -104,7 +104,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.004640758, y: -0.015281439}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -115,7 +115,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.9083115, y: 0.9694371}
   m_EdgeRadius: 0
 --- !u!114 &8354736308757395543
 MonoBehaviour:
@@ -151,6 +151,7 @@ MonoBehaviour:
   speed: 3
   distance: 0
   direction: 0
+  attack: {fileID: 9164372023912690910}
 --- !u!114 &8039063447057174068
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -186,11 +187,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  ground: {fileID: 0}
   speed: 0
   distance: 0
-  offsetObject: {fileID: 0}
   pointBack: {fileID: 0}
+  distanceToAtatck: 0
   isFollowing: 0
   canAttack: 0
 --- !u!114 &61299798252426656
@@ -212,7 +212,6 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 0
-  pm: {fileID: 0}
 --- !u!1 &9164372023912690910
 GameObject:
   m_ObjectHideFlags: 0
@@ -238,7 +237,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9164372023912690910}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.85, y: -0.03, z: 0}
+  m_LocalPosition: {x: -0.809, y: -0.03, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -258,6 +257,6 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.1}
   serializedVersion: 2
-  m_Radius: 0.3
+  m_Radius: 0.23378071

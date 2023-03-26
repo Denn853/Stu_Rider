@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2354563519735040634
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5327544764730110954}
+  m_Layer: 3
+  m_Name: GrappleInit
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5327544764730110954
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2354563519735040634}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.72, y: 0.29, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3141044407486067758}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3141044407486067756
 GameObject:
   m_ObjectHideFlags: 0
@@ -24,6 +55,7 @@ GameObject:
   - component: {fileID: 3141044407486067746}
   - component: {fileID: 3141044407486067747}
   - component: {fileID: 5301976315692349138}
+  - component: {fileID: 6335522383049506072}
   m_Layer: 3
   m_Name: Character
   m_TagString: Player
@@ -42,7 +74,8 @@ Transform:
   m_LocalPosition: {x: 3, y: -1.68, z: 0}
   m_LocalScale: {x: 0.8215, y: 0.75210214, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 5327544764730110954}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -181,8 +214,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e71a1a2c1493fc41b481ff2916c4d83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 1000
+  jumpForce: 1500
   jumps: 2
+  wallJumpPower: {x: 900, y: 1500}
   canJump: 0
   jumpsLeft: 0
 --- !u!114 &7147433602875793699
@@ -214,7 +248,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f91b959dcb2773d448ea49b5bb512fa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grounded: 0
   groundDistance: 0.85
   groundMask:
     serializedVersion: 2
@@ -223,6 +256,7 @@ MonoBehaviour:
   - {x: 0.3, y: 0.05, z: 0}
   - {x: 0, y: 0, z: 0}
   - {x: -0.3, y: 0.05, z: 0}
+  grounded: 0
 --- !u!114 &3141044407486067749
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -373,8 +407,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f789677f761c1ea42ac5c217505c2960, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  massIsActive: 0
   massParticles: {fileID: 6800727708437664025, guid: 5ae323ac34084d34b9c335c518d0925d, type: 3}
+  massIsActive: 0
 --- !u!114 &3141044407486067746
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -403,8 +437,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26076a4542a2e28479f441130fd39bae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hook: 0
-  speedHook: 300
+  startPosition: {fileID: 5327544764730110954}
+  speedHook: 40
+  speedToArrive: 15
   hookDistance: 5
   hookMask:
     serializedVersion: 2
@@ -430,6 +465,8 @@ MonoBehaviour:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
+  hook: 0
+  isGrappling: 0
 --- !u!95 &5301976315692349138
 Animator:
   serializedVersion: 4
@@ -450,3 +487,102 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!120 &6335522383049506072
+LineRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3141044407486067756}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 0
+  m_LightProbeUsage: 0
+  m_ReflectionProbeUsage: 0
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Positions:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 1}
+  m_Parameters:
+    serializedVersion: 3
+    widthMultiplier: 0.2
+    widthCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    colorGradient:
+      serializedVersion: 2
+      key0: {r: 0.18796723, g: 0.754717, b: 0.7373402, a: 1}
+      key1: {r: 0, g: 0.9811321, b: 0.8993349, a: 1}
+      key2: {r: 0, g: 0, b: 0, a: 0}
+      key3: {r: 0, g: 0, b: 0, a: 0}
+      key4: {r: 0, g: 0, b: 0, a: 0}
+      key5: {r: 0, g: 0, b: 0, a: 0}
+      key6: {r: 0, g: 0, b: 0, a: 0}
+      key7: {r: 0, g: 0, b: 0, a: 0}
+      ctime0: 0
+      ctime1: 65535
+      ctime2: 0
+      ctime3: 0
+      ctime4: 0
+      ctime5: 0
+      ctime6: 0
+      ctime7: 0
+      atime0: 0
+      atime1: 65535
+      atime2: 0
+      atime3: 0
+      atime4: 0
+      atime5: 0
+      atime6: 0
+      atime7: 0
+      m_Mode: 1
+      m_NumColorKeys: 2
+      m_NumAlphaKeys: 2
+    numCornerVertices: 0
+    numCapVertices: 0
+    alignment: 0
+    textureMode: 0
+    shadowBias: 0.5
+    generateLightingData: 0
+  m_UseWorldSpace: 1
+  m_Loop: 0
