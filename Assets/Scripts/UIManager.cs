@@ -9,9 +9,19 @@ public class UIManager : MonoBehaviour
 
     public List<GameObject> panels = new List<GameObject>();
 
+    public bool isPaused = false;
+
     private void Awake()
     {
         instance = this;
+    }
+
+    private void Update()
+    {
+        if (Input.GetButtonDown("Cancel"))
+        {
+            PauseMenu();
+        }
     }
 
     public void ResetLevel()
@@ -29,6 +39,28 @@ public class UIManager : MonoBehaviour
         Time.timeScale = 1;
         SceneManager.LoadScene("MainMenu");
     }
+
+    void PauseMenu()
+    {
+        isPaused = !isPaused;
+
+        if (isPaused)
+        {
+            Time.timeScale = 0;
+            panels[1].SetActive(true);
+            return; 
+        }
+
+        panels[1].SetActive(false);
+        Time.timeScale = 1;
+    }
+
+    public void ReanudeGame()
+    {
+        panels[1].SetActive(false);
+        Time.timeScale = 1;
+    }
+
     public void DeathPanel()
     {
         Time.timeScale = 0;
