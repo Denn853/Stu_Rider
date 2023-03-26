@@ -21,7 +21,7 @@ public class GunShot : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetButtonDown("GunShot")) {
+        if (Input.GetButtonDown("GunShot") && !GameManager.instance.gameOver) {
 
             GameObject temp = Instantiate(bullet, transform.position, transform.rotation);
             Bullet bulletComponent = temp.GetComponent<Bullet>();
