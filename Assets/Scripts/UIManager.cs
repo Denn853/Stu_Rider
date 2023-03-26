@@ -9,7 +9,7 @@ public class UIManager : MonoBehaviour
 
     public List<GameObject> panels = new List<GameObject>();
 
-    public bool isPaused = false;
+    bool isPaused = false;
 
     private void Awake()
     {
@@ -22,6 +22,11 @@ public class UIManager : MonoBehaviour
         {
             PauseMenu();
         }
+    }
+
+    public void ReceiveDamage()
+    {
+        panels[2].GetComponent<Lifes>().ReceiveDamage();
     }
 
     public void ResetLevel()
@@ -47,24 +52,28 @@ public class UIManager : MonoBehaviour
         if (isPaused)
         {
             Time.timeScale = 0;
+            panels[2].SetActive(false);
             panels[1].SetActive(true);
             return; 
         }
 
         panels[1].SetActive(false);
+        panels[2].SetActive(true);
         Time.timeScale = 1;
     }
 
     public void ReanudeGame()
     {
         panels[1].SetActive(false);
+        panels[2].SetActive(true);
         Time.timeScale = 1;
     }
 
     public void DeathPanel()
     {
         Time.timeScale = 0;
-        panels[0].gameObject.SetActive(true);
+        panels[2].SetActive(false);
+        panels[0].SetActive(true);
     }
 
 }

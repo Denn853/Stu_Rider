@@ -237,7 +237,7 @@ MonoBehaviour:
   anim: {fileID: 0}
   attackPoint: {fileID: 336320989111404460}
   attackRange: 7
-  coolDown: 0.75
+  coolDown: 2.5
   target: {fileID: 3141044407486067756, guid: f37d79f4a4f340b478dc2bfda0515bed, type: 3}
   bullet: {fileID: 7996869178459715747, guid: 525fcbab9eaf16b46bd62e37027b703c, type: 3}
   playerLayer:

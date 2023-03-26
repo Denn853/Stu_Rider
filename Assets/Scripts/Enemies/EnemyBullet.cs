@@ -23,7 +23,7 @@ public class EnemyBullet : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            GameManager.instance.lifes--;
+            GameManager.instance.ReceiveDamage();
             GameObject temp = Instantiate(explosion, collision.transform.position - offset, collision.transform.rotation);
             Destroy(gameObject);
             Destroy(temp, 1);

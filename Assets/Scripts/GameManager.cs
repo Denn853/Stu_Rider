@@ -41,4 +41,10 @@ public class GameManager : MonoBehaviour
             UIManager.instance.DeathPanel();
         }
     }
+
+    public void ReceiveDamage()
+    {
+        lifes--;
+        UIManager.instance.ReceiveDamage();
+    }
 }
