@@ -2,9 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class EnemyBullet : MonoBehaviour
 {
-
     Rigidbody2D rb;
     public float speed;
     public Vector3 dir = new Vector3();
@@ -22,14 +21,12 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-
-        if (collision.gameObject.tag == "Enemy")
+        if (collision.gameObject.tag == "Player")
         {
-            GameObject temp = Instantiate(explosion, collision.transform.position, collision.transform.rotation);
+            GameManager.instance.lifes--;
+            GameObject temp = Instantiate(explosion, collision.transform.position - offset, collision.transform.rotation);
             Destroy(gameObject);
             Destroy(temp, 1);
-            ec = collision.gameObject.GetComponent<EnemyController>();
-            ec.lifes--;
         }
 
         if (collision.gameObject.tag == "Platform" || collision.gameObject.tag == "Walls")
@@ -47,3 +44,4 @@ public class Bullet : MonoBehaviour
         Destroy(temp, 1);
     }
 }
+

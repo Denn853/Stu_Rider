@@ -34,9 +34,10 @@ public class EnemyAttackRange : MonoBehaviour
     void Attack()
     {
         GameObject temp = Instantiate(bullet, attackPoint.position, attackPoint.rotation);
-        Bullet bulletComponent = temp.GetComponent<Bullet>();
+        EnemyBullet bulletComponent = temp.GetComponent<EnemyBullet>();
         Vector3 dir = target.transform.position - transform.position;
         dir.Normalize();
         bulletComponent.dir = dir;
+        Destroy(temp, 0.6f);
     }
 }

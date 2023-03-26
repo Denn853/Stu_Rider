@@ -41,6 +41,10 @@ public class EnemyFollow : MonoBehaviour
             {
                 canAttack = true;
             }
+            else
+            {
+                canAttack = false;
+            }
         }
         else
         {

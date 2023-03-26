@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7158482186565120780}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.64, y: -0.08, z: -0.039849713}
+  m_LocalPosition: {x: -0.85, y: -0.07, z: -0.039849713}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -162,7 +162,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifes: 3
   speed: 5
-  target: {fileID: 0}
+  target: {fileID: 3141044407486067756, guid: f37d79f4a4f340b478dc2bfda0515bed, type: 3}
 --- !u!114 &2201251729100261913
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -178,8 +178,9 @@ MonoBehaviour:
   points: []
   nextPoint: 0
   speed: 5
-  distance: 0
+  distance: 10
   direction: 0
+  attack: {fileID: 7158482186565120780}
 --- !u!114 &5611404456085342960
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -192,11 +193,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83e31a9e8e337a647800580e11b3f1ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  target: {fileID: 3141044407486067756, guid: f37d79f4a4f340b478dc2bfda0515bed, type: 3}
   speed: 0
   distance: 0
   pointBack: {fileID: 0}
-  distanceToAtatck: 0
+  distanceToAtatck: 7
   isFollowing: 0
   canAttack: 0
 --- !u!114 &3253059162418301741
@@ -212,14 +213,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 8
-  angle: 180
+  angle: 100
   targetLayer:
     serializedVersion: 2
     m_Bits: 8
   obstructionLayer:
     serializedVersion: 2
     m_Bits: 576
-  player: {fileID: 0}
+  player: {fileID: 3141044407486067756, guid: f37d79f4a4f340b478dc2bfda0515bed, type: 3}
   canSeePlayer: 0
 --- !u!114 &1972497569709092917
 MonoBehaviour:
@@ -234,11 +235,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 0}
-  attackPoint: {fileID: 0}
-  attackRange: 10
+  attackPoint: {fileID: 336320989111404460}
+  attackRange: 7
   coolDown: 0.75
-  target: {fileID: 0}
-  bullet: {fileID: 0}
+  target: {fileID: 3141044407486067756, guid: f37d79f4a4f340b478dc2bfda0515bed, type: 3}
+  bullet: {fileID: 7996869178459715747, guid: 525fcbab9eaf16b46bd62e37027b703c, type: 3}
   playerLayer:
     serializedVersion: 2
     m_Bits: 8
