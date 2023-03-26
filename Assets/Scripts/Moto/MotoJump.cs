@@ -5,9 +5,7 @@ using UnityEngine;
 public class MotoJump : MonoBehaviour
 {
 
-    public float jumpForce = 10;
-    public float jumpGravityScale = 2.2f;
-    public float fallingGravityScale = 3.0f;
+    public float jumpForce = 10f;
 
     Rigidbody2D rb;
 
@@ -20,15 +18,9 @@ public class MotoJump : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetButtonDown("Jump"))
         {
-            rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-            rb.gravityScale = jumpGravityScale;
-        }
-
-        if (rb.velocity.y < 0)
-        {
-            rb.gravityScale = fallingGravityScale;
+            rb.AddForce(Vector2.up * jumpForce);
         }
     }
 }

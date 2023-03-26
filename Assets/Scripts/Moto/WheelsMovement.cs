@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class WheelsMovement : MonoBehaviour
 {
-    public KeyCode RuedaPositivo = KeyCode.A;
-    public KeyCode RuedaNegativo = KeyCode.B;
     public float torqueForce = 3f; //Escogemos la fuerza que queremos
     Rigidbody2D rb2D; //variable
 
@@ -18,13 +16,6 @@ public class WheelsMovement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (Input.GetKey(RuedaPositivo))
-        {
-            rb2D.AddTorque(-torqueForce);
-        }
-        else if (Input.GetKey(RuedaNegativo))
-        {
-            rb2D.AddTorque(torqueForce);
-        }
+        rb2D.AddTorque(-torqueForce);
     }
 }
