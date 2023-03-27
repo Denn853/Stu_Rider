@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
 
     public int lifes = 3;
     public bool gameOver = false;
+    public GameObject player;
 
     private void Awake()
     {

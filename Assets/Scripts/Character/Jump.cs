@@ -75,8 +75,6 @@ public class Jump : MonoBehaviour
 
             }
 
-            jumpsLeft--;
-
             if (jumpsLeft == 0)
             {
                 canJump = false;

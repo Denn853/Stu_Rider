@@ -34,7 +34,7 @@ public class UIManager : MonoBehaviour
         GameManager.instance.lifes = 3;
         GameManager.instance.gameOver = false;
         Time.timeScale = 1;
-        SceneManager.LoadScene("Alejandro");
+        SceneManager.LoadScene("Oriol");
     }
 
     public void MainMenu()

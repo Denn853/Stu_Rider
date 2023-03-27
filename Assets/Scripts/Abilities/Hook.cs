@@ -11,6 +11,7 @@ public class Hook : MonoBehaviour
     public float hookDistance = 5;
     public LayerMask hookMask;
     public List<Vector3> rays;
+    public Jump jump;
 
     [Header("Hook Status")]
     public bool hook = false;
@@ -50,11 +51,13 @@ public class Hook : MonoBehaviour
 
             lineRenderer.SetPosition(0, transform.position);
 
-            if (Vector2.Distance(transform.position, positionToMove) < 0.8f)
+            if (Vector2.Distance(transform.position, positionToMove) < 2)
             {
                 isRetracting = false;
                 isGrappling = false;
                 lineRenderer.enabled = false;
+
+                jump.jumpsLeft = 2;
 
                 CoolDownController.instance.ComeBack(2);
             }

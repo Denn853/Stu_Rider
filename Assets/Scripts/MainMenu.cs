@@ -5,22 +5,26 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    public SceneController controller;
+    //public SceneController controller;
     // Start is called before the first frame update
-    void Start()
+    public void MainMenuScene()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
+        SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
     }
 
     public void StartButton()
     {
-        controller.MainMenu();
+        SceneManager.LoadScene("Dennys Moto", LoadSceneMode.Single);
+    }
+
+    public void PlayAgain()
+    {
+        SceneManager.LoadScene("Oriol", LoadSceneMode.Single);
+    }
+
+    public void Reanude()
+    {
+        UIManager.instance.ReanudeGame();
     }
 
     public void OptionsButton()
@@ -35,6 +39,10 @@ public class MainMenu : MonoBehaviour
 
     public void ExitButton()
     {
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
         Application.Quit();
+#endif
     }
 }

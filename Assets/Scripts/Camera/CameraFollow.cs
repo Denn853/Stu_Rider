@@ -47,7 +47,7 @@ public class CameraFollow : MonoBehaviour
 
             if (rb.velocity.y < -20 && !gd.grounded)
             {
-                offsetY = -10;
+                offsetY = -5;
                 offset.y = offsetY;
             }
             else if (rb.velocity.y > 0 || gd.grounded)
