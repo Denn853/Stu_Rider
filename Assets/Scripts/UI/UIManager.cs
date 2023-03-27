@@ -47,6 +47,12 @@ public class UIManager : MonoBehaviour
 
     void PauseMenu()
     {
+
+        if (GameManager.instance.gameOver)
+        {
+            return;
+        }
+
         isPaused = !isPaused;
 
         if (isPaused)

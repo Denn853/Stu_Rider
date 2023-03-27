@@ -21,7 +21,7 @@ public class CoolDownController : MonoBehaviour
         abilities[ability].image.color = Color.gray;
     }
 
-    public void ComeBack(int ability, float coolDown)
+    public void ComeBack(int ability)
     {
         abilities[ability].image.color = Color.white;
     }
