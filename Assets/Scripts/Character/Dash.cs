@@ -28,7 +28,7 @@ public class Dash : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetButtonDown("Dash") && canDash) {
+        if (Input.GetButtonDown("Dash") && canDash && !gd.grounded) {
 
             StartCoroutine(Dash_Corutine());
 
@@ -53,6 +53,6 @@ public class Dash : MonoBehaviour
         rb.velocity = new Vector2(0f, 0f);
         yield return new WaitForSeconds(coolDownTime);  
         canDash = true;
-        CoolDownController.instance.ComeBack(0, coolDownTime);
+        CoolDownController.instance.ComeBack(0);
     }
 }

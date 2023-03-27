@@ -38,6 +38,8 @@ public class Hook : MonoBehaviour
 
         if (Input.GetButtonDown("Hook") && hook && !isGrappling)
         {
+            CoolDownController.instance.CoolDown(2);
+
             StartGrappling();
         }
 
@@ -48,11 +50,13 @@ public class Hook : MonoBehaviour
 
             lineRenderer.SetPosition(0, transform.position);
 
-            if (Vector2.Distance(transform.position, positionToMove) < 0.5f)
+            if (Vector2.Distance(transform.position, positionToMove) < 0.8f)
             {
                 isRetracting = false;
                 isGrappling = false;
                 lineRenderer.enabled = false;
+
+                CoolDownController.instance.ComeBack(2);
             }
         }
     }
