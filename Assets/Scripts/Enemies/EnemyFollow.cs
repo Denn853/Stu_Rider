@@ -48,7 +48,6 @@ public class EnemyFollow : MonoBehaviour
         }
         else
         {
-            ComeBack();
             ehm.enabled = true;
         }
     }

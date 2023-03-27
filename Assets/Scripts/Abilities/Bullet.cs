@@ -42,6 +42,25 @@ public class Bullet : MonoBehaviour
 
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Enemy")
+        {
+            GameObject temp = Instantiate(explosion, collision.transform.position, collision.transform.rotation);
+            Destroy(gameObject);
+            Destroy(temp, destructionTime);
+            ec = collision.gameObject.GetComponent<EnemyController>();
+            ec.lifes--;
+        }
+
+        if (collision.gameObject.tag == "Platform" || collision.gameObject.tag == "Walls")
+        {
+            GameObject temp = Instantiate(explosion, collision.transform.position - offset, collision.transform.rotation);
+            Destroy(gameObject);
+            Destroy(temp, destructionTime);
+        }
+    }
+
     private void Explosion(Transform trans)
     {
         GameObject temp = Instantiate(explosion, trans.position, trans.rotation);
