@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Animations/Characters/Enemies/NitoKando/EnemyNitoKando_Punch_AC.controller.meta
+guid: 4a6f0b1c250baa449b77c0fd30f95170
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 9100000
+========
+guid: 3e1147fb3e88fe34abc40d830dc08b8d
+PrefabImporter:
+  externalObjects: {}
+>>>>>>>> a9d854dc5146e7f7b7d2dd28b508223e3295f851:Assets/Prefabs/UI/Abilities.prefab.meta
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

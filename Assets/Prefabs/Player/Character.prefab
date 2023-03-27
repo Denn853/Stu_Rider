@@ -285,7 +285,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canDash: 1
-  force: 9
+  force: 10
   dashingTime: 0.3
   coolDownTime: 1.2
 --- !u!96 &3141044407486067751
@@ -409,6 +409,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   massParticles: {fileID: 6800727708437664025, guid: 5ae323ac34084d34b9c335c518d0925d, type: 3}
+  anim: {fileID: 5301976315692349138}
   massIsActive: 0
 --- !u!114 &3141044407486067746
 MonoBehaviour:

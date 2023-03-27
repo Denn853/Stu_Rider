@@ -21,7 +21,7 @@ public class GunShot : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetButtonDown("GunShot") && !GameManager.instance.gameOver) {
+        if (Input.GetButtonDown("GunShot") && !GameManager.instance.gameOver && !hasShooted) {
 
             GameObject temp = Instantiate(bullet, transform.position, transform.rotation);
             Bullet bulletComponent = temp.GetComponent<Bullet>();
@@ -44,8 +44,10 @@ public class GunShot : MonoBehaviour
 
     IEnumerator Shoot_Corutine()
     {
+        CoolDownController.instance.CoolDown(1);
         hasShooted = true;
         yield return new WaitForSeconds(0.6f);
+        CoolDownController.instance.ComeBack(1);
         hasShooted = false;
     }
 
