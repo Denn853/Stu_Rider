@@ -7,6 +7,7 @@ public class ProtectiveMass : MonoBehaviour
 
     [Header("Protective Mass Settings")]
     public GameObject massParticles;
+    public Animator anim;
 
     [Header("Protective Mass Status")]
     public bool massIsActive = false;
@@ -31,7 +32,19 @@ public class ProtectiveMass : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Enemy" && !massIsActive) {
-            GameManager.instance.lifes--;
+            GameManager.instance.ReceiveDamage();
+            anim.SetTrigger("Hurt");
+            massIsActive = true;
+            StartCoroutine(Protective_Mass_Corutine());
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Enemy" && !massIsActive)
+        {
+            GameManager.instance.ReceiveDamage();
+            anim.SetTrigger("Hurt");
             massIsActive = true;
             StartCoroutine(Protective_Mass_Corutine());
         }
