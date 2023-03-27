@@ -23,5 +23,8 @@ public class MotoMovement : MonoBehaviour
         }
 
         transform.position = new Vector3(transform.position.x + currentSpeed, transform.position.y, transform.position.z);
+
+
+        
     }
 }
