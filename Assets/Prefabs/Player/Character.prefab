@@ -217,6 +217,7 @@ MonoBehaviour:
   jumpForce: 1500
   jumps: 2
   wallJumpPower: {x: 900, y: 1500}
+  dust: {fileID: 3133768676182683321, guid: 6f66f48487c51084ca3abfb6468084ff, type: 3}
   canJump: 0
   jumpsLeft: 0
 --- !u!114 &7147433602875793699

@@ -36,7 +36,7 @@ public class GunShot : MonoBehaviour
 
             StartCoroutine(Shoot_Corutine());
 
-            Destroy(temp, 0.8f);
+            Destroy(temp, bulletComponent.destructionTime);
 
         }
 

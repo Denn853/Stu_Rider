@@ -38,6 +38,6 @@ public class EnemyAttackRange : MonoBehaviour
         Vector3 dir = target.transform.position - transform.position;
         dir.Normalize();
         bulletComponent.dir = dir;
-        Destroy(temp, 0.6f);
+        Destroy(temp, bulletComponent.destructionTime);
     }
 }

@@ -6,6 +6,7 @@ public class EnemyBullet : MonoBehaviour
 {
     Rigidbody2D rb;
     public float speed;
+    public float destructionTime;
     public Vector3 dir = new Vector3();
     public GameObject explosion;
 
@@ -26,14 +27,14 @@ public class EnemyBullet : MonoBehaviour
             GameManager.instance.ReceiveDamage();
             GameObject temp = Instantiate(explosion, collision.transform.position - offset, collision.transform.rotation);
             Destroy(gameObject);
-            Destroy(temp, 1);
+            Destroy(temp, destructionTime);
         }
 
         if (collision.gameObject.tag == "Platform" || collision.gameObject.tag == "Walls")
         {
             GameObject temp = Instantiate(explosion, collision.transform.position - offset, collision.transform.rotation);
             Destroy(gameObject);
-            Destroy(temp, 1);
+            Destroy(temp, destructionTime);
         }
 
     }
