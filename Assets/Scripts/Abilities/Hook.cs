@@ -72,6 +72,7 @@ public class Hook : MonoBehaviour
                 Debug.DrawRay(transform.position, dir * hit.distance, Color.cyan);
                 positionToMove = hit.transform.position;
                 hook = true;
+                
                 break;
             }
 

@@ -7,6 +7,7 @@ public class Bullet : MonoBehaviour
 
     Rigidbody2D rb;
     public float speed;
+    public float destructionTime;
     public Vector3 dir = new Vector3();
     public GameObject explosion;
 
@@ -27,7 +28,7 @@ public class Bullet : MonoBehaviour
         {
             GameObject temp = Instantiate(explosion, collision.transform.position, collision.transform.rotation);
             Destroy(gameObject);
-            Destroy(temp, 1);
+            Destroy(temp, destructionTime);
             ec = collision.gameObject.GetComponent<EnemyController>();
             ec.lifes--;
         }
@@ -36,7 +37,7 @@ public class Bullet : MonoBehaviour
         {
             GameObject temp = Instantiate(explosion, collision.transform.position - offset, collision.transform.rotation);
             Destroy(gameObject);
-            Destroy(temp, 1);
+            Destroy(temp, destructionTime);
         }
 
     }

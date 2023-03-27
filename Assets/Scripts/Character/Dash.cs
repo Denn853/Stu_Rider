@@ -11,6 +11,7 @@ public class Dash : MonoBehaviour
     public float coolDownTime = 1.3f;
     
     HorizontalMovement target;
+    GroundDetector gd;
     Rigidbody2D rb;
     TrailRenderer tr;
 
@@ -19,6 +20,7 @@ public class Dash : MonoBehaviour
     {
         target = GetComponent<HorizontalMovement>();
         rb = GetComponent<Rigidbody2D>();
+        gd = GetComponent<GroundDetector>();
         tr = GetComponent<TrailRenderer>();
     }
 
@@ -46,9 +48,11 @@ public class Dash : MonoBehaviour
             rb.velocity = new Vector2(Vector2.right.x * force, 0f);
         }
 
+        CoolDownController.instance.CoolDown(0);
         yield return new WaitForSeconds(dashingTime);
         rb.velocity = new Vector2(0f, 0f);
         yield return new WaitForSeconds(coolDownTime);  
         canDash = true;
+        CoolDownController.instance.ComeBack(0, coolDownTime);
     }
 }
