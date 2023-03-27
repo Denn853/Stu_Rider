@@ -8,6 +8,7 @@ public class EnemyController : MonoBehaviour
     public int lifes = 3;
     public float speed = 5;
     public GameObject target;
+    public Animator anim;
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +27,11 @@ public class EnemyController : MonoBehaviour
         Destroy(gameObject);
     }
 
+    public void ReceiveDamage()
+    {
+        lifes--;
+        anim.SetTrigger("Hurt");
+    }
     private void CheckIfEnemyIsDead()
     {
         if (lifes <= 0)

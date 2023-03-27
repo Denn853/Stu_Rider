@@ -13,14 +13,17 @@ public class EnemyAttackMelee : MonoBehaviour
     public float coolDown = 2f;
     
     public LayerMask playerLayer;
-    
+
+    public EnemyFollow ef;
+
     float timer = 0;
 
     // Update is called once per frame
     void Update()
     {
-        if (Time.time >= timer && GetComponent<EnemyFollow>().canAttack)
+        if (Time.time >= timer && ef.canAttack)
         {
+            anim.SetTrigger("Punch");
             Attack();
             timer = Time.time + coolDown;
         }

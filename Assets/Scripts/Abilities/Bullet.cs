@@ -30,7 +30,7 @@ public class Bullet : MonoBehaviour
             Destroy(gameObject);
             Destroy(temp, destructionTime);
             ec = collision.gameObject.GetComponent<EnemyController>();
-            ec.lifes--;
+            ec.ReceiveDamage();
         }
 
         if (collision.gameObject.tag == "Platform" || collision.gameObject.tag == "Walls")

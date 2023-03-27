@@ -18,6 +18,8 @@ public class EnemyAttackRange : MonoBehaviour
 
     public LayerMask playerLayer;
 
+    public bool isAttacking = false;
+
     float timer = 0;
 
 
@@ -26,13 +28,20 @@ public class EnemyAttackRange : MonoBehaviour
     {
         if (Time.time >= timer && GetComponent<EnemyFollow>().canAttack)
         {
+            isAttacking = true;
             Attack();
             timer = Time.time + coolDown;
+        }
+
+        if (Time.time > timer)
+        {
+            isAttacking = false;
         }
     }
 
     void Attack()
     {
+        anim.SetTrigger("Shot");
         GameObject temp = Instantiate(bullet, attackPoint.position, attackPoint.rotation);
         EnemyBullet bulletComponent = temp.GetComponent<EnemyBullet>();
         Vector3 dir = target.transform.position - transform.position;
