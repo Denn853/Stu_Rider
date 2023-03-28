@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     public bool isGrounded;
     public bool isJumping;
     public bool isInWall;
+    public bool isDashing;
 
     [Header("Movement Direction")]
     public Directions dir = Directions.NONE;

@@ -12,6 +12,8 @@ public class AerialMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (PlayerController.instance.isDashing) { return; }
+
         if (PlayerController.instance.isJumping)
         {
             float horizontal = Input.GetAxis("Horizontal");

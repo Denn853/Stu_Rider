@@ -21,6 +21,8 @@ public class Movement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (PlayerController.instance.isDashing) { return; }
+
         if (PlayerController.instance.isGrounded)
         {
             float horizontal = Input.GetAxis("Horizontal");

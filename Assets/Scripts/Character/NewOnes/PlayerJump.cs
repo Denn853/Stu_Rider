@@ -19,6 +19,8 @@ public class PlayerJump : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (PlayerController.instance.isDashing) { return; }
+
         if (Input.GetButtonDown("Jump") && PlayerController.instance.isGrounded)
         {
             PlayerController.instance.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
