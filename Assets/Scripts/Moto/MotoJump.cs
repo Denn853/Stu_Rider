@@ -8,13 +8,13 @@ public class MotoJump : MonoBehaviour
     public float jumpForce = 10f;
 
     Rigidbody2D rb;
-    GroundDetector groundDetector;
+    GroundDetector2 groundDetector;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        groundDetector = GetComponent<GroundDetector>();
+        groundDetector = GetComponent<GroundDetector2>();
     }
 
     // Update is called once per frame

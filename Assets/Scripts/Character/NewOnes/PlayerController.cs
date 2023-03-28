@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public enum Directions { NONE, RIGHT, LEFT };
+
     [Header("Instance: Access from anywhere")]
     public static PlayerController instance;
 
@@ -12,6 +14,9 @@ public class PlayerController : MonoBehaviour
     public bool isGrounded;
     public bool isJumping;
     public bool isInWall;
+
+    [Header("Movement Direction")]
+    public Directions dir = Directions.NONE;
 
     [Header("GameObject Components")]
     public SpriteRenderer sprite;

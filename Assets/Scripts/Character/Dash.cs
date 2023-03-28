@@ -11,7 +11,7 @@ public class Dash : MonoBehaviour
     public float coolDownTime = 1.3f;
     
     HorizontalMovement target;
-    GroundDetector gd;
+    GroundDetector2 gd;
     Rigidbody2D rb;
     TrailRenderer tr;
 
@@ -20,7 +20,7 @@ public class Dash : MonoBehaviour
     {
         target = GetComponent<HorizontalMovement>();
         rb = GetComponent<Rigidbody2D>();
-        gd = GetComponent<GroundDetector>();
+        gd = GetComponent<GroundDetector2>();
         tr = GetComponent<TrailRenderer>();
     }
 

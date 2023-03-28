@@ -13,13 +13,13 @@ public class CameraFollow : MonoBehaviour
     public Vector3 offset;
     Rigidbody2D rb;
     HorizontalMovement targetMovement;
-    GroundDetector gd;
+    GroundDetector2 gd;
 
     private void Start()
     {
         targetMovement = target.GetComponent<HorizontalMovement>();
         rb = targetMovement.GetComponent<Rigidbody2D>();
-        gd = targetMovement.GetComponent<GroundDetector>();
+        gd = targetMovement.GetComponent<GroundDetector2>();
     }
 
     void LateUpdate()

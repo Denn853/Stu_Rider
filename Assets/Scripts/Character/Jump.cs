@@ -16,7 +16,7 @@ public class Jump : MonoBehaviour
     public float jumpsLeft;
 
     Rigidbody2D rb;
-    GroundDetector groundDetector;
+    GroundDetector2 groundDetector;
     Walljump walljump;
 
 
@@ -25,7 +25,7 @@ public class Jump : MonoBehaviour
     {
         jumpsLeft = jumps;
         rb = GetComponent<Rigidbody2D>();
-        groundDetector = GetComponent<GroundDetector>();
+        groundDetector = GetComponent<GroundDetector2>();
         walljump = GetComponent<Walljump>();
     }
 

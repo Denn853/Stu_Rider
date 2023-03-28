@@ -14,7 +14,7 @@ public class Walljump : MonoBehaviour
     Rigidbody2D rb;
     SpriteRenderer sr;
     Jump jumpScript;
-    GroundDetector ground;
+    GroundDetector2 ground;
 
     // Start is called before the first frame update
     void Start()
@@ -23,7 +23,7 @@ public class Walljump : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
         jumpScript = GetComponent<Jump>();
-        ground = GetComponent<GroundDetector>();
+        ground = GetComponent<GroundDetector2>();
     }
 
     // Update is called once per frame

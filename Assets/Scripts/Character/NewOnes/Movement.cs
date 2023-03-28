@@ -4,13 +4,10 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    public enum Directions { NONE, RIGHT, LEFT };
-    
     [Header("Movement Settings")]
-    public float speed;
-
-    [Header("Movement Direction")]
-    public Directions dir = Directions.NONE;
+    public float maxSpeed;
+    public float accelerateSpeed;
+    public float decelerateSpeed;
 
     [Header("Movement Speed")]
     public float currentSpeed;
@@ -19,19 +16,22 @@ public class Movement : MonoBehaviour
     void Start()
     {
         PlayerController.instance.isMoving = false;
-        dir = Directions.NONE;
+        PlayerController.instance.dir = PlayerController.Directions.NONE;
     }
 
     private void FixedUpdate()
     {
-        float horizontal = Input.GetAxis("Horizontal");
-        PlayerController.instance.isMoving = IsMoving(horizontal);
-        
-        currentSpeed = horizontal * speed;
+        if (PlayerController.instance.isGrounded)
+        {
+            float horizontal = Input.GetAxis("Horizontal");
+            PlayerController.instance.isMoving = IsMoving(horizontal);
 
-        CheckDirection(currentSpeed);
+            currentSpeed = horizontal * accelerateSpeed;
 
-        PlayerController.instance.GetComponent<Rigidbody2D>().AddForce(new Vector2(currentSpeed, 0));
+            CheckDirection(currentSpeed);
+            PlayerController.instance.GetComponent<Rigidbody2D>().AddForce(new Vector2(currentSpeed, 0));
+            LimitSpeedBody(horizontal);
+        }
     }
 
 
@@ -45,12 +45,34 @@ public class Movement : MonoBehaviour
         if (speed > 0)
         {
             PlayerController.instance.sprite.flipX = false;
-            dir = Directions.RIGHT;
+            PlayerController.instance.dir = PlayerController.Directions.RIGHT;
         } 
-        else
+        else if (speed < 0)
         {
             PlayerController.instance.sprite.flipX = true;
-            dir = Directions.LEFT;
+            PlayerController.instance.dir = PlayerController.Directions.LEFT;
+        }
+        else
+        {
+            PlayerController.instance.dir = PlayerController.Directions.NONE;
+        }
+    }
+
+    void LimitSpeedBody(float horizontal)
+    {
+        if (horizontal == 0)
+        {
+            Vector3 vel = Vector3.Lerp(PlayerController.instance.GetComponent<Rigidbody2D>().velocity, new Vector3(0.1f, PlayerController.instance.GetComponent<Rigidbody2D>().velocity.y, 0), decelerateSpeed);
+            PlayerController.instance.GetComponent<Rigidbody2D>().velocity = vel;
+        }
+
+        if (PlayerController.instance.GetComponent<Rigidbody2D>().velocity.x > maxSpeed)
+        {
+            PlayerController.instance.GetComponent<Rigidbody2D>().velocity = new Vector2(maxSpeed, 0);
+        } 
+        else if (PlayerController.instance.GetComponent<Rigidbody2D>().velocity.x < -maxSpeed)
+        {
+            PlayerController.instance.GetComponent<Rigidbody2D>().velocity = new Vector2(-maxSpeed, 0);
         }
     }
 }

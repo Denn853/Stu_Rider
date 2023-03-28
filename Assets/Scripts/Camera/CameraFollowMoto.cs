@@ -12,13 +12,13 @@ public class CameraFollowMoto : MonoBehaviour
 
     public Vector3 offset;
     Rigidbody2D rb;
-    GroundDetector gd;
+    GroundDetector2 gd;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = target.GetComponent<Rigidbody2D>();
-        gd = target.GetComponent<GroundDetector>();
+        gd = target.GetComponent<GroundDetector2>();
     }
 
     // Update is called once per frame

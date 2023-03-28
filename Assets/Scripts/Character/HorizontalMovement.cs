@@ -10,7 +10,7 @@ public class HorizontalMovement : MonoBehaviour
     public SpriteRenderer sr;
 
     public Animator anim;
-    public GroundDetector ground;
+    public GroundDetector2 ground;
 
 
 

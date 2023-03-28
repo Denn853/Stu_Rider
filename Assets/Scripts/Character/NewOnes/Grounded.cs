@@ -2,31 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GroundDetector2 : MonoBehaviour
+public class Grounded : MonoBehaviour
 {
-    [Header("Ground Settings")]
+    [Header("RayCast Settings")]
     public float groundDistance = 1.5f;
-    public LayerMask groundMask;
     public List<Vector3> rays;
+    public LayerMask groundMask;
 
-    [Header("Ground Status")]
-    public bool grounded = false;
-
-
-    Rigidbody2D rb;
-
-    private void Start()
-    {
-        rb = GetComponent<Rigidbody2D>();
-    }
-
+    // Update is called once per frame
     void Update()
     {
         int count = 0;
 
         for (int i = 0; i < rays.Count; i++)
         {
-
             Debug.DrawRay(transform.position + rays[i], transform.up * -1 * groundDistance, Color.red);
             RaycastHit2D hit = Physics2D.Raycast(transform.position + rays[i], transform.up * -1, groundDistance, groundMask);
 
@@ -38,13 +27,11 @@ public class GroundDetector2 : MonoBehaviour
 
             if (count > 0)
             {
-                grounded = true;
-                rb.gravityScale = 0;
+                PlayerController.instance.isGrounded = true;
             }
             else
             {
-                rb.gravityScale = 2.2f;
-                grounded = false;
+                PlayerController.instance.isGrounded = false;
             }
         }
     }
