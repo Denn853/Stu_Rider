@@ -58,6 +58,7 @@ public class UIManager : MonoBehaviour
         if (isPaused)
         {
             Time.timeScale = 0;
+            panels[3].SetActive(false);
             panels[2].SetActive(false);
             panels[1].SetActive(true);
             return; 
@@ -65,19 +66,22 @@ public class UIManager : MonoBehaviour
 
         panels[1].SetActive(false);
         panels[2].SetActive(true);
+        panels[3].SetActive(true);
         Time.timeScale = 1;
     }
 
     public void ReanudeGame()
     {
-        panels[1].SetActive(false);
+        panels[3].SetActive(true);
         panels[2].SetActive(true);
         Time.timeScale = 1;
+        panels[1].SetActive(false);
     }
 
     public void DeathPanel()
     {
         Time.timeScale = 0;
+        panels[3].SetActive(false);
         panels[2].SetActive(false);
         panels[0].SetActive(true);
     }

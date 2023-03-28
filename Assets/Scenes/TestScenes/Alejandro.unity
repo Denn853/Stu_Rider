@@ -591,6 +591,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifes: 3
   gameOver: 0
+  player: {fileID: 0}
 --- !u!4 &276526179
 Transform:
   m_ObjectHideFlags: 0
@@ -892,7 +893,7 @@ MonoBehaviour:
   - {fileID: 500459946}
   - {fileID: 866839126}
   - {fileID: 1256897894}
-  - {fileID: 0}
+  - {fileID: 1908065093}
 --- !u!4 &889187609
 Transform:
   m_ObjectHideFlags: 0
@@ -1439,6 +1440,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26076a4542a2e28479f441130fd39bae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1908065093 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1363636447390191627, guid: 43edc1939de1fdf4e9227225a69a9aa4, type: 3}
+  m_PrefabInstance: {fileID: 940276643}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1920177088
 GameObject:
   m_ObjectHideFlags: 0
