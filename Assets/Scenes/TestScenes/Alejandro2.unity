@@ -168,8 +168,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.2}
-  m_Size: {x: 0.8, y: 1.6}
+  m_Offset: {x: 0, y: -0.10082817}
+  m_Size: {x: 0.8, y: 1.7983437}
   m_Direction: 0
 --- !u!1 &422484368
 GameObject:
@@ -351,6 +351,7 @@ MonoBehaviour:
   isGrounded: 0
   isJumping: 0
   isInWall: 0
+  dir: 0
   sprite: {fileID: 0}
 --- !u!1 &1113395734
 GameObject:
@@ -493,7 +494,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1675271654}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.99, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -512,8 +513,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de9ad6ea1aeb23842ae1f2334db1769a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 0
-  fallSpeed: 0
+  jumpForce: 1000
+  fallSpeed: -15
+  angleJump: 60
+  jumpDirection: {x: 0, y: 0}
   dustParticles: {fileID: 3133768676182683321, guid: 6f66f48487c51084ca3abfb6468084ff, type: 3}
 --- !u!1 &2047641910
 GameObject:
@@ -562,7 +565,6 @@ MonoBehaviour:
   maxSpeed: 10
   accelerateSpeed: 30
   decelerateSpeed: 40
-  dir: 0
   currentSpeed: 0
 --- !u!1 &2086309790
 GameObject:

@@ -28,10 +28,12 @@ public class Grounded : MonoBehaviour
             if (count > 0)
             {
                 PlayerController.instance.isGrounded = true;
+                PlayerController.instance.isJumping = false;
             }
             else
             {
                 PlayerController.instance.isGrounded = false;
+                PlayerController.instance.isJumping = true;
             }
         }
     }
