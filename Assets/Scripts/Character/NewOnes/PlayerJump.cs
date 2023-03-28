@@ -6,6 +6,7 @@ public class PlayerJump : MonoBehaviour
 {
     [Header("Jump Forces")]
     public float jumpForce;
+    public float jumpSpeed;
     public float fallSpeed;
 
     [Header("Jump Direction")]
@@ -16,7 +17,7 @@ public class PlayerJump : MonoBehaviour
     public GameObject dustParticles;
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (Input.GetButtonDown("Jump") && PlayerController.instance.isGrounded)
         {
@@ -25,7 +26,7 @@ public class PlayerJump : MonoBehaviour
             SetJumpDirection();
 
             PlayerController.instance.GetComponent<Rigidbody2D>().AddForce(jumpDirection * jumpForce);
-            PlayerController.instance.GetComponent<Rigidbody2D>().velocity = jumpDirection * 3f;
+            PlayerController.instance.GetComponent<Rigidbody2D>().velocity = new Vector2(PlayerController.instance.GetComponent<Rigidbody2D>().velocity.x * jumpSpeed, jumpSpeed);
 
             GameObject temp = Instantiate(dustParticles, transform.position, transform.rotation);
             Destroy(temp, 0.5f);

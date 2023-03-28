@@ -514,6 +514,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpForce: 1000
+  jumpSpeed: 4.25
   fallSpeed: -15
   angleJump: 60
   jumpDirection: {x: 0, y: 0}
@@ -528,6 +529,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2047641911}
   - component: {fileID: 2047641912}
+  - component: {fileID: 2047641913}
   m_Layer: 0
   m_Name: Movement
   m_TagString: Untagged
@@ -565,6 +567,20 @@ MonoBehaviour:
   maxSpeed: 10
   accelerateSpeed: 30
   decelerateSpeed: 40
+  currentSpeed: 0
+--- !u!114 &2047641913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2047641910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f48603115e3dcb43b99bdfd9f9ad489, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  accelerateSpeed: 7
   currentSpeed: 0
 --- !u!1 &2086309790
 GameObject:
