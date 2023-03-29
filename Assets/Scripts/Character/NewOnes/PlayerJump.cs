@@ -22,16 +22,17 @@ public class PlayerJump : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        Debug.Log(PlayerController.instance.GetComponent<Rigidbody2D>().velocity);
+
         if (PlayerController.instance.isDashing) { return; }
 
         if (Input.GetButtonDown("Jump") && PlayerController.instance.isGrounded)
         {
-            PlayerController.instance.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+            PlayerController.instance.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             
             SetJumpDirection();
 
-            PlayerController.instance.GetComponent<Rigidbody2D>().AddForce(jumpDirection * jumpForce);
-            PlayerController.instance.GetComponent<Rigidbody2D>().velocity = new Vector2(PlayerController.instance.GetComponent<Rigidbody2D>().velocity.x * jumpSpeed, jumpSpeed);
+            AddForce();
 
             GameObject temp = Instantiate(dustParticles, transform.position, transform.rotation);
             Destroy(temp, 0.5f);
@@ -47,7 +48,7 @@ public class PlayerJump : MonoBehaviour
         {
             case PlayerController.Directions.NONE:
 
-                jumpDirection = Vector2.up;
+                jumpDirection = Vector2.up * 1.5f;
                 break;
 
             case PlayerController.Directions.RIGHT:
@@ -73,5 +74,12 @@ public class PlayerJump : MonoBehaviour
             }   
             PlayerController.instance.GetComponent<Rigidbody2D>().velocity = new Vector2(PlayerController.instance.GetComponent<Rigidbody2D>().velocity.x, fallSpeed);
         }
+    }
+
+    void AddForce()
+    {
+        PlayerController.instance.GetComponent<Rigidbody2D>().AddForce(jumpDirection * jumpForce);
+        PlayerController.instance.GetComponent<Rigidbody2D>().velocity = new Vector2(PlayerController.instance.GetComponent<Rigidbody2D>().velocity.x * jumpSpeed, jumpSpeed);
+        
     }
 }
