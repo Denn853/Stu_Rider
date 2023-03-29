@@ -11,8 +11,9 @@ public class PlayerController : MonoBehaviour
 
     [Header("Player States")]
     public bool isMoving;
-    public bool isGrounded;
     public bool isDashing;
+    public bool isGrounded;
+    public bool canJump;
     public bool isJumping;
     public bool isInWall;
     public bool isWallJump;
@@ -25,7 +26,6 @@ public class PlayerController : MonoBehaviour
 
     [Header("GameObject Components")]
     public SpriteRenderer sprite;
-    
 
     private void Awake()
     {
@@ -36,11 +36,11 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         sprite = GetComponent<SpriteRenderer>();
+        GetComponent<Rigidbody2D>().velocity = Vector2.zero;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
     }
 }
