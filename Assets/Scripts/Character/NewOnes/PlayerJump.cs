@@ -9,6 +9,9 @@ public class PlayerJump : MonoBehaviour
     public float jumpSpeed;
     public float fallSpeed;
 
+    [Header("WallJump Fall Speed")]
+    public float fallInWallSpeed;
+
     [Header("Jump Direction")]
     public float angleJump;
     public Vector2 jumpDirection;
@@ -63,6 +66,11 @@ public class PlayerJump : MonoBehaviour
     {
         if (PlayerController.instance.GetComponent<Rigidbody2D>().velocity.y <= 0)
         {
+            if (PlayerController.instance.isInWall && !PlayerController.instance.isWallJump)
+            { 
+                PlayerController.instance.GetComponent<Rigidbody2D>().velocity = new Vector2(PlayerController.instance.GetComponent<Rigidbody2D>().velocity.x, fallInWallSpeed);
+                return;
+            }   
             PlayerController.instance.GetComponent<Rigidbody2D>().velocity = new Vector2(PlayerController.instance.GetComponent<Rigidbody2D>().velocity.x, fallSpeed);
         }
     }

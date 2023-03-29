@@ -12,12 +12,16 @@ public class PlayerController : MonoBehaviour
     [Header("Player States")]
     public bool isMoving;
     public bool isGrounded;
+    public bool isDashing;
     public bool isJumping;
     public bool isInWall;
-    public bool isDashing;
+    public bool isWallJump;
 
     [Header("Movement Direction")]
     public Directions dir = Directions.NONE;
+
+    [Header("Wall Position")]
+    public Directions walldir = Directions.NONE;
 
     [Header("GameObject Components")]
     public SpriteRenderer sprite;

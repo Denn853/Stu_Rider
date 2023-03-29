@@ -31,6 +31,9 @@ public class Movement : MonoBehaviour
             currentSpeed = horizontal * accelerateSpeed;
 
             CheckDirection(currentSpeed);
+
+            if(PlayerController.instance.dir == PlayerController.Directions.NONE) { return; };
+
             PlayerController.instance.GetComponent<Rigidbody2D>().AddForce(new Vector2(currentSpeed, 0));
             LimitSpeedBody(horizontal);
         }
@@ -57,6 +60,7 @@ public class Movement : MonoBehaviour
         else
         {
             PlayerController.instance.dir = PlayerController.Directions.NONE;
+            PlayerController.instance.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
         }
     }
 
