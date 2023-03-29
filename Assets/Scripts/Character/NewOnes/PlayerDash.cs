@@ -34,13 +34,10 @@ public class PlayerDash : MonoBehaviour
         if (PlayerController.instance.dir == PlayerController.Directions.LEFT && dashForce > 0)
         {
             dashForce *= -1;
-            return;
         }
-
-        if (dashForce < 0)
+        else if (PlayerController.instance.dir == PlayerController.Directions.RIGHT && dashForce < 0)
         {
             dashForce *= -1;
-            return;
         }
     }
 
