@@ -13,11 +13,11 @@ public class ChangeFollowerDirection : MonoBehaviour
     {
         if (PlayerController.instance.dir == PlayerController.Directions.RIGHT)
         {
-            transform.position = Vector3.Lerp(transform.position, PlayerController.instance.transform.position + offset, speed);
+            transform.position = Vector3.Lerp(transform.position, PlayerController.instance.transform.position + offset, speed * Time.deltaTime);
         }
         else if (PlayerController.instance.dir == PlayerController.Directions.LEFT)
         {
-            transform.position = Vector3.Lerp(transform.position, PlayerController.instance.transform.position - offset, speed);
+            transform.position = Vector3.Lerp(transform.position, PlayerController.instance.transform.position - offset, speed * Time.deltaTime);
         }
     }
 }

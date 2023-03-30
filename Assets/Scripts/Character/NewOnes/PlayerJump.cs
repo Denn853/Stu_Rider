@@ -19,23 +19,46 @@ public class PlayerJump : MonoBehaviour
     [Header("Particles")]
     public GameObject dustParticles;
 
+    bool jump = false;
+    float timer = 1;
+    float time = 0;
+
+
+    private void Update()
+    {
+        if (PlayerController.instance.isDashing) { return; }
+
+        if (Input.GetButtonDown("Jump") && PlayerController.instance.isGrounded)
+        {
+            //PlayerController.instance.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            SetJumpDirection();
+            jump = true;
+            time = timer;
+        }
+
+        time -= Time.deltaTime;
+
+        if (time <= 0)
+        {
+            jump = false;
+        }
+    }
+
     // Update is called once per frame
     void FixedUpdate()
     {
         Debug.Log(PlayerController.instance.GetComponent<Rigidbody2D>().velocity);
 
-        if (PlayerController.instance.isDashing) { return; }
-
-        if (Input.GetButtonDown("Jump") && PlayerController.instance.isGrounded)
+        if (jump)
         {
             PlayerController.instance.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-            
-            SetJumpDirection();
 
             AddForce();
 
             GameObject temp = Instantiate(dustParticles, transform.position, transform.rotation);
             Destroy(temp, 0.5f);
+            
+            jump = false;
         }
 
         if (PlayerController.instance.isJumping)
@@ -53,12 +76,12 @@ public class PlayerJump : MonoBehaviour
 
             case PlayerController.Directions.RIGHT:
 
-                jumpDirection = new Vector2(Mathf.Cos(Mathf.Deg2Rad * angleJump), Mathf.Sin(Mathf.Deg2Rad * angleJump));
+                jumpDirection = new Vector2(Mathf.Cos(Mathf.Deg2Rad * angleJump), Mathf.Sin(Mathf.Deg2Rad * angleJump)) * 1.5f;
                 break;
 
             case PlayerController.Directions.LEFT:
 
-                jumpDirection = new Vector2(-Mathf.Cos(Mathf.Deg2Rad * angleJump), Mathf.Sin(Mathf.Deg2Rad * angleJump));
+                jumpDirection = new Vector2(-Mathf.Cos(Mathf.Deg2Rad * angleJump), Mathf.Sin(Mathf.Deg2Rad * angleJump)) * 1.5f;
                 break;
         }
     }
@@ -69,17 +92,23 @@ public class PlayerJump : MonoBehaviour
         {
             if (PlayerController.instance.isInWall && !PlayerController.instance.isWallJump)
             { 
-                PlayerController.instance.GetComponent<Rigidbody2D>().velocity = new Vector2(PlayerController.instance.GetComponent<Rigidbody2D>().velocity.x, fallInWallSpeed);
+                PlayerController.instance.GetComponent<Rigidbody2D>().velocity = new Vector2(PlayerController.instance.GetComponent<Rigidbody2D>().velocity.x, fallInWallSpeed * Time.fixedDeltaTime);
                 return;
             }   
-            PlayerController.instance.GetComponent<Rigidbody2D>().velocity = new Vector2(PlayerController.instance.GetComponent<Rigidbody2D>().velocity.x, fallSpeed);
+            PlayerController.instance.GetComponent<Rigidbody2D>().velocity = new Vector2(PlayerController.instance.GetComponent<Rigidbody2D>().velocity.x, fallSpeed * Time.fixedDeltaTime);
         }
     }
 
     void AddForce()
     {
-        PlayerController.instance.GetComponent<Rigidbody2D>().AddForce(jumpDirection * jumpForce);
-        PlayerController.instance.GetComponent<Rigidbody2D>().velocity = new Vector2(PlayerController.instance.GetComponent<Rigidbody2D>().velocity.x * jumpSpeed, jumpSpeed);
-        
+        if (PlayerController.instance.dir == PlayerController.Directions.RIGHT || PlayerController.instance.dir == PlayerController.Directions.LEFT)
+        {
+            PlayerController.instance.GetComponent<Rigidbody2D>().AddForce(jumpDirection * (jumpForce + 9.81f));
+        }
+        else
+        {
+            PlayerController.instance.GetComponent<Rigidbody2D>().AddForce(jumpDirection * jumpForce);
+        }
+            PlayerController.instance.GetComponent<Rigidbody2D>().velocity = new Vector2(PlayerController.instance.GetComponent<Rigidbody2D>().velocity.x * jumpSpeed, jumpSpeed * Time.fixedDeltaTime);
     }
 }

@@ -1027,7 +1027,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   offset: {x: 4, y: 0, z: 0}
-  speed: 0.01
+  speed: 1
 --- !u!1 &1675271654
 GameObject:
   m_ObjectHideFlags: 0
