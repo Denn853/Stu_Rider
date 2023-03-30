@@ -60,7 +60,7 @@ public class PlayerJump : MonoBehaviour
             jump = false;
         }
 
-        if (PlayerController.instance.isJumping)
+        if (PlayerController.instance.isJumping && !PlayerController.instance.canJump && !PlayerController.instance.isDashing)
             CheckRigidBodyVelocity();
     }
 
@@ -91,10 +91,12 @@ public class PlayerJump : MonoBehaviour
         {
             if (PlayerController.instance.isInWall && !PlayerController.instance.isWallJump)
             { 
-                PlayerController.instance.GetComponent<Rigidbody2D>().velocity = new Vector2(PlayerController.instance.GetComponent<Rigidbody2D>().velocity.x, fallInWallSpeed * Time.fixedDeltaTime);
-                return;
-            }   
-            PlayerController.instance.GetComponent<Rigidbody2D>().velocity = new Vector2(PlayerController.instance.GetComponent<Rigidbody2D>().velocity.x, fallSpeed * Time.fixedDeltaTime);
+                PlayerController.instance.GetComponent<Rigidbody2D>().velocity = new Vector2(PlayerController.instance.GetComponent<Rigidbody2D>().velocity.x, fallInWallSpeed);
+            } 
+            else
+            {
+                PlayerController.instance.GetComponent<Rigidbody2D>().velocity = new Vector2(PlayerController.instance.GetComponent<Rigidbody2D>().velocity.x, fallSpeed);
+            } 
         }
     }
 

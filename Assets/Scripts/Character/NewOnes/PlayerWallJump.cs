@@ -20,6 +20,8 @@ public class PlayerWallJump : MonoBehaviour
 
     private void Update()
     {
+        if (PlayerController.instance.isDashing) { return; }
+
         if (Input.GetButtonDown("Jump") && PlayerController.instance.isJumping && PlayerController.instance.isInWall)
         {
             wallJump = true;

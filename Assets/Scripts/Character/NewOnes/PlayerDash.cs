@@ -25,34 +25,51 @@ public class PlayerDash : MonoBehaviour
     {
         if (Input.GetButtonDown("Dash") && canDash)
         {
-            StartCoroutine(Dash());
+            PlayerController.instance.isDashing = true;
+            canDash = false;
         }
     }
 
-    void CheckForceDirection()
+    private void FixedUpdate()
+    {
+        if (!canDash)
+            StartCoroutine(Dash());
+    }
+
+    bool CheckForceDirection()
     {
         if (PlayerController.instance.dir == PlayerController.Directions.LEFT && dashForce > 0)
         {
             dashForce *= -1;
+            return true;
         }
         else if (PlayerController.instance.dir == PlayerController.Directions.RIGHT && dashForce < 0)
         {
             dashForce *= -1;
+            return true;
         }
+
+        return false;
     }
 
     IEnumerator Dash()
     {
-        PlayerController.instance.isDashing = true;
-        canDash = false;
         PlayerController.instance.GetComponent<Rigidbody2D>().gravityScale = 0f;
-        CheckForceDirection();
+
+        if (!CheckForceDirection())
+        {
+            canDash = true;
+            PlayerController.instance.isDashing = false;
+            yield return null;
+        }
+
         PlayerController.instance.GetComponent<Rigidbody2D>().velocity = new Vector2(dashForce, 0);
 
         yield return new WaitForSeconds(dashTime);
 
-        PlayerController.instance.isDashing = false;
+        PlayerController.instance.GetComponent<Rigidbody2D>().velocity = new Vector2(dashForce / 2, 0);
         PlayerController.instance.GetComponent<Rigidbody2D>().gravityScale = baseGravity;
+        PlayerController.instance.isDashing = false;
 
         yield return new WaitForSeconds(dashCoolDown);
         canDash = true;

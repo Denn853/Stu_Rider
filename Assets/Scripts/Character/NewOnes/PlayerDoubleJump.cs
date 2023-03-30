@@ -53,7 +53,7 @@ public class PlayerDoubleJump : MonoBehaviour
             doubleJump = false;
         }
 
-        if (PlayerController.instance.isJumping)
+        if (PlayerController.instance.isJumping && !PlayerController.instance.canJump && !PlayerController.instance.isDashing)
             CheckRigidBodyVelocity();
     }
 
@@ -63,17 +63,17 @@ public class PlayerDoubleJump : MonoBehaviour
         {
             case PlayerController.Directions.NONE:
 
-                jumpDirection = Vector2.up;
+                jumpDirection = Vector2.up * 1.25f;
                 break;
 
             case PlayerController.Directions.RIGHT:
 
-                jumpDirection = new Vector2(Mathf.Cos(Mathf.Deg2Rad * angleJump), Mathf.Sin(Mathf.Deg2Rad * angleJump));
+                jumpDirection = new Vector2(Mathf.Cos(Mathf.Deg2Rad * angleJump), Mathf.Sin(Mathf.Deg2Rad * angleJump)) * 1.25f;
                 break;
 
             case PlayerController.Directions.LEFT:
 
-                jumpDirection = new Vector2(-Mathf.Cos(Mathf.Deg2Rad * angleJump), Mathf.Sin(Mathf.Deg2Rad * angleJump));
+                jumpDirection = new Vector2(-Mathf.Cos(Mathf.Deg2Rad * angleJump), Mathf.Sin(Mathf.Deg2Rad * angleJump)) * 1.25f;
                 break;
         }
     }
