@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 
 public class PlayerDoubleJump : MonoBehaviour
@@ -13,12 +14,33 @@ public class PlayerDoubleJump : MonoBehaviour
     public float angleJump;
     public Vector2 jumpDirection;
 
-    // Update is called once per frame
-    void FixedUpdate()
+    bool doubleJump;
+    float timer = 1;
+    float time = 0;
+
+    private void Update()
     {
         if (PlayerController.instance.isDashing) { return; }
 
-        if (Input.GetButtonDown("Jump") && PlayerController.instance.isJumping && PlayerController.instance.canJump &&!PlayerController.instance.isInWall)
+        if (Input.GetButtonDown("Jump") && PlayerController.instance.isJumping && PlayerController.instance.canJump && !PlayerController.instance.isInWall)
+        {
+            SetJumpDirection();
+            doubleJump = true;
+            time = timer;
+        }
+
+        time -= Time.deltaTime;
+
+        if (time <= 0)
+        {
+            doubleJump = false;
+        }
+    }
+
+    // Update is called once per frame
+    void FixedUpdate()
+    {
+        if (doubleJump)
         {
             PlayerController.instance.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
 
@@ -28,6 +50,7 @@ public class PlayerDoubleJump : MonoBehaviour
             PlayerController.instance.GetComponent<Rigidbody2D>().velocity = new Vector2(PlayerController.instance.GetComponent<Rigidbody2D>().velocity.x * jumpSpeed, jumpSpeed);
 
             PlayerController.instance.canJump = false;
+            doubleJump = false;
         }
 
         if (PlayerController.instance.isJumping)

@@ -16,11 +16,13 @@ public class PlayerWallJump : MonoBehaviour
     public float timeReset;
     float time;
 
-    private void FixedUpdate()
+    bool wallJump;
+
+    private void Update()
     {
         if (Input.GetButtonDown("Jump") && PlayerController.instance.isJumping && PlayerController.instance.isInWall)
         {
-            ExecuteWallJump();
+            wallJump = true;
             time = timeReset;
         }
 
@@ -30,6 +32,15 @@ public class PlayerWallJump : MonoBehaviour
         }
 
         time -= Time.deltaTime;
+    }
+
+    private void FixedUpdate()
+    {
+        if (wallJump)
+        {
+            ExecuteWallJump();
+            wallJump = false;
+        }
     }
 
     void ExecuteWallJump()

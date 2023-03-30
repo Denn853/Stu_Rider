@@ -30,7 +30,6 @@ public class PlayerJump : MonoBehaviour
 
         if (Input.GetButtonDown("Jump") && PlayerController.instance.isGrounded)
         {
-            //PlayerController.instance.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             SetJumpDirection();
             jump = true;
             time = timer;
