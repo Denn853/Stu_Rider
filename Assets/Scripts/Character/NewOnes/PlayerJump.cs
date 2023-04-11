@@ -60,7 +60,7 @@ public class PlayerJump : MonoBehaviour
             jump = false;
         }
 
-        if (PlayerController.instance.isJumping && !PlayerController.instance.canJump && !PlayerController.instance.isDashing)
+        if (PlayerController.instance.isJumping && PlayerController.instance.canJump && !PlayerController.instance.isDashing)
             CheckRigidBodyVelocity();
     }
 
