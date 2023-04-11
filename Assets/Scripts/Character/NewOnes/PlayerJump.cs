@@ -91,11 +91,11 @@ public class PlayerJump : MonoBehaviour
         {
             if (PlayerController.instance.isInWall && !PlayerController.instance.isWallJump)
             { 
-                PlayerController.instance.GetComponent<Rigidbody2D>().velocity = new Vector2(PlayerController.instance.GetComponent<Rigidbody2D>().velocity.x, fallInWallSpeed);
+                PlayerController.instance.GetComponent<Rigidbody2D>().velocity = Vector2.Lerp(new Vector2(PlayerController.instance.GetComponent<Rigidbody2D>().velocity.x, 0), new Vector2(PlayerController.instance.GetComponent<Rigidbody2D>().velocity.x, fallSpeed), 0.0002f);
             } 
             else
             {
-                PlayerController.instance.GetComponent<Rigidbody2D>().velocity = new Vector2(PlayerController.instance.GetComponent<Rigidbody2D>().velocity.x, fallSpeed);
+                PlayerController.instance.GetComponent<Rigidbody2D>().velocity = Vector2.Lerp(new Vector2(PlayerController.instance.GetComponent<Rigidbody2D>().velocity.x, 0), new Vector2(PlayerController.instance.GetComponent<Rigidbody2D>().velocity.x, fallSpeed * 2), 0.35f);
             } 
         }
     }
