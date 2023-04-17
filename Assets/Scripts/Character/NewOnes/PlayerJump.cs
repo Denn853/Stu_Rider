@@ -19,6 +19,9 @@ public class PlayerJump : MonoBehaviour
     [Header("Particles")]
     public GameObject dustParticles;
 
+    [Header("Jump Button")]
+    public Animator anim;
+
     bool jump = false;
     float timer = 1;
     float time = 0;
@@ -32,6 +35,7 @@ public class PlayerJump : MonoBehaviour
             SetJumpDirection();
             jump = true;
             time = timer;
+            anim.SetTrigger("Push");
         }
 
         time -= Time.deltaTime;
