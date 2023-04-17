@@ -11,6 +11,8 @@ public class ChangeFollowerDirection : MonoBehaviour
 
     private void LateUpdate()
     {
+        if (PlayerController.instance.isDashing) { return; }
+
         if (PlayerController.instance.dir == PlayerController.Directions.RIGHT)
         {
             transform.position = Vector3.Lerp(transform.position, PlayerController.instance.transform.position + offset, speed * Time.deltaTime);

@@ -6,7 +6,6 @@ public class PlayerWallJump : MonoBehaviour
 {
     [Header("WallJump Settings")]
     public float jumpForce;
-    public float jumpSpeed;
 
     [Header("WallJump Direction")]
     public float angleJump;
@@ -50,8 +49,8 @@ public class PlayerWallJump : MonoBehaviour
         CheckDirection();
 
         PlayerController.instance.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-        PlayerController.instance.GetComponent<Rigidbody2D>().AddForce(jumpDirection * jumpForce);
-        PlayerController.instance.GetComponent<Rigidbody2D>().velocity = jumpDirection * jumpSpeed;
+        PlayerController.instance.GetComponent<Rigidbody2D>().AddForce(jumpDirection * (jumpForce + 9.81f));
+        PlayerController.instance.GetComponent<Rigidbody2D>().gravityScale = 2.5f;
 
         PlayerController.instance.isWallJump = true;
     }

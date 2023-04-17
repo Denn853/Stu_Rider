@@ -31,6 +31,7 @@ public class Grounded : MonoBehaviour
                 PlayerController.instance.canJump = true;
                 PlayerController.instance.isJumping = false;
                 PlayerController.instance.GetComponent<Rigidbody2D>().velocity = new Vector2(PlayerController.instance.GetComponent<Rigidbody2D>().velocity.x, 0.0f);
+                PlayerController.instance.GetComponent<Rigidbody2D>().gravityScale = 1;
             }
             else
             {
