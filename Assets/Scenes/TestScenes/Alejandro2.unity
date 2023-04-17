@@ -1265,6 +1265,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5649064240243248670, guid: a93b113920c296242a14edde86eae3ca, type: 3}
+      propertyPath: jumpForce
+      value: 750
+      objectReference: {fileID: 0}
+    - target: {fileID: 5649064240347507375, guid: a93b113920c296242a14edde86eae3ca, type: 3}
+      propertyPath: jumpHeight
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5649064240347507375, guid: a93b113920c296242a14edde86eae3ca, type: 3}
+      propertyPath: forceMultiplier
+      value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 5649064240908670589, guid: a93b113920c296242a14edde86eae3ca, type: 3}
+      propertyPath: dashTime
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5649064240908670589, guid: a93b113920c296242a14edde86eae3ca, type: 3}
+      propertyPath: dashForce
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 5649064241023374145, guid: a93b113920c296242a14edde86eae3ca, type: 3}
       propertyPath: m_RootOrder
       value: 1
