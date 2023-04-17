@@ -54,8 +54,6 @@ public class PlayerDash : MonoBehaviour
 
     IEnumerator Dash()
     {
-        PlayerController.instance.GetComponent<Rigidbody2D>().gravityScale = 0f;
-
         if (!CheckForceDirection())
         {
             canDash = true;
@@ -63,12 +61,13 @@ public class PlayerDash : MonoBehaviour
             yield return null;
         }
 
+        PlayerController.instance.GetComponent<Rigidbody2D>().gravityScale = 0f;
         PlayerController.instance.GetComponent<Rigidbody2D>().velocity = new Vector2(dashForce, 0);
 
         yield return new WaitForSeconds(dashTime);
 
-        PlayerController.instance.GetComponent<Rigidbody2D>().velocity = new Vector2(dashForce / 2, 0);
-        PlayerController.instance.GetComponent<Rigidbody2D>().gravityScale = baseGravity;
+        PlayerController.instance.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        PlayerController.instance.GetComponent<Rigidbody2D>().gravityScale = baseGravity * 5;
         PlayerController.instance.isDashing = false;
 
         yield return new WaitForSeconds(dashCoolDown);

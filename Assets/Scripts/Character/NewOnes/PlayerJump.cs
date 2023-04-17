@@ -23,7 +23,6 @@ public class PlayerJump : MonoBehaviour
     float timer = 1;
     float time = 0;
 
-
     private void Update()
     {
         if (PlayerController.instance.isDashing) { return; }
@@ -90,13 +89,13 @@ public class PlayerJump : MonoBehaviour
         if (PlayerController.instance.GetComponent<Rigidbody2D>().velocity.y <= 0)
         {
             if (PlayerController.instance.isInWall && !PlayerController.instance.isWallJump)
-            { 
-                PlayerController.instance.GetComponent<Rigidbody2D>().velocity = Vector2.Lerp(new Vector2(PlayerController.instance.GetComponent<Rigidbody2D>().velocity.x, 0), new Vector2(PlayerController.instance.GetComponent<Rigidbody2D>().velocity.x, fallSpeed), 0.0002f);
-            } 
+            {
+                PlayerController.instance.GetComponent<Rigidbody2D>().gravityScale = 0.5f;
+            }
             else
             {
-                PlayerController.instance.GetComponent<Rigidbody2D>().velocity = Vector2.Lerp(new Vector2(PlayerController.instance.GetComponent<Rigidbody2D>().velocity.x, 0), new Vector2(PlayerController.instance.GetComponent<Rigidbody2D>().velocity.x, fallSpeed * 2), 0.35f);
-            } 
+                PlayerController.instance.GetComponent<Rigidbody2D>().gravityScale = 2.5f;
+            }
         }
     }
 
@@ -110,6 +109,7 @@ public class PlayerJump : MonoBehaviour
         {
             PlayerController.instance.GetComponent<Rigidbody2D>().AddForce(jumpDirection * jumpForce);
         }
-            PlayerController.instance.GetComponent<Rigidbody2D>().velocity = new Vector2(PlayerController.instance.GetComponent<Rigidbody2D>().velocity.x * jumpSpeed, jumpSpeed * Time.fixedDeltaTime);
+        
+        PlayerController.instance.GetComponent<Rigidbody2D>().gravityScale = 1.2f;
     }
 }
