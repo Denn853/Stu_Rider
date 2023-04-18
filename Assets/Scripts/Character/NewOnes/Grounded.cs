@@ -10,9 +10,6 @@ public class Grounded : MonoBehaviour
     public List<Vector3> rays;
     public LayerMask groundMask;
 
-    [Header("Jump Button")]
-    public Animator anim;
-
     // Update is called once per frame
     void Update()
     {
@@ -36,13 +33,11 @@ public class Grounded : MonoBehaviour
                 PlayerController.instance.isJumping = false;
                 PlayerController.instance.GetComponent<Rigidbody2D>().velocity = new Vector2(PlayerController.instance.GetComponent<Rigidbody2D>().velocity.x, 0.0f);
                 PlayerController.instance.GetComponent<Rigidbody2D>().gravityScale = 1;
-                anim.SetBool("Grounded", true);
             }
             else
             {
                 PlayerController.instance.isGrounded = false;
                 PlayerController.instance.isJumping = true;
-                anim.SetBool("Grounded", false);
             }
         }
     }
