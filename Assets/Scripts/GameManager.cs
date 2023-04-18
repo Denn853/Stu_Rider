@@ -9,8 +9,6 @@ public class GameManager : MonoBehaviour
     public static GameManager instance { get; private set; }
 
     public int lifes = 3;
-    public bool gameOver = false;
-    public GameObject player;
 
     private void Awake()
     {
@@ -29,8 +27,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        lifes = 3;
-        gameOver = false;
+        lifes = 8;
     }
 
     // Update is called once per frame
@@ -38,14 +35,18 @@ public class GameManager : MonoBehaviour
     {
         if (lifes <= 0)
         {
-            gameOver = true;
-            UIManager.instance.DeathPanel();
         }
     }
 
-    public void ReceiveDamage()
+    public void SubstractLife()
     {
         lifes--;
-        UIManager.instance.ReceiveDamage();
     }
+
+    public int GetLifes()
+    {
+        return lifes;
+    }
+
+    public void ReceiveDamage() { }
 }
