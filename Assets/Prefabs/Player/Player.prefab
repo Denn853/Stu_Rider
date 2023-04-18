@@ -109,7 +109,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpForce: 250
-  jumpSpeed: 8
   angleJump: 55
   jumpDirection: {x: 0, y: 0}
   timeReset: 0.3
@@ -181,6 +180,7 @@ MonoBehaviour:
   angleJump: 60
   jumpDirection: {x: 0, y: 0}
   dustParticles: {fileID: 3133768676182683321, guid: 6f66f48487c51084ca3abfb6468084ff, type: 3}
+  anim: {fileID: 0}
 --- !u!114 &5649064240347507374
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -304,6 +304,7 @@ GameObject:
   - component: {fileID: 5649064241023374144}
   - component: {fileID: 5649064241023374159}
   - component: {fileID: 5649064241023374158}
+  - component: {fileID: 3945153771841352242}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -428,6 +429,26 @@ MonoBehaviour:
   dir: 0
   walldir: 0
   sprite: {fileID: 0}
+--- !u!95 &3945153771841352242
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5649064241023374146}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7755fe0a504cd81488820cb6bc62c6db, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &5649064241528991447
 GameObject:
   m_ObjectHideFlags: 0
@@ -480,6 +501,7 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 64
+  anim: {fileID: 0}
 --- !u!1 &5649064241670351874
 GameObject:
   m_ObjectHideFlags: 0
