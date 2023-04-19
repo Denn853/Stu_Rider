@@ -108,7 +108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69f8d2be16552d84eaa7f74c77037635, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 250
+  jumpForce: 750
   angleJump: 55
   jumpDirection: {x: 0, y: 0}
   timeReset: 0.3
@@ -287,8 +287,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf65093d840869740b00440846da4815, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dashForce: 15
-  dashTime: 0.35
+  dashForce: 20
+  dashTime: 0.8
   dashCoolDown: 1
   canDash: 0
 --- !u!1 &5649064241023374146
@@ -318,7 +318,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5649064241023374146}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -14.02, y: -9.83, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -419,6 +419,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isMoving: 0
+  isOnSlope: 0
   isDashing: 0
   isGrounded: 0
   canJump: 0
@@ -426,6 +427,7 @@ MonoBehaviour:
   isInWall: 0
   isWallJump: 0
   dir: 0
+  slopeAngle: 0
   walldir: 0
   sprite: {fileID: 0}
 --- !u!95 &3945153771841352242
@@ -473,7 +475,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5649064241528991447}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.116, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -492,14 +494,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1ff748a6ec9d17419b832d97dbd9dfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  groundDistance: 0.55
+  groundDistance: 0.6
   rays:
-  - {x: 0.2, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: -0.2, y: 0, z: 0}
+  - {x: 0.1, y: 0, z: 0}
+  - {x: -0.1, y: 0, z: 0}
+  - {x: -0.3, y: 0, z: 0}
   groundMask:
     serializedVersion: 2
     m_Bits: 64
+  GroundContact: {fileID: 0}
 --- !u!1 &5649064241670351874
 GameObject:
   m_ObjectHideFlags: 0
@@ -545,7 +548,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.10261297, y: -0.10023689}
+  m_Offset: {x: -0.12409687, y: -0.15205526}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -556,5 +559,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.47005367, y: 0.7677345}
+  m_Size: {x: 0.42708588, y: 0.87137127}
   m_EdgeRadius: 0

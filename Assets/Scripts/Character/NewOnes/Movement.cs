@@ -35,7 +35,7 @@ public class Movement : MonoBehaviour
 
             if(PlayerController.instance.dir == PlayerController.Directions.NONE) { return; };
 
-            PlayerController.instance.GetComponent<Rigidbody2D>().AddForce(new Vector2(currentSpeed, 0));
+            AddForce();
             LimitSpeedBody(horizontal);
         }
     }
@@ -44,6 +44,18 @@ public class Movement : MonoBehaviour
     bool IsMoving(float horizontal)
     {
         return horizontal != 0;
+    }
+
+    void AddForce()
+    {
+        if (!PlayerController.instance.isOnSlope)
+        {
+            //PlayerController.instance.GetComponent<Rigidbody2D>().AddForce(new Vector2(Mathf.Cos(Mathf.Deg2Rad * PlayerController.instance.slopeAngle) * currentSpeed, Mathf.Sin(Mathf.Deg2Rad * PlayerController.instance.slopeAngle) * currentSpeed));
+            PlayerController.instance.GetComponent<Rigidbody2D>().AddForce(new Vector2(currentSpeed, currentSpeed));
+            return;
+        }
+
+        PlayerController.instance.GetComponent<Rigidbody2D>().AddForce(new Vector2(currentSpeed, 0));
     }
     
     void CheckDirection(float speed)
@@ -69,7 +81,7 @@ public class Movement : MonoBehaviour
     {
         if (horizontal == 0)
         {
-            Vector3 vel = Vector3.Lerp(PlayerController.instance.GetComponent<Rigidbody2D>().velocity, new Vector3(0.1f, PlayerController.instance.GetComponent<Rigidbody2D>().velocity.y, 0), decelerateSpeed);
+            Vector3 vel = Vector3.Lerp(PlayerController.instance.GetComponent<Rigidbody2D>().velocity, new Vector3(0.0f, PlayerController.instance.GetComponent<Rigidbody2D>().velocity.y, 0), decelerateSpeed);
             PlayerController.instance.GetComponent<Rigidbody2D>().velocity = vel;
         }
 
