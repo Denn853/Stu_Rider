@@ -8,6 +8,9 @@ public class PauseMenu : MonoBehaviour
     [Header("Pause Menu")]
     [SerializeField] private GameObject pauseMenu;
 
+    [Header("Settings Menu")]
+    [SerializeField] private GameObject settingsMenu;
+
     [Header("Pause Status")]
     [SerializeField] private bool isPaused;
 
@@ -42,5 +45,10 @@ public class PauseMenu : MonoBehaviour
         pauseMenu.SetActive(false);
         Time.timeScale = 1;
         isPaused = false;
+    }
+
+    public void ShowSettingsMenu()
+    {
+        settingsMenu.SetActive(true);
     }
 }
