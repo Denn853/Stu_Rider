@@ -16,9 +16,7 @@ public class SettingsMenu : MonoBehaviour
     public Toggle muteToggle;
     public Slider mainSliderBar;
     public Slider sfxSliderBar;
-
-
-    
+        
     public void SetMainVolume(float volume)
     {
         mainAudioMixer.SetFloat("mainVolume", volume);
@@ -33,6 +31,9 @@ public class SettingsMenu : MonoBehaviour
     {
         SetMainVolume(-80.0f);
         SetSFXVolume(-80.0f);
+        
+        mainSliderBar.value = -80.0f;
+        sfxSliderBar.value = -80.0f;
 
         if (muteToggle.isOn)
         {
@@ -44,6 +45,11 @@ public class SettingsMenu : MonoBehaviour
             mainSliderBar.interactable = true;
             sfxSliderBar.interactable = true;
         }
+    }
+
+    public void Back()
+    {
+        this.gameObject.active = false;
     }
 
 }
