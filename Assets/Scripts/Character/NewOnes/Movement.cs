@@ -13,11 +13,14 @@ public class Movement : MonoBehaviour
     [Header("Movement Speed")]
     public float currentSpeed;
 
+    private float gravity;
+
     // Start is called before the first frame update
     void Start()
     {
         PlayerController.instance.isMoving = false;
         PlayerController.instance.dir = PlayerController.Directions.NONE;
+        gravity = PlayerController.instance.GetComponent<Rigidbody2D>().gravityScale;
     }
 
     private void FixedUpdate()
@@ -48,13 +51,17 @@ public class Movement : MonoBehaviour
 
     void AddForce()
     {
-        if (!PlayerController.instance.isOnSlope)
+
+        if (PlayerController.instance.isOnSlope)
         {
-            //PlayerController.instance.GetComponent<Rigidbody2D>().AddForce(new Vector2(Mathf.Cos(Mathf.Deg2Rad * PlayerController.instance.slopeAngle) * currentSpeed, Mathf.Sin(Mathf.Deg2Rad * PlayerController.instance.slopeAngle) * currentSpeed));
-            PlayerController.instance.GetComponent<Rigidbody2D>().AddForce(new Vector2(currentSpeed, currentSpeed));
+            PlayerController.instance.GetComponent<Rigidbody2D>().gravityScale = 0;
+            float vel = PlayerController.instance.GetComponent<Rigidbody2D>().velocity.magnitude;
+            //PlayerController.instance.GetComponent<Rigidbody2D>().velocity = new Vector2(Mathf.Cos(Mathf.Deg2Rad * PlayerController.instance.slopeAngle) * vel, Mathf.Sin(Mathf.Deg2Rad * PlayerController.instance.slopeAngle) * vel );
+            PlayerController.instance.GetComponent<Rigidbody2D>().AddForce(new Vector2(Mathf.Cos(Mathf.Deg2Rad * PlayerController.instance.slopeAngle) * vel, Mathf.Sin(Mathf.Deg2Rad * PlayerController.instance.slopeAngle) * currentSpeed + 9.81f));
             return;
         }
 
+        PlayerController.instance.GetComponent<Rigidbody2D>().gravityScale = gravity;
         PlayerController.instance.GetComponent<Rigidbody2D>().AddForce(new Vector2(currentSpeed, 0));
     }
     
@@ -85,13 +92,13 @@ public class Movement : MonoBehaviour
             PlayerController.instance.GetComponent<Rigidbody2D>().velocity = vel;
         }
 
-        if (PlayerController.instance.GetComponent<Rigidbody2D>().velocity.x > maxSpeed)
+        if (PlayerController.instance.GetComponent<Rigidbody2D>().velocity.x > maxSpeed && !PlayerController.instance.isOnSlope)
         {
-            PlayerController.instance.GetComponent<Rigidbody2D>().velocity = new Vector2(maxSpeed, 0);
+            PlayerController.instance.GetComponent<Rigidbody2D>().velocity = new Vector2(Mathf.Cos(Mathf.Deg2Rad * PlayerController.instance.slopeAngle) * maxSpeed, 0);
         } 
-        else if (PlayerController.instance.GetComponent<Rigidbody2D>().velocity.x < -maxSpeed)
+        else if (PlayerController.instance.GetComponent<Rigidbody2D>().velocity.x < -maxSpeed && !PlayerController.instance.isOnSlope)
         {
-            PlayerController.instance.GetComponent<Rigidbody2D>().velocity = new Vector2(-maxSpeed, 0);
+            PlayerController.instance.GetComponent<Rigidbody2D>().velocity = new Vector2(Mathf.Cos(Mathf.Deg2Rad * PlayerController.instance.slopeAngle) * -maxSpeed, 0);
         }
     }
 }
