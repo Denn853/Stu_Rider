@@ -51,16 +51,6 @@ public class Movement : MonoBehaviour
 
     void AddForce()
     {
-
-        if (PlayerController.instance.isOnSlope)
-        {
-            PlayerController.instance.GetComponent<Rigidbody2D>().gravityScale = 0;
-            float vel = PlayerController.instance.GetComponent<Rigidbody2D>().velocity.magnitude;
-            //PlayerController.instance.GetComponent<Rigidbody2D>().velocity = new Vector2(Mathf.Cos(Mathf.Deg2Rad * PlayerController.instance.slopeAngle) * vel, Mathf.Sin(Mathf.Deg2Rad * PlayerController.instance.slopeAngle) * vel );
-            PlayerController.instance.GetComponent<Rigidbody2D>().AddForce(new Vector2(Mathf.Cos(Mathf.Deg2Rad * PlayerController.instance.slopeAngle) * vel, Mathf.Sin(Mathf.Deg2Rad * PlayerController.instance.slopeAngle) * currentSpeed + 9.81f));
-            return;
-        }
-
         PlayerController.instance.GetComponent<Rigidbody2D>().gravityScale = gravity;
         PlayerController.instance.GetComponent<Rigidbody2D>().AddForce(new Vector2(currentSpeed, 0));
     }
@@ -69,12 +59,12 @@ public class Movement : MonoBehaviour
     {
         if (speed > 0)
         {
-            PlayerController.instance.sprite.flipX = false;
+            PlayerController.instance.sprite.flipX = true;
             PlayerController.instance.dir = PlayerController.Directions.RIGHT;
         } 
         else if (speed < 0)
         {
-            PlayerController.instance.sprite.flipX = true;
+            PlayerController.instance.sprite.flipX = false;
             PlayerController.instance.dir = PlayerController.Directions.LEFT;
         }
         else
@@ -92,13 +82,13 @@ public class Movement : MonoBehaviour
             PlayerController.instance.GetComponent<Rigidbody2D>().velocity = vel;
         }
 
-        if (PlayerController.instance.GetComponent<Rigidbody2D>().velocity.x > maxSpeed && !PlayerController.instance.isOnSlope)
+        if (PlayerController.instance.GetComponent<Rigidbody2D>().velocity.x > maxSpeed)
         {
-            PlayerController.instance.GetComponent<Rigidbody2D>().velocity = new Vector2(Mathf.Cos(Mathf.Deg2Rad * PlayerController.instance.slopeAngle) * maxSpeed, 0);
+            PlayerController.instance.GetComponent<Rigidbody2D>().velocity = new Vector2(maxSpeed, 0);
         } 
-        else if (PlayerController.instance.GetComponent<Rigidbody2D>().velocity.x < -maxSpeed && !PlayerController.instance.isOnSlope)
+        else if (PlayerController.instance.GetComponent<Rigidbody2D>().velocity.x < -maxSpeed)
         {
-            PlayerController.instance.GetComponent<Rigidbody2D>().velocity = new Vector2(Mathf.Cos(Mathf.Deg2Rad * PlayerController.instance.slopeAngle) * -maxSpeed, 0);
+            PlayerController.instance.GetComponent<Rigidbody2D>().velocity = new Vector2(-maxSpeed, 0);
         }
     }
 }

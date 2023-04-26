@@ -86,7 +86,7 @@ public class PlayerJump : MonoBehaviour
 
     void CheckRigidBodyVelocity()
     {
-        if (PlayerController.instance.GetComponent<Rigidbody2D>().velocity.y <= 0)
+        if (PlayerController.instance.GetComponent<Rigidbody2D>().velocity.y <= 0 && !PlayerController.instance.isGrounded)
         {
             if (PlayerController.instance.isInWall && !PlayerController.instance.isWallJump)
             {
@@ -101,15 +101,16 @@ public class PlayerJump : MonoBehaviour
 
     void AddForce()
     {
+
         if (PlayerController.instance.dir == PlayerController.Directions.RIGHT || PlayerController.instance.dir == PlayerController.Directions.LEFT)
         {
             PlayerController.instance.GetComponent<Rigidbody2D>().AddForce(jumpDirection * (jumpForce + 9.81f));
         }
         else
         {
-            PlayerController.instance.GetComponent<Rigidbody2D>().AddForce(jumpDirection * jumpForce);
+            PlayerController.instance.GetComponent<Rigidbody2D>().AddForce(jumpDirection * (jumpForce + 9.81f));
         }
         
-        PlayerController.instance.GetComponent<Rigidbody2D>().gravityScale = 1.2f;
+        PlayerController.instance.GetComponent<Rigidbody2D>().gravityScale = 0.6f;
     }
 }

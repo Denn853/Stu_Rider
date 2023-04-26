@@ -12,18 +12,11 @@ public class Grounded : MonoBehaviour
     public List<Vector3> rays;
     public LayerMask groundMask;
 
-    [Header("Slopes Settings")]
-    [SerializeField] private GameObject GroundContact;
-
-    private float slopeDownAngle;
-    private float slopeDownAngleOld;
-    private Vector2 slopeNormalPerp;
-
     // Update is called once per frame
     void Update()
     {
+        SetRays();
         GroundCheck();
-        SlopeCheck();
     }
 
     private void GroundCheck()
@@ -59,35 +52,22 @@ public class Grounded : MonoBehaviour
         }
     }
 
-    private void SlopeCheck()
+    private void SetRays()
     {
-        SlopeCheckVertical();
-    }
-
-    private void SlopeCheckHorizontal()
-    {
-
-    }
-
-    private void SlopeCheckVertical()
-    {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position + rays[1], Vector2.down, groundDistance, groundMask);
-
-        if (hit)
+        if (PlayerController.instance.dir == PlayerController.Directions.RIGHT)
         {
-            slopeNormalPerp = Vector2.Perpendicular(hit.normal).normalized;
-            slopeDownAngle = Vector2.Angle(hit.normal, Vector2.up);
-
-            if (slopeDownAngle != 0)
-                PlayerController.instance.isOnSlope = true;
-            else
-                PlayerController.instance.isOnSlope = false;
-
-            slopeDownAngleOld = slopeDownAngle;
-            PlayerController.instance.slopeAngle = slopeDownAngle;
-
-            Debug.DrawRay(hit.point, hit.normal, Color.cyan);
-            Debug.DrawRay(hit.point, slopeNormalPerp, Color.magenta);
+            for (int i = 0; i < rays.Count; i++)
+            {
+                rays[i] = new Vector3(0.1f - (i * 0.2f), 0, 0);
+            }
+        } 
+        else if (PlayerController.instance.dir == PlayerController.Directions.LEFT)
+        {
+            for (int i = 0; i < rays.Count; i++)
+            {
+                rays[i] = new Vector3(0.3f - (i * 0.2f), 0, 0);
+            }
         }
+    
     }
 }

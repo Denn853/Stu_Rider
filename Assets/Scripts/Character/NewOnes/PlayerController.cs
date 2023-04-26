@@ -11,7 +11,6 @@ public class PlayerController : MonoBehaviour
 
     [Header("Player States")]
     public bool isMoving;
-    public bool isOnSlope;
     public bool isDashing;
     public bool isGrounded;
     public bool canJump;
@@ -21,9 +20,6 @@ public class PlayerController : MonoBehaviour
 
     [Header("Movement Direction")]
     public Directions dir = Directions.NONE;
-
-    [Header("SlopeAngle")]
-    public float slopeAngle;
 
     [Header("Wall Position")]
     public Directions walldir = Directions.NONE;
@@ -41,10 +37,5 @@ public class PlayerController : MonoBehaviour
     {
         sprite = GetComponent<SpriteRenderer>();
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
     }
 }
