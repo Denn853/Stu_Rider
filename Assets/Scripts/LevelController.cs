@@ -48,8 +48,11 @@ public class LevelController : MonoBehaviour
             return;
         }
 
-        Time.timeScale = 1;
-        substactLifeMenu.SetActive(false);
+        if (substactLifeMenu.active && timer > 3.0f)
+        {
+            Time.timeScale = 1;
+            substactLifeMenu.SetActive(false);
+        }
 
         if (deliversDone == deliversToMake)
             LevelWon();

@@ -419,7 +419,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isMoving: 0
-  isOnSlope: 0
   isDashing: 0
   isGrounded: 0
   canJump: 0
@@ -427,7 +426,6 @@ MonoBehaviour:
   isInWall: 0
   isWallJump: 0
   dir: 0
-  slopeAngle: 0
   walldir: 0
   sprite: {fileID: 0}
 --- !u!95 &3945153771841352242
@@ -494,7 +492,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1ff748a6ec9d17419b832d97dbd9dfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  groundDistance: 0.6
+  groundDistance: 0.5
   rays:
   - {x: 0.1, y: 0, z: 0}
   - {x: -0.1, y: 0, z: 0}
@@ -502,7 +500,6 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 64
-  GroundContact: {fileID: 0}
 --- !u!1 &5649064241670351874
 GameObject:
   m_ObjectHideFlags: 0

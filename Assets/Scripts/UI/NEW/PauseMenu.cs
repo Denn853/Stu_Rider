@@ -51,4 +51,9 @@ public class PauseMenu : MonoBehaviour
     {
         settingsMenu.SetActive(true);
     }
+
+    public void GoToLevelSelector()
+    {
+        SceneControl.instance.LevelSelector();
+    }
 }
