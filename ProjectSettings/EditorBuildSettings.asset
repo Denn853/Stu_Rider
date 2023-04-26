@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 74749c71a3483184ca7534e5443bba53
   - enabled: 0
-    path: Assets/Scenes/Game.unity
+    path: Assets/Scenes/OLD/Game.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 0
     path: Assets/Scenes/TestScenes/Dennys Moto.unity
