@@ -6,15 +6,17 @@ public class PlayerJump : MonoBehaviour
 {
     [Header("Jump Forces")]
     public float jumpForce;
-    public float jumpSpeed;
-    public float fallSpeed;
 
-    [Header("WallJump Fall Speed")]
-    public float fallInWallSpeed;
+    [Header("Jump gravity")]
+    public float jumpGravity;
+
+    [Header("Falling Gravities")]
+    public float fallingGravity;
+    public float fallingWallGravity;
 
     [Header("Jump Direction")]
-    public float angleJump;
     public Vector2 jumpDirection;
+    public float angleJump;
 
     [Header("Particles")]
     public GameObject dustParticles;
@@ -60,7 +62,7 @@ public class PlayerJump : MonoBehaviour
         }
 
         if (PlayerController.instance.isJumping && PlayerController.instance.canJump && !PlayerController.instance.isDashing)
-            CheckRigidBodyVelocity();
+            CheckGravity();
     }
 
     void SetJumpDirection()
@@ -69,32 +71,32 @@ public class PlayerJump : MonoBehaviour
         {
             case PlayerController.Directions.NONE:
 
-                jumpDirection = Vector2.up * 1.5f;
+                jumpDirection = Vector2.up;
                 break;
 
             case PlayerController.Directions.RIGHT:
 
-                jumpDirection = new Vector2(Mathf.Cos(Mathf.Deg2Rad * angleJump), Mathf.Sin(Mathf.Deg2Rad * angleJump)) * 1.5f;
+                jumpDirection = new Vector2(Mathf.Cos(Mathf.Deg2Rad * angleJump), 1);
                 break;
 
             case PlayerController.Directions.LEFT:
 
-                jumpDirection = new Vector2(-Mathf.Cos(Mathf.Deg2Rad * angleJump), Mathf.Sin(Mathf.Deg2Rad * angleJump)) * 1.5f;
+                jumpDirection = new Vector2(-Mathf.Cos(Mathf.Deg2Rad * angleJump), 1);
                 break;
         }
     }
 
-    void CheckRigidBodyVelocity()
+    void CheckGravity()
     {
         if (PlayerController.instance.GetComponent<Rigidbody2D>().velocity.y <= 0 && !PlayerController.instance.isGrounded)
         {
             if (PlayerController.instance.isInWall && !PlayerController.instance.isWallJump)
             {
-                PlayerController.instance.GetComponent<Rigidbody2D>().gravityScale = 0.5f;
+                PlayerController.instance.GetComponent<Rigidbody2D>().gravityScale = fallingWallGravity;
             }
             else
             {
-                PlayerController.instance.GetComponent<Rigidbody2D>().gravityScale = 2.5f;
+                PlayerController.instance.GetComponent<Rigidbody2D>().gravityScale = fallingGravity;
             }
         }
     }
@@ -102,15 +104,10 @@ public class PlayerJump : MonoBehaviour
     void AddForce()
     {
 
-        if (PlayerController.instance.dir == PlayerController.Directions.RIGHT || PlayerController.instance.dir == PlayerController.Directions.LEFT)
-        {
-            PlayerController.instance.GetComponent<Rigidbody2D>().AddForce(jumpDirection * (jumpForce + 9.81f));
-        }
-        else
-        {
-            PlayerController.instance.GetComponent<Rigidbody2D>().AddForce(jumpDirection * (jumpForce + 9.81f));
-        }
+        PlayerController.instance.GetComponent<Rigidbody2D>().gravityScale = jumpGravity;
+        //PlayerController.instance.GetComponent<Rigidbody2D>().AddForce(jumpDirection * (jumpForce));
+        PlayerController.instance.GetComponent<Rigidbody2D>().AddForce(Vector2.up * (jumpForce));
         
-        PlayerController.instance.GetComponent<Rigidbody2D>().gravityScale = 0.6f;
+        PlayerController.instance.isGrounded = false;
     }
 }

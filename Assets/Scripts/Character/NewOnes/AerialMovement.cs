@@ -10,6 +10,13 @@ public class AerialMovement : MonoBehaviour
     [Header("Movement Speed")]
     public float currentSpeed;
 
+    private float gravity;
+
+    private void Start()
+    {
+        gravity = PlayerController.instance.GetComponent<Rigidbody2D>().gravityScale;
+    }
+
     private void FixedUpdate()
     {
         if (PlayerController.instance.isDashing) { return; }
