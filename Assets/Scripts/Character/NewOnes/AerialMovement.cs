@@ -26,7 +26,7 @@ public class AerialMovement : MonoBehaviour
             float horizontal = Input.GetAxis("Horizontal");
             PlayerController.instance.isMoving = IsMoving(horizontal);
 
-            currentSpeed = Mathf.Clamp(horizontal * accelerateSpeed, 0, accelerateSpeed + 6);
+            currentSpeed = Mathf.Clamp(horizontal * accelerateSpeed, -accelerateSpeed - 6, accelerateSpeed + 6);
 
             CheckDirection(currentSpeed);
             PlayerController.instance.GetComponent<Rigidbody2D>().AddForce(new Vector2(currentSpeed, 0));

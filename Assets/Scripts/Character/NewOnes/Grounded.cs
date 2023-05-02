@@ -15,6 +15,8 @@ public class Grounded : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (PlayerController.instance.GetComponent<Rigidbody2D>().velocity.y > 0) { return; }
+
         SetRays();
         GroundCheck();
     }
