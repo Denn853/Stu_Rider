@@ -59,12 +59,12 @@ public class Movement : MonoBehaviour
     {
         if (speed > 0)
         {
-            PlayerController.instance.sprite.flipX = true;
+            PlayerController.instance.sprite.flipX = false;
             PlayerController.instance.dir = PlayerController.Directions.RIGHT;
         } 
         else if (speed < 0)
         {
-            PlayerController.instance.sprite.flipX = false;
+            PlayerController.instance.sprite.flipX = true;
             PlayerController.instance.dir = PlayerController.Directions.LEFT;
         }
         else

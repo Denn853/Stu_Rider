@@ -26,7 +26,7 @@ public class AerialMovement : MonoBehaviour
             float horizontal = Input.GetAxis("Horizontal");
             PlayerController.instance.isMoving = IsMoving(horizontal);
 
-            currentSpeed = horizontal * accelerateSpeed;
+            currentSpeed = Mathf.Clamp(horizontal * accelerateSpeed, -accelerateSpeed - 6, accelerateSpeed + 6);
 
             CheckDirection(currentSpeed);
             PlayerController.instance.GetComponent<Rigidbody2D>().AddForce(new Vector2(currentSpeed, 0));
@@ -43,12 +43,12 @@ public class AerialMovement : MonoBehaviour
     {
         if (speed > 0)
         {
-            PlayerController.instance.sprite.flipX = true;
+            PlayerController.instance.sprite.flipX = false;
             PlayerController.instance.dir = PlayerController.Directions.RIGHT;
         }
         else if (speed < 0)
         {
-            PlayerController.instance.sprite.flipX = false;
+            PlayerController.instance.sprite.flipX = true;
             PlayerController.instance.dir = PlayerController.Directions.LEFT;
         }
     }

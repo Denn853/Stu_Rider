@@ -27,6 +27,8 @@ public class PlayerController : MonoBehaviour
     [Header("GameObject Components")]
     public SpriteRenderer sprite;
 
+    private Vector3 respawnTransform;
+
     private void Awake()
     {
         instance = this;
@@ -37,5 +39,15 @@ public class PlayerController : MonoBehaviour
     {
         sprite = GetComponent<SpriteRenderer>();
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+    }
+
+    public void Respawn()
+    {
+        transform.position = respawnTransform;
+    }
+
+    public void CheckPoint(Vector3 position)
+    {
+        respawnTransform = position;
     }
 }
