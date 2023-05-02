@@ -5,10 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class Credits : MonoBehaviour
 {
+    public float duration = 10;
+
     // Start is called before the first frame update
     void Start()
     {
-        Invoke("BackToMenu", 10);
+        Invoke("BackToMenu", duration);
     }
 
     // Update is called once per frame
