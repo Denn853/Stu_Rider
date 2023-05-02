@@ -7,12 +7,6 @@ public class PlayerDoubleJump : MonoBehaviour
 {
     [Header("Jump Forces")]
     public float jumpForce;
-    public float jumpSpeed;
-    public float fallSpeed;
-
-    [Header("Jump Direction")]
-    public float angleJump;
-    public Vector2 jumpDirection;
 
     bool doubleJump;
     float timer = 1;
@@ -24,7 +18,6 @@ public class PlayerDoubleJump : MonoBehaviour
 
         if (Input.GetButtonDown("Jump") && PlayerController.instance.isJumping && PlayerController.instance.canJump && !PlayerController.instance.isInWall)
         {
-            SetJumpDirection();
             doubleJump = true;
             time = timer;
         }
@@ -42,47 +35,11 @@ public class PlayerDoubleJump : MonoBehaviour
     {
         if (doubleJump)
         {
-            PlayerController.instance.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
 
-            SetJumpDirection();
-
-            PlayerController.instance.GetComponent<Rigidbody2D>().AddForce(jumpDirection * jumpForce);
-            PlayerController.instance.GetComponent<Rigidbody2D>().velocity = new Vector2(PlayerController.instance.GetComponent<Rigidbody2D>().velocity.x * jumpSpeed, jumpSpeed);
+            PlayerController.instance.GetComponent<Rigidbody2D>().velocity = new Vector2(PlayerController.instance.GetComponent<Rigidbody2D>().velocity.x, jumpForce);
 
             PlayerController.instance.canJump = false;
             doubleJump = false;
-        }
-
-        if (PlayerController.instance.isJumping && !PlayerController.instance.canJump && !PlayerController.instance.isDashing)
-            CheckRigidBodyVelocity();
-    }
-
-    void SetJumpDirection()
-    {
-        switch (PlayerController.instance.dir)
-        {
-            case PlayerController.Directions.NONE:
-
-                jumpDirection = Vector2.up * 1.25f;
-                break;
-
-            case PlayerController.Directions.RIGHT:
-
-                jumpDirection = new Vector2(Mathf.Cos(Mathf.Deg2Rad * angleJump), Mathf.Sin(Mathf.Deg2Rad * angleJump)) * 1.25f;
-                break;
-
-            case PlayerController.Directions.LEFT:
-
-                jumpDirection = new Vector2(-Mathf.Cos(Mathf.Deg2Rad * angleJump), Mathf.Sin(Mathf.Deg2Rad * angleJump)) * 1.25f;
-                break;
-        }
-    }
-
-    void CheckRigidBodyVelocity()
-    {
-        if (PlayerController.instance.GetComponent<Rigidbody2D>().velocity.y <= 0)
-        {
-            PlayerController.instance.GetComponent<Rigidbody2D>().velocity = new Vector2(PlayerController.instance.GetComponent<Rigidbody2D>().velocity.x, fallSpeed);
         }
     }
 }

@@ -31,7 +31,6 @@ public class PlayerJump : MonoBehaviour
 
         if (Input.GetButtonDown("Jump") && PlayerController.instance.isGrounded)
         {
-            SetJumpDirection();
             jump = true;
             time = timer;
         }
@@ -51,8 +50,6 @@ public class PlayerJump : MonoBehaviour
 
         if (jump)
         {
-            PlayerController.instance.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-
             AddForce();
 
             GameObject temp = Instantiate(dustParticles, transform.position, transform.rotation);
@@ -63,27 +60,6 @@ public class PlayerJump : MonoBehaviour
 
         if (PlayerController.instance.isJumping && PlayerController.instance.canJump && !PlayerController.instance.isDashing)
             CheckGravity();
-    }
-
-    void SetJumpDirection()
-    {
-        switch (PlayerController.instance.dir)
-        {
-            case PlayerController.Directions.NONE:
-
-                jumpDirection = Vector2.up;
-                break;
-
-            case PlayerController.Directions.RIGHT:
-
-                jumpDirection = new Vector2(Mathf.Cos(Mathf.Deg2Rad * angleJump), 1);
-                break;
-
-            case PlayerController.Directions.LEFT:
-
-                jumpDirection = new Vector2(-Mathf.Cos(Mathf.Deg2Rad * angleJump), 1);
-                break;
-        }
     }
 
     void CheckGravity()
@@ -103,10 +79,7 @@ public class PlayerJump : MonoBehaviour
 
     void AddForce()
     {
-
-        PlayerController.instance.GetComponent<Rigidbody2D>().gravityScale = jumpGravity;
-        //PlayerController.instance.GetComponent<Rigidbody2D>().AddForce(jumpDirection * (jumpForce));
-        PlayerController.instance.GetComponent<Rigidbody2D>().AddForce(Vector2.up * (jumpForce));
+        PlayerController.instance.GetComponent<Rigidbody2D>().velocity = new Vector2(PlayerController.instance.GetComponent<Rigidbody2D>().velocity.x, jumpForce);
         
         PlayerController.instance.isGrounded = false;
     }

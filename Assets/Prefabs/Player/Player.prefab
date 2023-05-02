@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxSpeed: 6
-  accelerateSpeed: 20
+  accelerateSpeed: 30
   decelerateSpeed: 30
   currentSpeed: 0
 --- !u!114 &5649064239932931710
@@ -173,9 +173,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de9ad6ea1aeb23842ae1f2334db1769a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 400
+  jumpForce: 10
   jumpGravity: 0.6
-  fallingGravity: 2.5
+  fallingGravity: 4
   fallingWallGravity: 0.5
   jumpDirection: {x: 0, y: 0}
   angleJump: 5
@@ -192,11 +192,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb329f7de6406304c83d80c40a333750, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 500
-  jumpSpeed: 4.25
-  fallSpeed: -10
-  angleJump: 45
-  jumpDirection: {x: 0, y: 0}
+  jumpForce: 8
 --- !u!1 &5649064240686269095
 GameObject:
   m_ObjectHideFlags: 0
@@ -494,9 +490,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   groundDistance: 0.9
   rays:
-  - {x: 0.1, y: 0, z: 0}
+  - {x: 0.4, y: 0, z: 0}
   - {x: -0.1, y: 0, z: 0}
-  - {x: -0.3, y: 0, z: 0}
+  - {x: -0.75, y: 0, z: 0}
   groundMask:
     serializedVersion: 2
     m_Bits: 64
@@ -545,7 +541,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.17754173, y: -0.2055006}
+  m_Offset: {x: -0.20155358, y: -0.2055006}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -556,5 +552,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.1558762, y: 1.5321407}
+  m_Size: {x: 0.5635867, y: 1.5321407}
   m_EdgeRadius: 0

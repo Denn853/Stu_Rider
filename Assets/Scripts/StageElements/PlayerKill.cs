@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class PlayerKill : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D collision)
-    {   
-        SceneManager.LoadScene("Dennys Moto");
+    {
+        PlayerController.instance.Respawn();
     }
 }
