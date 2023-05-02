@@ -25,12 +25,17 @@ public class PlayerJump : MonoBehaviour
     float timer = 1;
     float time = 0;
 
+    [Header("Audio")]
+    [SerializeField] private AudioSource jumpSoundEffect;
+
     private void Update()
     {
         if (PlayerController.instance.isDashing) { return; }
 
         if (Input.GetButtonDown("Jump") && PlayerController.instance.isGrounded)
         {
+            jumpSoundEffect.Play();
+
             jump = true;
             time = timer;
         }
