@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -11,6 +12,7 @@ public class SceneControl : MonoBehaviour
     public static SceneControl instance;
 
     [SerializeField] private List<string> sceneList = new List<string>();
+    [SerializeField] private GameObject optionsMenu;
 
     private void Awake()
     {
@@ -39,6 +41,16 @@ public class SceneControl : MonoBehaviour
     public void Level1()
     {
         SceneManager.LoadScene(sceneList[(int)Scenes.LEVEL1], LoadSceneMode.Single);
+    }
+
+    public void ShowOptionsMenu()
+    {
+        optionsMenu.active = true;
+    }
+
+    public void HideOptionsMenu()
+    {
+        optionsMenu.active = false;
     }
 
     public void Exit()
