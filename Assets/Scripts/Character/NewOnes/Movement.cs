@@ -15,12 +15,16 @@ public class Movement : MonoBehaviour
 
     private float gravity;
 
+    Animator anim;
+
     // Start is called before the first frame update
     void Start()
     {
         PlayerController.instance.isMoving = false;
         PlayerController.instance.dir = PlayerController.Directions.NONE;
-        gravity = PlayerController.instance.GetComponent<Rigidbody2D>().gravityScale;
+        gravity = PlayerController.instance.GetComponent<Rigidbody2D>().gravityScale;   
+ 
+        anim = GetComponent<Animator>();
     }
 
     private void FixedUpdate()
@@ -40,6 +44,8 @@ public class Movement : MonoBehaviour
 
             AddForce();
             LimitSpeedBody(horizontal);
+      
+            anim.SetBool("isWalking", horizontal != 0);
         }
     }
 

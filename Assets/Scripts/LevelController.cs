@@ -23,6 +23,11 @@ public class LevelController : MonoBehaviour
 
     float timer;
 
+    [Header("Audio")]
+    [SerializeField] private AudioSource reciveDamageSoundEffect;
+    [SerializeField] private AudioSource deathSoundEffect;
+    [SerializeField] private AudioSource winSoundEffect;
+
     private void Awake()
     {
         instance = this;
@@ -60,6 +65,8 @@ public class LevelController : MonoBehaviour
 
     void LevelWon()
     {
+        winSoundEffect.Play();
+
         Time.timeScale = 0;
         winMenu.SetActive(true);
     }
@@ -71,6 +78,8 @@ public class LevelController : MonoBehaviour
 
     public void TakeDamage()
     {
+        reciveDamageSoundEffect.Play();
+
         lifes--;
     }
 
