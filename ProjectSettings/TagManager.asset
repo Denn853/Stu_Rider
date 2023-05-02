@@ -11,6 +11,8 @@ TagManager:
   - Pointers
   - Wall
   - UIPanels
+  - Trap
+  - OptionsMenu
   layers:
   - Default
   - TransparentFX

@@ -798,13 +798,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 641036479}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 641036481}
+        m_TargetAssemblyTypeName: SceneControl, Assembly-CSharp
+        m_MethodName: Credits
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1194,7 +1194,11 @@ MonoBehaviour:
   sceneList:
   - MainMenu
   - LevelSelector
-  - Level1
+  - Level_1
+  - Level_2
+  - Level_3
+  - Level_4
+  - Credits
   optionsMenu: {fileID: 171805963}
 --- !u!1 &780562435
 GameObject:
