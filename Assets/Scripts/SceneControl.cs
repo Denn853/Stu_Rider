@@ -14,23 +14,14 @@ public class SceneControl : MonoBehaviour
     [SerializeField] private List<string> sceneList = new List<string>();
     [SerializeField] private GameObject optionsMenu;
 
-    private void Awake()
+    private void Start()
     {
-        if (instance == null)
-        {
-            instance = this;
-            DontDestroyOnLoad(this);
-        }
-        else
-        {
-            Debug.Log("Warning: Multiple " + this + " in scene!");
-            Destroy(this);
-        }
+        optionsMenu = GameObject.FindGameObjectWithTag("optionsMenu");
     }
 
     public void MainMenu()
     {
-        SceneManager.LoadScene(sceneList[(int)Scenes.MAINMENU], LoadSceneMode.Single);
+        SceneManager.LoadScene(sceneList[(int)Scenes.LEVEL1], LoadSceneMode.Single);
     }
 
     public void LevelSelector()
@@ -51,6 +42,11 @@ public class SceneControl : MonoBehaviour
     public void HideOptionsMenu()
     {
         optionsMenu.active = false;
+    }
+
+    public void Credits()
+    {
+        SceneManager.LoadScene(sceneList[(int)Scenes.CREDITS], LoadSceneMode.Single);
     }
 
     public void Exit()
