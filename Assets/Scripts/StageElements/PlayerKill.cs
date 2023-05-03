@@ -6,8 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class PlayerKill : MonoBehaviour
 {
-    [Header("Scene to Load")]
-    [SerializeField] public string scene;
 
     [Header("Player Animator")]
     [SerializeField] private Animator anim;
@@ -36,7 +34,8 @@ public class PlayerKill : MonoBehaviour
             yield return new WaitForSeconds(2);
 
             GameManager.instance.SubstractLife();
-            SceneManager.LoadScene(scene, LoadSceneMode.Single);
+            Scene scene = SceneManager.GetActiveScene(); 
+            SceneManager.LoadScene(scene.name);
 
             yield return null;
         } 

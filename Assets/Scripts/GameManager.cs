@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
 
     public static GameManager instance { get; private set; }
 
-    public int lifes = 3;
+    public int lifes;
 
     private string currentLevel;
 
@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        lifes = 8;
+        lifes = 3;
         currentLevel = "Level1";
     }
 
