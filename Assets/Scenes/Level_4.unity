@@ -100959,6 +100959,10 @@ PrefabInstance:
       propertyPath: dashingTime
       value: 0.4
       objectReference: {fileID: 0}
+    - target: {fileID: 465097228141184520, guid: 71f93095d891f84449986e82179fb5cb, type: 3}
+      propertyPath: distance
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5649064241023374145, guid: 71f93095d891f84449986e82179fb5cb, type: 3}
       propertyPath: m_RootOrder
       value: 2
