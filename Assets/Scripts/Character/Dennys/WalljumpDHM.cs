@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,6 +19,8 @@ public class WalljumpDHM : MonoBehaviour
     Rigidbody2D rb;
     Animator anim;
 
+    bool canJump;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,16 +31,10 @@ public class WalljumpDHM : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Jump") && DetectWall())
-        {
-            if (isInWallRight)
-                rb.AddForce(new Vector2(-0.5f, 0.5f) * jumpForce, ForceMode2D.Impulse);
-            else
-                rb.AddForce(new Vector2(0.5f, 0.5f) * jumpForce, ForceMode2D.Impulse);
-        }
+        DetectWall();
     }
 
-    bool DetectWall()
+    void DetectWall()
     {
         Vector2 origin = (Vector2)transform.position;
 
@@ -52,6 +49,7 @@ public class WalljumpDHM : MonoBehaviour
             isInWallRight = true;
             isInWallLeft = false;
             anim.SetBool("isWalljumping", true);
+            canJump = true;
         }
         else if (left.collider != null)
         {
@@ -59,14 +57,36 @@ public class WalljumpDHM : MonoBehaviour
             isInWallRight = false;
             isInWallLeft = true;
             anim.SetBool("isWalljumping", true);
+            canJump = true;
         }
         else
         {
             isInWallRight = false;
             isInWallLeft = false;
             anim.SetBool("isWalljumping", false);
+            canJump = false;
+
+            return;
         }
 
-        return isInWallRight && isInWallLeft;
+        float gravity = rb.gravityScale;
+
+        rb.gravityScale = 1;
+        rb.velocity = new Vector2(rb.velocity.x, 0);
+
+        if (Input.GetButtonDown("Jump") && canJump)
+        {
+            if (isInWallRight)
+                rb.AddForce(new Vector2(-0.75f, 1) * jumpForce, ForceMode2D.Impulse);
+            else
+                rb.AddForce(new Vector2(0.75f, 1) * jumpForce, ForceMode2D.Impulse);
+        }
+
+        rb.gravityScale = gravity;
+    }
+
+    public bool IsInWall()
+    {
+        return canJump;
     }
 }

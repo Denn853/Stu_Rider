@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml;
 using UnityEngine;
 
 public class DoubleJumpDHM : MonoBehaviour
 {
 
     Rigidbody2D rb;
+    WalljumpDHM wj;
 
     public bool canJump = true;
     public float jumpForce = 10;
@@ -20,11 +22,15 @@ public class DoubleJumpDHM : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        wj = GetComponent<WalljumpDHM>();
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        if (wj.IsInWall()) { return; }
+
         if (canJump = anim.GetBool("isJumping"))
         {
             if (jumpsLeft == 1)
