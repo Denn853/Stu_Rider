@@ -6,6 +6,7 @@ public class JumpDHM : MonoBehaviour
 {
     Rigidbody2D rb;
     GroundDetectorDHM gd;
+    WalljumpDHM wj;
 
     public bool canJump = true;
     public float jumpForce = 10;
@@ -20,6 +21,7 @@ public class JumpDHM : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         gd = GetComponent<GroundDetectorDHM>();
         anim = GetComponent<Animator>();
+        wj = GetComponent<WalljumpDHM>();
     }
 
     // Update is called once per frame
