@@ -63,7 +63,7 @@ public class LevelController : MonoBehaviour
             LevelWon();
     }
 
-    void LevelWon()
+    public void LevelWon()
     {
         winSoundEffect.Play();
 
@@ -88,4 +88,8 @@ public class LevelController : MonoBehaviour
         return currentLevel;
     }
 
+    public int GetLifes()
+    {
+        return lifes;
+    }
 }

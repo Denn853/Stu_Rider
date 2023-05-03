@@ -13,6 +13,7 @@ public class SceneControl : MonoBehaviour
 
     [SerializeField] private List<string> sceneList = new List<string>();
     [SerializeField] private GameObject optionsMenu;
+    [SerializeField] private GameObject controlsMenu;
 
     private void Start()
     {
@@ -47,6 +48,15 @@ public class SceneControl : MonoBehaviour
     public void Credits()
     {
         SceneManager.LoadScene(sceneList[(int)Scenes.CREDITS], LoadSceneMode.Single);
+    }
+    public void ShowControlsMenu()
+    {
+        controlsMenu.active = true;
+    }
+
+    public void HideControlsMenu()
+    {
+        controlsMenu.active = false;
     }
 
     public void Exit()
