@@ -174,7 +174,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6240fc2ad348534cbdc9a2f70b31f21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unlocked: 0
+  unlocked: 1
   unlockImage: {fileID: 1314084602}
   anim: {fileID: 1314084606}
 --- !u!1 &61382160
