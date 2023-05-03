@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         lifes = 3;
-        level = 1;
+        //level = 1;
     }
 
     // Update is called once per frame
