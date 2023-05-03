@@ -28,6 +28,7 @@ public class PlayerController : MonoBehaviour
     public SpriteRenderer sprite;
 
     private Vector3 respawnTransform;
+    private Animator anim;
 
     private void Awake()
     {
@@ -39,6 +40,15 @@ public class PlayerController : MonoBehaviour
     {
         sprite = GetComponent<SpriteRenderer>();
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        anim = GetComponent<Animator>();
+    }
+
+    private void Update()
+    {
+        anim.SetBool("isWalking", isMoving);
+        anim.SetBool("isJumping", isJumping);
+        anim.SetBool("isDashing", isDashing);
+        anim.SetBool("isWalljumping", isInWall);
     }
 
     public void Respawn()

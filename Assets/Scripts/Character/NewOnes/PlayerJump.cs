@@ -84,6 +84,8 @@ public class PlayerJump : MonoBehaviour
 
     void AddForce()
     {
+        PlayerController.instance.isJumping = true;
+
         PlayerController.instance.GetComponent<Rigidbody2D>().velocity = new Vector2(PlayerController.instance.GetComponent<Rigidbody2D>().velocity.x, jumpForce);
         
         PlayerController.instance.isGrounded = false;

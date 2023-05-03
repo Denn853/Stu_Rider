@@ -60,6 +60,7 @@ public class PlayerDash : MonoBehaviour
             PlayerController.instance.isDashing = false;
             yield return null;
         }
+        PlayerController.instance.isDashing = true;
 
         PlayerController.instance.GetComponent<Rigidbody2D>().gravityScale = 0f;
         PlayerController.instance.GetComponent<Rigidbody2D>().velocity = new Vector2(dashForce, 0);
