@@ -1499,7 +1499,7 @@ PrefabInstance:
       objectReference: {fileID: 1685884030}
     - target: {fileID: 5039841956383207750, guid: 0c82b5047ec2ce946afb52f73e1372c5, type: 3}
       propertyPath: timeRemaining
-      value: 180
+      value: 240
       objectReference: {fileID: 0}
     - target: {fileID: 5039841956383207751, guid: 0c82b5047ec2ce946afb52f73e1372c5, type: 3}
       propertyPath: m_SizeDelta.x
