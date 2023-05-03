@@ -8,6 +8,10 @@ public class PlayerKill : MonoBehaviour
     [Header("Scene to Load")]
     [SerializeField] public string scene;
 
+    [Header("Player Animator")]
+    [SerializeField] private Animator anim;
+    [SerializeField] private HorizontalMovementDHM hm;
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         StartCoroutine(DealDamageCorrutine());
@@ -25,7 +29,7 @@ public class PlayerKill : MonoBehaviour
 
         if (LevelController.instance.GetLifes() <= 0)
         {
-            PlayerController.instance.GetComponent<Animator>().SetTrigger("isDeath");
+            anim.SetTrigger("isDeath");
             yield return new WaitForSeconds(2);
 
             GameManager.instance.SubstractLife();
@@ -35,10 +39,10 @@ public class PlayerKill : MonoBehaviour
         } 
         else
         {
-            PlayerController.instance.GetComponent<Animator>().SetTrigger("isHurt");
+            anim.SetTrigger("isHurt");
             yield return new WaitForSeconds(0.75f);
 
-            PlayerController.instance.Respawn();
+            hm.Respawn();
 
             yield return null;
         }
