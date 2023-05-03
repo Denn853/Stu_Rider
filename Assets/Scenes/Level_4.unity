@@ -100951,6 +100951,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 351777845899343747, guid: 71f93095d891f84449986e82179fb5cb, type: 3}
+      propertyPath: force
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 351777845899343747, guid: 71f93095d891f84449986e82179fb5cb, type: 3}
+      propertyPath: dashingTime
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 5649064241023374145, guid: 71f93095d891f84449986e82179fb5cb, type: 3}
       propertyPath: m_RootOrder
       value: 2

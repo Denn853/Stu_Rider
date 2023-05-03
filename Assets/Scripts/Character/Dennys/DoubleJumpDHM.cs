@@ -37,16 +37,6 @@ public class DoubleJumpDHM : MonoBehaviour
                     rb.gravityScale = jumpGravityScale;
                     jumpsLeft--;
                 }
-
-                if (rb.velocity.y >= 0)
-                {
-                    rb.gravityScale = jumpGravityScale;
-                }
-
-                if (rb.velocity.y < 0)
-                {
-                    rb.gravityScale = fallingGravityScale;
-                }
             }    
         }
         else
