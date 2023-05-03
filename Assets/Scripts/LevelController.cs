@@ -19,6 +19,7 @@ public class LevelController : MonoBehaviour
 
     [Header("Level Status")]
     [SerializeField] private int lifes;
+    [SerializeField] private GameObject[] hearts;
     [SerializeField] private int deliversDone;
 
     float timer;
@@ -37,7 +38,7 @@ public class LevelController : MonoBehaviour
     void Start()
     {
         deliversDone = 0;
-        lifes = 3;
+        lifes = hearts.Length;
         timer = 0.0f;
 
         Time.timeScale = 0;
@@ -76,11 +77,40 @@ public class LevelController : MonoBehaviour
         substactLifeMenu.SetActive(true);
     }
 
+    private void CheckLife()
+    {
+        if (lifes < 6)
+        {
+            Destroy(hearts[0].gameObject);
+        }
+        if (lifes < 5)
+        {
+            Destroy(hearts[1].gameObject);
+        }
+        if (lifes < 4)
+        {
+            Destroy(hearts[2].gameObject);
+        }
+        if (lifes < 3)
+        {
+            Destroy(hearts[3].gameObject);
+        }
+        if (lifes < 2)
+        {
+            Destroy(hearts[4].gameObject);
+        }
+        if (lifes < 1)
+        {
+            Destroy(hearts[5].gameObject);
+        }
+    }
+
     public void TakeDamage()
     {
         reciveDamageSoundEffect.Play();
 
         lifes--;
+        CheckLife();
     }
 
     public string GetCurrentLevel()
