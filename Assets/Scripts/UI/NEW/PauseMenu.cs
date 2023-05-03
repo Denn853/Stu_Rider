@@ -13,11 +13,13 @@ public class PauseMenu : MonoBehaviour
 
     [Header("Pause Status")]
     [SerializeField] private bool isPaused;
+    [SerializeField] private bool areSettings;
 
     // Start is called before the first frame update
     void Start()
     {
         isPaused = false;
+        areSettings = false;
     }
 
     // Update is called once per frame
@@ -27,7 +29,7 @@ public class PauseMenu : MonoBehaviour
         {
             ShowPauseMenu();
         }
-        else if (Input.GetButtonDown("Cancel") && isPaused)
+        else if (Input.GetButtonDown("Cancel") && isPaused && !areSettings)
         {
             HidePauseMenu();
         }
@@ -50,6 +52,13 @@ public class PauseMenu : MonoBehaviour
     public void ShowSettingsMenu()
     {
         settingsMenu.SetActive(true);
+        areSettings = true;
+    }
+
+    public void HideSettingsMenu()
+    {
+        settingsMenu.SetActive(false);
+        areSettings = false;
     }
 
     public void GoToLevelSelector()

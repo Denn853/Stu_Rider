@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class PlayerKill : MonoBehaviour
 {
     [Header("Scene to Load")]
-    [SerializeField] private string scene;
+    [SerializeField] public string scene;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -29,7 +29,7 @@ public class PlayerKill : MonoBehaviour
             yield return new WaitForSeconds(2);
 
             GameManager.instance.SubstractLife();
-            SceneManager.LoadScene("Level_1", LoadSceneMode.Single);
+            SceneManager.LoadScene(scene, LoadSceneMode.Single);
 
             yield return null;
         } 

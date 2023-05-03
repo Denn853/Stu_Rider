@@ -6,8 +6,11 @@ public class CheckPoint : MonoBehaviour
 {
     [Header("Audio")]
     [SerializeField] private AudioSource checkPointSoundEffect;
+    [SerializeField] private HorizontalMovementDHM hm;
 
     Animator anim;
+
+
 
     private void Start()
     {
@@ -18,7 +21,7 @@ public class CheckPoint : MonoBehaviour
     {
         checkPointSoundEffect.Play();  
 
-        PlayerController.instance.CheckPoint(transform.position);
+        hm.CheckPoint(transform.position);
 
         anim.SetTrigger("isActive");
     }
