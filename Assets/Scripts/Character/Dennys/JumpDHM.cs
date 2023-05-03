@@ -12,11 +12,14 @@ public class JumpDHM : MonoBehaviour
     public float jumpGravityScale = 2.2f;
     public float fallingGravityScale = 3.0f;
 
+    Animator anim;
+
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         gd = GetComponent<GroundDetectorDHM>();
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -24,6 +27,7 @@ public class JumpDHM : MonoBehaviour
     {
         //if (!PauseMenu.instance.isPaused)
        // {
+
             if (canJump = gd.grounded)
             {
                 if (Input.GetButtonDown("Jump") && canJump)
@@ -41,10 +45,9 @@ public class JumpDHM : MonoBehaviour
                 if (rb.velocity.y < 0)
                 {
                     rb.gravityScale = fallingGravityScale;
-                    canJump = true;
                 }
             }
-       // }
-        canJump = false;
+
+            anim.SetBool("isJumping", !gd.grounded);
     }
 }

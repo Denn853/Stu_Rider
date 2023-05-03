@@ -15,11 +15,6 @@ public class SceneControl : MonoBehaviour
     [SerializeField] private GameObject optionsMenu;
     [SerializeField] private GameObject controlsMenu;
 
-    private void Start()
-    {
-        optionsMenu = GameObject.FindGameObjectWithTag("optionsMenu");
-    }
-
     public void LoadLevel(string scene)
     {
         SceneManager.LoadScene(scene, LoadSceneMode.Single);

@@ -15,6 +15,8 @@ public class HorizontalMovementDHM : MonoBehaviour
     GroundDetectorDHM ground;
     JumpDHM jumping;
 
+    Vector3 lastPosition;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -49,9 +51,19 @@ public class HorizontalMovementDHM : MonoBehaviour
             dir = Directions.LEFT;
             //transform.localScale = new Vector3(-1, 1, 1);
         }
-        anim.SetBool("Moving", horizontal != 0);
+        anim.SetBool("isWalking", horizontal != 0);
         anim.SetBool("Grounded", ground.grounded);
         //anim.SetBool("Jumping", jumping.jump);
 
+    }
+
+    public void Respawn()
+    {
+        transform.position = lastPosition;
+    }
+
+    public void CheckPoint(Vector3 position)
+    {
+        lastPosition = position;
     }
 }
