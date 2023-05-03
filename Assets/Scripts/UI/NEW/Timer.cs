@@ -13,6 +13,9 @@ public class Timer : MonoBehaviour
     [SerializeField] private float timeElapsed;
     [SerializeField] private bool timeRunning;
 
+    [Header("Lose")]
+    [SerializeField] private GameObject loseMenu;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,6 +38,7 @@ public class Timer : MonoBehaviour
             {
                 timeElapsed = timeRemaining;
                 timeRunning = false;
+                ShowLoseMenu();
             }
         }
     }
@@ -52,5 +56,11 @@ public class Timer : MonoBehaviour
     public float GetTimeRemaining()
     {
         return timeElapsed;
+    }
+
+    void ShowLoseMenu()
+    {
+        Time.timeScale = 0;
+        loseMenu.SetActive(true);
     }
 }

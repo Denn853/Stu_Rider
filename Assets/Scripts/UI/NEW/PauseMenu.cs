@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class PauseMenu : MonoBehaviour
 
     [Header("Settings Menu")]
     [SerializeField] private GameObject settingsMenu;
+    [SerializeField] private GameObject controlsMenu;
 
     [Header("Pause Status")]
     [SerializeField] private bool isPaused;
@@ -61,8 +63,19 @@ public class PauseMenu : MonoBehaviour
         areSettings = false;
     }
 
+    public void ShowControlsMenu()
+    {
+        controlsMenu.SetActive(true);
+    }
+
+    public void HideControlsMenu()
+    {
+        controlsMenu.SetActive(false);
+    }
+
     public void GoToLevelSelector()
     {
-        SceneControl.instance.LevelSelector();
+        Time.timeScale = 1;
+        SceneManager.LoadScene("LevelSelector", LoadSceneMode.Single);
     }
 }

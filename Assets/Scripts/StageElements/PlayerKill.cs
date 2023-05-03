@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,8 +6,10 @@ using UnityEngine.SceneManagement;
 
 public class PlayerKill : MonoBehaviour
 {
-    [Header("Scene to Load")]
-    [SerializeField] public string scene;
+
+    [Header("Player Animator")]
+    [SerializeField] private Animator anim;
+    [SerializeField] private HorizontalMovementDHM hm;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -23,22 +26,25 @@ public class PlayerKill : MonoBehaviour
 
         LevelController.instance.TakeDamage();
 
+        Debug.Log(LevelController.instance.GetLifes());
+
         if (LevelController.instance.GetLifes() <= 0)
         {
-            PlayerController.instance.GetComponent<Animator>().SetTrigger("isDeath");
+            anim.SetTrigger("isDeath");
             yield return new WaitForSeconds(2);
 
             GameManager.instance.SubstractLife();
-            SceneManager.LoadScene(scene, LoadSceneMode.Single);
+            Scene scene = SceneManager.GetActiveScene(); 
+            SceneManager.LoadScene(scene.name);
 
             yield return null;
         } 
         else
         {
-            PlayerController.instance.GetComponent<Animator>().SetTrigger("isHurt");
+            anim.SetTrigger("isHurt");
             yield return new WaitForSeconds(0.75f);
 
-            PlayerController.instance.Respawn();
+            hm.Respawn();
 
             yield return null;
         }
