@@ -20,6 +20,11 @@ public class SceneControl : MonoBehaviour
         optionsMenu = GameObject.FindGameObjectWithTag("optionsMenu");
     }
 
+    public void LoadLevel(string scene)
+    {
+        SceneManager.LoadScene(scene, LoadSceneMode.Single);
+    }
+
     public void MainMenu()
     {
         SceneManager.LoadScene(sceneList[(int)Scenes.LEVEL1], LoadSceneMode.Single);

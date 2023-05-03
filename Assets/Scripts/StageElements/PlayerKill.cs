@@ -8,6 +8,11 @@ public class PlayerKill : MonoBehaviour
     [Header("Scene to Load")]
     [SerializeField] private string scene;
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        StartCoroutine(DealDamageCorrutine());
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         StartCoroutine(DealDamageCorrutine());
@@ -15,7 +20,6 @@ public class PlayerKill : MonoBehaviour
 
     IEnumerator DealDamageCorrutine()
     {
-        GetComponent<CircleCollider2D>().enabled = false;
 
         LevelController.instance.TakeDamage();
 
@@ -27,8 +31,6 @@ public class PlayerKill : MonoBehaviour
             GameManager.instance.SubstractLife();
             SceneManager.LoadScene("Level_1", LoadSceneMode.Single);
 
-            GetComponent<CircleCollider2D>().enabled = true;
-
             yield return null;
         } 
         else
@@ -37,8 +39,6 @@ public class PlayerKill : MonoBehaviour
             yield return new WaitForSeconds(0.75f);
 
             PlayerController.instance.Respawn();
-
-            GetComponent<CircleCollider2D>().enabled = true;
 
             yield return null;
         }
