@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -26,6 +27,8 @@ public class PlayerKill : MonoBehaviour
     {
 
         LevelController.instance.TakeDamage();
+
+        Debug.Log(LevelController.instance.GetLifes());
 
         if (LevelController.instance.GetLifes() <= 0)
         {
