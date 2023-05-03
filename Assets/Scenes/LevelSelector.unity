@@ -174,8 +174,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6240fc2ad348534cbdc9a2f70b31f21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unlocked: 1
+  unlocked: 0
   unlockImage: {fileID: 1314084602}
+  level: 1
   anim: {fileID: 1314084606}
 --- !u!1 &61382160
 GameObject:
@@ -557,6 +558,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unlocked: 1
   unlockImage: {fileID: 61382160}
+  level: 0
   anim: {fileID: 61382164}
 --- !u!1 &477867026
 GameObject:
@@ -9752,6 +9754,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unlocked: 0
   unlockImage: {fileID: 96169378}
+  level: 3
   anim: {fileID: 96169382}
 --- !u!1 &1246220393
 GameObject:
@@ -17194,6 +17197,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unlocked: 0
   unlockImage: {fileID: 1793380773}
+  level: 2
   anim: {fileID: 1793380777}
 --- !u!1 &1812268436
 GameObject:
@@ -17248,6 +17252,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unlocked: 1
   unlockImage: {fileID: 645481161}
+  level: 0
   anim: {fileID: 645481163}
 --- !u!1 &1822697592
 GameObject:

@@ -9,8 +9,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance { get; private set; }
 
     public int lifes;
-
-    private string currentLevel;
+    public int level;
 
     private void Awake()
     {
@@ -30,7 +29,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         lifes = 3;
-        currentLevel = "Level1";
+        level = 1;
     }
 
     // Update is called once per frame
@@ -53,8 +52,6 @@ public class GameManager : MonoBehaviour
 
     public void ResetGame()
     {
-        currentLevel = "Level1";
+        level = 1;
     }
-
-    public void ReceiveDamage() { }
 }

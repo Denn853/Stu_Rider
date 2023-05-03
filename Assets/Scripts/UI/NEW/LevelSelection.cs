@@ -8,6 +8,8 @@ public class LevelSelection : MonoBehaviour
 {
     [SerializeField] private bool unlocked;
     public GameObject unlockImage;
+
+    public int level;
     
     public Animator anim;
     private SceneControl sceneCtrl;
@@ -19,6 +21,7 @@ public class LevelSelection : MonoBehaviour
 
     void Update()
     {
+        unlocked = level < GameManager.instance.level;
         UpdateLevelImage();
     }
 
@@ -30,7 +33,6 @@ public class LevelSelection : MonoBehaviour
         }
         else
         {
-            //anim.SetBool("isUnlock", true);
             unlockImage.gameObject.SetActive(false);
         }
     }

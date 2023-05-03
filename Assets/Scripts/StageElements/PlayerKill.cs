@@ -34,6 +34,14 @@ public class PlayerKill : MonoBehaviour
             yield return new WaitForSeconds(2);
 
             GameManager.instance.SubstractLife();
+
+            if (GameManager.instance.GetLifes() <= 0)
+            {
+                GameManager.instance.ResetGame();
+                SceneManager.LoadScene("MainMenu");
+
+                yield return null;
+            }
             Scene scene = SceneManager.GetActiveScene(); 
             SceneManager.LoadScene(scene.name);
 
