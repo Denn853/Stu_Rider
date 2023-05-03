@@ -944,11 +944,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2991325902845002011, guid: 87da5b90c80689541aa0cfb3416fb148, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 26.249899
+      value: 33.9
       objectReference: {fileID: 0}
     - target: {fileID: 2991325902845002011, guid: 87da5b90c80689541aa0cfb3416fb148, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 10.782247
+      value: -2.83
       objectReference: {fileID: 0}
     - target: {fileID: 2991325902845002011, guid: 87da5b90c80689541aa0cfb3416fb148, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5271,7 +5271,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 641fe8c7be42ed8438feebec95142074, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scene: 
+  anim: {fileID: 0}
+  hm: {fileID: 0}
 --- !u!19719996 &1414953033
 TilemapCollider2D:
   m_ObjectHideFlags: 0
