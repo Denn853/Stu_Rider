@@ -11,14 +11,19 @@ public class DashDHM : MonoBehaviour
     public float dashingTime = 0.2f;
     public float coolDownTime = 1.3f;
 
+    [Header("Dash Particles")]
+    public GameObject dashParticles;
+
     HorizontalMovementDHM target;
     Rigidbody2D rb;
+    Animator anim;
 
     // Start is called before the first frame update
     void Start()
     {
         target = GetComponent<HorizontalMovementDHM>();
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -37,6 +42,11 @@ public class DashDHM : MonoBehaviour
 
         rb.gravityScale = 0;
 
+        anim.SetBool("isDashing", true);
+
+        GameObject temp = Instantiate(dashParticles, transform.position, transform.rotation);
+        Destroy(temp, dashingTime);
+
         if (target.dir == HorizontalMovementDHM.Directions.LEFT)
         {
             rb.velocity = new Vector2(Vector2.left.x * force, 0f);
@@ -47,6 +57,7 @@ public class DashDHM : MonoBehaviour
         }
 
         yield return new WaitForSeconds(dashingTime);
+        anim.SetBool("isDashing", false);
         rb.gravityScale = gravity;
         rb.velocity = new Vector2(0f, 0f);
         yield return new WaitForSeconds(coolDownTime);
