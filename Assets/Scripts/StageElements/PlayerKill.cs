@@ -14,14 +14,21 @@ public class PlayerKill : MonoBehaviour
     [SerializeField] private Animator anim;
     [SerializeField] private HorizontalMovementDHM hm;
 
+    [Header("Camera Shake")]
+    public CameraShake cam;
+    public float duration;
+    public float magnitude;
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         StartCoroutine(DealDamageCorrutine());
+        StartCoroutine(cam.Shake(duration, magnitude));
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         StartCoroutine(DealDamageCorrutine());
+        StartCoroutine(cam.Shake(duration, magnitude));
     }
 
     IEnumerator DealDamageCorrutine()
