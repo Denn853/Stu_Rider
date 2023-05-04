@@ -10,13 +10,14 @@ public class DashDHM : MonoBehaviour
     public float force = 16f;
     public float dashingTime = 0.2f;
     public float coolDownTime = 1.3f;
-
-    [Header("Dash Particles")]
-    public GameObject dashParticles;
+    public TrailRenderer lineRenderer;
 
     HorizontalMovementDHM target;
     Rigidbody2D rb;
     Animator anim;
+
+    [Header("Audio")]
+    [SerializeField] private AudioSource dashSoundEffect;
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +25,8 @@ public class DashDHM : MonoBehaviour
         target = GetComponent<HorizontalMovementDHM>();
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+
+        lineRenderer.enabled = false;
     }
 
     // Update is called once per frame
@@ -42,10 +45,10 @@ public class DashDHM : MonoBehaviour
 
         rb.gravityScale = 0;
 
-        anim.SetBool("isDashing", true);
+        lineRenderer.enabled = true;
 
-        GameObject temp = Instantiate(dashParticles, transform.position, transform.rotation);
-        Destroy(temp, dashingTime);
+        anim.SetBool("isDashing", true);
+        dashSoundEffect.Play();
 
         if (target.dir == HorizontalMovementDHM.Directions.LEFT)
         {
@@ -60,6 +63,9 @@ public class DashDHM : MonoBehaviour
         anim.SetBool("isDashing", false);
         rb.gravityScale = gravity;
         rb.velocity = new Vector2(0f, 0f);
+
+        lineRenderer.enabled = false;
+
         yield return new WaitForSeconds(coolDownTime);
         canDash = true;
     }

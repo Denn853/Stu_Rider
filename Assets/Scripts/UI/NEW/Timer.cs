@@ -39,7 +39,7 @@ public class Timer : MonoBehaviour
                 timeElapsed -= Time.deltaTime;
                 DisplayTime(timeElapsed);
 
-                if (timeElapsed < timeRemaining / 2 && (int)timeElapsed % 3 == 0 && (int)timeElapsed > 0.0f)
+                if (timeElapsed < timeRemaining / 4 && (int)timeElapsed % 3 == 0 && (int)timeElapsed > 0.0f)
                 {
                     StartCoroutine(cam.Shake(duration, magnitude));
                 }

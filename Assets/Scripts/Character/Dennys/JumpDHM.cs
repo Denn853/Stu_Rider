@@ -18,6 +18,9 @@ public class JumpDHM : MonoBehaviour
 
     Animator anim;
 
+    [Header("Audio")]
+    [SerializeField] private AudioSource jumpSoundEffect;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -37,6 +40,7 @@ public class JumpDHM : MonoBehaviour
             {
                 if (Input.GetButtonDown("Jump") && canJump)
                 {
+                    jumpSoundEffect.Play();
                     GameObject temp = Instantiate(jumpParticles, transform.position, transform.rotation);
                     Destroy(temp, 0.5f);
                     rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);

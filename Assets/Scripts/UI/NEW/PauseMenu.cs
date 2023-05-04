@@ -79,4 +79,11 @@ public class PauseMenu : MonoBehaviour
         GameManager.instance.lifes = 3;
         SceneManager.LoadScene("LevelSelector", LoadSceneMode.Single);
     }
+
+    public void GoToCredits()
+    {
+        Time.timeScale = 1;
+        GameManager.instance.lifes = 3;
+        SceneManager.LoadScene("Credits", LoadSceneMode.Single);
+    }
 }
