@@ -76,6 +76,7 @@ public class PauseMenu : MonoBehaviour
     public void GoToLevelSelector()
     {
         Time.timeScale = 1;
+        GameManager.instance.lifes = 3;
         SceneManager.LoadScene("LevelSelector", LoadSceneMode.Single);
     }
 }
