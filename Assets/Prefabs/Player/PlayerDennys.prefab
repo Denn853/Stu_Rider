@@ -374,6 +374,7 @@ MonoBehaviour:
   jumpForce: 10
   jumpGravityScale: 2.2
   fallingGravityScale: 3
+  dobleJumpSoundEffect: {fileID: 6026040014917797497}
 --- !u!114 &351777845899343747
 MonoBehaviour:
   m_ObjectHideFlags: 0

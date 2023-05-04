@@ -17,6 +17,9 @@ public class DoubleJumpDHM : MonoBehaviour
     Animator anim;
     int jumpsLeft = 1;
 
+    [Header("Audio")]
+    [SerializeField] private AudioSource dobleJumpSoundEffect;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -37,6 +40,7 @@ public class DoubleJumpDHM : MonoBehaviour
             {
                 if (Input.GetButtonDown("Jump") && canJump)
                 {
+                    dobleJumpSoundEffect.Play();
                     rb.velocity = new Vector2(rb.velocity.x, 0);
                     rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
                     canJump = false;
