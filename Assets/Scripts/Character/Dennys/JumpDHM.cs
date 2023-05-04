@@ -18,6 +18,9 @@ public class JumpDHM : MonoBehaviour
 
     Animator anim;
 
+    [Header("Audio")]
+    [SerializeField] private AudioSource jumpSoundEffect;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -56,5 +59,6 @@ public class JumpDHM : MonoBehaviour
             }
 
             anim.SetBool("isJumping", !gd.grounded);
+            jumpSoundEffect.Play();
     }
 }

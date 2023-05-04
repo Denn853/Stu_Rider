@@ -16,6 +16,9 @@ public class DashDHM : MonoBehaviour
     Rigidbody2D rb;
     Animator anim;
 
+    [Header("Audio")]
+    [SerializeField] private AudioSource dashSoundEffect;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -45,6 +48,7 @@ public class DashDHM : MonoBehaviour
         lineRenderer.enabled = true;
 
         anim.SetBool("isDashing", true);
+        dashSoundEffect.Play();
 
         if (target.dir == HorizontalMovementDHM.Directions.LEFT)
         {
