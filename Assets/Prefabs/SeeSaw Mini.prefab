@@ -106,9 +106,10 @@ GameObject:
   m_Component:
   - component: {fileID: 6910560071234437448}
   - component: {fileID: 6910560071234437450}
+  - component: {fileID: 1252242620435390967}
   - component: {fileID: 6910560071234437442}
   - component: {fileID: 6910560071234437453}
-  - component: {fileID: 6910560071234437452}
+  - component: {fileID: 7157453399817681995}
   m_Layer: 0
   m_Name: Saw
   m_TagString: Trap
@@ -183,6 +184,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!58 &1252242620435390967
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6910560071234437449}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.0000076293945, y: -0.01790694}
+  serializedVersion: 2
+  m_Radius: 0.9368076
 --- !u!114 &6910560071234437442
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -212,29 +229,17 @@ MonoBehaviour:
   - {fileID: 4964435287364237632}
   - {fileID: 4964435285942028958}
   speed: 5
---- !u!61 &6910560071234437452
-BoxCollider2D:
+--- !u!114 &7157453399817681995
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6910560071234437449}
   m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.0067836046, y: -0.023123205}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.375, y: 2.375}
-    newSize: {x: 2.375, y: 2.375}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1.5154507, y: 1.5261232}
-  m_EdgeRadius: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 641fe8c7be42ed8438feebec95142074, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 0}
+  hm: {fileID: 0}
