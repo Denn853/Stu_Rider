@@ -40,6 +40,7 @@ public class JumpDHM : MonoBehaviour
             {
                 if (Input.GetButtonDown("Jump") && canJump)
                 {
+                    jumpSoundEffect.Play();
                     GameObject temp = Instantiate(jumpParticles, transform.position, transform.rotation);
                     Destroy(temp, 0.5f);
                     rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
@@ -59,6 +60,5 @@ public class JumpDHM : MonoBehaviour
             }
 
             anim.SetBool("isJumping", !gd.grounded);
-            jumpSoundEffect.Play();
     }
 }
