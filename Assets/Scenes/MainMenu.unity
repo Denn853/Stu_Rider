@@ -2417,7 +2417,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifes: 0
-  level: 1
+  level: 2
 --- !u!4 &2067600322
 Transform:
   m_ObjectHideFlags: 0
