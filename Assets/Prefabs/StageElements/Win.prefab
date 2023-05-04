@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6127211615846662466}
   - component: {fileID: 6127211615846662467}
   - component: {fileID: 667643810867956074}
-  - component: {fileID: 3313510350244879433}
+  - component: {fileID: 2224079887628255614}
   m_Layer: 0
   m_Name: Win
   m_TagString: Untagged
@@ -133,7 +133,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.1025481, y: 6.0311203}
   m_EdgeRadius: 0
---- !u!82 &3313510350244879433
+--- !u!82 &2224079887628255614
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -144,7 +144,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 24300002, guid: bee2fd14345feb14daa6adcc3f8390a7, type: 2}
   m_audioClip: {fileID: 8300000, guid: ddb6292aa79bb684785c786965a6f2fa, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0

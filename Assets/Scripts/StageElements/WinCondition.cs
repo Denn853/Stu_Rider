@@ -12,6 +12,7 @@ public class WinCondition : MonoBehaviour
         GameManager.instance.lifes = 3;
         Time.timeScale = 0;
         winMenu.SetActive(true);
+        GetComponent<AudioSource>().Play();
         
         switch(LevelController.instance.GetCurrentLevel())
         {
