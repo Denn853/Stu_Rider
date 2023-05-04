@@ -46,10 +46,4 @@ public class SettingsMenu : MonoBehaviour
             sfxSliderBar.interactable = true;
         }
     }
-
-    public void Back()
-    {
-        this.gameObject.active = false;
-    }
-
 }

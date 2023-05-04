@@ -2269,6 +2269,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 780562439}
     m_Modifications:
+    - target: {fileID: 3206563587809007788, guid: e64344b7efb5d45459d1c3996fce4788, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 641036481}
+    - target: {fileID: 3206563587809007788, guid: e64344b7efb5d45459d1c3996fce4788, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: HideControlsMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 3206563587809007788, guid: e64344b7efb5d45459d1c3996fce4788, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SceneControl, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 3793040982523703532, guid: e64344b7efb5d45459d1c3996fce4788, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -1684
