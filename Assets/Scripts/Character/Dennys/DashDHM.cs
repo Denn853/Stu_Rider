@@ -22,7 +22,8 @@ public class DashDHM : MonoBehaviour
         target = GetComponent<HorizontalMovementDHM>();
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-        lineRenderer = GetComponent<TrailRenderer>();
+
+        lineRenderer.enabled = false;
     }
 
     // Update is called once per frame
