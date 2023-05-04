@@ -9,6 +9,7 @@ public class WinCondition : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        GameManager.instance.lifes = 3;
         Time.timeScale = 0;
         winMenu.SetActive(true);
         

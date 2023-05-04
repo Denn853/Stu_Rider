@@ -13,6 +13,9 @@ public class JumpDHM : MonoBehaviour
     public float jumpGravityScale = 2.2f;
     public float fallingGravityScale = 3.0f;
 
+    [Header("Jump Particles")]
+    public GameObject jumpParticles;
+
     Animator anim;
 
     // Start is called before the first frame update
@@ -34,6 +37,8 @@ public class JumpDHM : MonoBehaviour
             {
                 if (Input.GetButtonDown("Jump") && canJump)
                 {
+                    GameObject temp = Instantiate(jumpParticles, transform.position, transform.rotation);
+                    Destroy(temp, 0.5f);
                     rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
                     canJump = false;
                     rb.gravityScale = jumpGravityScale;

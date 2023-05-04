@@ -7,6 +7,9 @@ using UnityEngine.SceneManagement;
 public class PlayerKill : MonoBehaviour
 {
 
+    [Header("Lose Menu")]
+    public GameObject loseMenu;
+
     [Header("Player Animator")]
     [SerializeField] private Animator anim;
     [SerializeField] private HorizontalMovementDHM hm;
@@ -36,16 +39,21 @@ public class PlayerKill : MonoBehaviour
             GameManager.instance.SubstractLife();
 
             if (GameManager.instance.GetLifes() <= 0)
-            {
-                GameManager.instance.ResetGame();
-                SceneManager.LoadScene("MainMenu");
+            { 
+                GameManager.instance.lifes = 3;
+                Time.timeScale = 0;
+                loseMenu.SetActive(true);
+
 
                 yield return null;
             }
-            Scene scene = SceneManager.GetActiveScene(); 
-            SceneManager.LoadScene(scene.name);
+            else
+            {
+                Scene scene = SceneManager.GetActiveScene(); 
+                SceneManager.LoadScene(scene.name);
 
-            yield return null;
+                yield return null;
+            }
         } 
         else
         {
