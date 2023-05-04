@@ -40,8 +40,10 @@ public class PlayerKill : MonoBehaviour
 
             if (GameManager.instance.GetLifes() <= 0)
             { 
+                GameManager.instance.lifes = 3;
                 Time.timeScale = 0;
                 loseMenu.SetActive(true);
+
 
                 yield return null;
             }
