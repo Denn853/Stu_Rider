@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8958353502524413523}
   - component: {fileID: 8415002823813242144}
   - component: {fileID: 3795930149033857084}
+  - component: {fileID: 6091526781938903828}
   m_Layer: 0
   m_Name: LevelController
   m_TagString: Untagged
@@ -52,6 +53,7 @@ MonoBehaviour:
   winMenu: {fileID: 0}
   substactLifeMenu: {fileID: 0}
   lifes: 0
+  hearts: []
   deliversDone: 0
   reciveDamageSoundEffect: {fileID: 8958353502524413523}
   deathSoundEffect: {fileID: 8415002823813242144}
@@ -344,3 +346,17 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &6091526781938903828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6021239107019057306}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c55d898c8985c84c8d48b5a1a1035dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Obj: {fileID: 0}
+  activateTime: 5
