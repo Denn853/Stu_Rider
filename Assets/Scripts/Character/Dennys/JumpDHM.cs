@@ -47,6 +47,8 @@ public class JumpDHM : MonoBehaviour
 
         if (canJump)
         {
+            jumpsLeft = jumps;
+
             if (Input.GetButtonDown("Jump") && canJump)
             {
                 Jump();
@@ -59,22 +61,19 @@ public class JumpDHM : MonoBehaviour
             Jump();
             CheckGravity();
         }
-        else
-        {
-            jumpsLeft = jumps;
-        }
 
         anim.SetBool("isJumping", !gd.grounded);
     }
 
     private void Jump()
     {
+        canJump = false;
+        gd.grounded = false;
         rb.velocity = new Vector2(rb.velocity.x, 0);
         jumpSoundEffect.Play();
         GameObject temp = Instantiate(jumpParticles, jumpParticlesTransform.position, transform.rotation);
         Destroy(temp, 0.5f);
         rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-        canJump = false;
         rb.gravityScale = jumpGravityScale;
     }
 
