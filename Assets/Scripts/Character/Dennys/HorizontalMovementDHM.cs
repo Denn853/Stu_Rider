@@ -10,6 +10,7 @@ public class HorizontalMovementDHM : MonoBehaviour
     public enum Directions { NONE, RIGHT, LEFT };
     public Directions dir = Directions.NONE;
 
+    CapsuleCollider2D collider;
     SpriteRenderer sr;
     Animator anim;
     GroundDetectorDHM ground;
@@ -23,6 +24,7 @@ public class HorizontalMovementDHM : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
         ground = GetComponent<GroundDetectorDHM>();
+        collider = GetComponent<CapsuleCollider2D>();
         dir = Directions.RIGHT;
     }
 
@@ -43,12 +45,14 @@ public class HorizontalMovementDHM : MonoBehaviour
         {
             sr.flipX = false;
             dir = Directions.RIGHT;
+            collider.offset = new Vector2(-0.225f, -0.25f);
             //transform.localScale = new Vector3(1, 1, 1);
         }
         if (horizontal < 0)
         {
             sr.flipX = true;
             dir = Directions.LEFT;
+            collider.offset = new Vector2(0.225f, -0.25f);
             //transform.localScale = new Vector3(-1, 1, 1);
         }
         anim.SetBool("isWalking", horizontal != 0);

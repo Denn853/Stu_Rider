@@ -150,15 +150,13 @@ GameObject:
   m_Component:
   - component: {fileID: 5649064241023374145}
   - component: {fileID: 5649064241023374144}
-  - component: {fileID: 2834713410814505679}
+  - component: {fileID: 4189578684209659494}
   - component: {fileID: 5649064241023374159}
   - component: {fileID: 3945153771841352242}
   - component: {fileID: 9080245851944785670}
   - component: {fileID: 4137658428933283746}
   - component: {fileID: 1783901873155850994}
-  - component: {fileID: 8406035584377103184}
   - component: {fileID: 351777845899343747}
-  - component: {fileID: 465097228141184520}
   - component: {fileID: 6026040014917797497}
   - component: {fileID: 2045246925954554230}
   m_Layer: 0
@@ -238,8 +236,8 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &2834713410814505679
-BoxCollider2D:
+--- !u!70 &4189578684209659494
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -251,19 +249,9 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0010766983, y: -0.21524048}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2, y: 2}
-    newSize: {x: 1, y: 2}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1.8742332, y: 1.5413437}
-  m_EdgeRadius: 0
+  m_Offset: {x: -0.225, y: -0.25}
+  m_Size: {x: 0.6, y: 1.5}
+  m_Direction: 0
 --- !u!50 &5649064241023374159
 Rigidbody2D:
   serializedVersion: 4
@@ -362,23 +350,6 @@ MonoBehaviour:
   jumpParticlesTransform: {fileID: 8970328965199816299}
   jumpSoundEffect: {fileID: 6026040014917797497}
   pauseMenu: {fileID: 0}
---- !u!114 &8406035584377103184
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5649064241023374146}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30e312d368ab8094ca1e3f18f0682a16, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  canJump: 1
-  jumpForce: 10
-  jumpGravityScale: 2.2
-  fallingGravityScale: 3
-  dobleJumpSoundEffect: {fileID: 6026040014917797497}
 --- !u!114 &351777845899343747
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -397,26 +368,6 @@ MonoBehaviour:
   coolDownTime: 1
   lineRenderer: {fileID: 869404108}
   dashSoundEffect: {fileID: 2045246925954554230}
---- !u!114 &465097228141184520
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5649064241023374146}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36392527c049a3b4cbf6e59c33453157, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  distance: 0.2
-  wallLayer:
-    serializedVersion: 2
-    m_Bits: 512
-  isInWallRight: 0
-  isInWallLeft: 0
-  jumpForce: 10
-  jumpGravityScale: 2.2
 --- !u!82 &6026040014917797497
 AudioSource:
   m_ObjectHideFlags: 0
