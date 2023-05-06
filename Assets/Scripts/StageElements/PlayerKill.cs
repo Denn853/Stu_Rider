@@ -33,6 +33,7 @@ public class PlayerKill : MonoBehaviour
 
     IEnumerator DealDamageCorrutine()
     {
+        hm.enabled = false;
 
         LevelController.instance.TakeDamage();
 
@@ -67,6 +68,7 @@ public class PlayerKill : MonoBehaviour
             anim.SetTrigger("isHurt");
             yield return new WaitForSeconds(0.75f);
 
+            hm.enabled = true;
             hm.Respawn();
 
             yield return null;
