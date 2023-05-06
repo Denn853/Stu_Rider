@@ -86,4 +86,9 @@ public class PauseMenu : MonoBehaviour
         GameManager.instance.lifes = 3;
         SceneManager.LoadScene("Credits", LoadSceneMode.Single);
     }
+
+    public bool GetIsPaused()
+    {
+        return isPaused;
+    }
 }

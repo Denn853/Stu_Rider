@@ -7,19 +7,26 @@ public class JumpDHM : MonoBehaviour
     Rigidbody2D rb;
     GroundDetectorDHM gd;
     WalljumpDHM wj;
+    Animator anim;
+    int jumpsLeft;
 
+    [Header("Jump Settings")]
     public bool canJump = true;
     public float jumpForce = 10;
     public float jumpGravityScale = 2.2f;
     public float fallingGravityScale = 3.0f;
+    public int jumps;
 
     [Header("Jump Particles")]
     public GameObject jumpParticles;
-
-    Animator anim;
+    public Transform jumpParticlesTransform;
 
     [Header("Audio")]
     [SerializeField] private AudioSource jumpSoundEffect;
+
+    [Header("Pause Reference")]
+    [SerializeField] private PauseMenu pauseMenu;
+
 
     // Start is called before the first frame update
     void Start()
@@ -28,37 +35,59 @@ public class JumpDHM : MonoBehaviour
         gd = GetComponent<GroundDetectorDHM>();
         anim = GetComponent<Animator>();
         wj = GetComponent<WalljumpDHM>();
+        jumpsLeft = jumps;
     }
 
     // Update is called once per frame
     void Update()
     {
-        //if (!PauseMenu.instance.isPaused)
-       // {
+        if (pauseMenu.GetIsPaused()) { return; }
 
-            if (canJump = gd.grounded)
+        canJump = gd.grounded;
+
+        if (canJump)
+        {
+            if (Input.GetButtonDown("Jump") && canJump)
             {
-                if (Input.GetButtonDown("Jump") && canJump)
-                {
-                    jumpSoundEffect.Play();
-                    GameObject temp = Instantiate(jumpParticles, transform.position, transform.rotation);
-                    Destroy(temp, 0.5f);
-                    rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-                    canJump = false;
-                    rb.gravityScale = jumpGravityScale;
-                }
+                Jump();
+                CheckGravity();
+            } 
+        }
+        else if (jumpsLeft > 0 && Input.GetButtonDown("Jump"))
+        {
+            jumpsLeft--;
+            Jump();
+            CheckGravity();
+        }
+        else
+        {
+            jumpsLeft = jumps;
+        }
 
-                if (rb.velocity.y >= 0)
-                {
-                    rb.gravityScale = jumpGravityScale;
-                }
+        anim.SetBool("isJumping", !gd.grounded);
+    }
 
-                if (rb.velocity.y < 0)
-                {
-                    rb.gravityScale = fallingGravityScale;
-                }
-            }
+    private void Jump()
+    {
+        rb.velocity = new Vector2(rb.velocity.x, 0);
+        jumpSoundEffect.Play();
+        GameObject temp = Instantiate(jumpParticles, jumpParticlesTransform.position, transform.rotation);
+        Destroy(temp, 0.5f);
+        rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+        canJump = false;
+        rb.gravityScale = jumpGravityScale;
+    }
 
-            anim.SetBool("isJumping", !gd.grounded);
+    private void CheckGravity()
+    {
+        if (rb.velocity.y >= 0)
+        {
+            rb.gravityScale = jumpGravityScale;
+        }
+
+        if (rb.velocity.y < 0)
+        {
+            rb.gravityScale = fallingGravityScale;
+        }
     }
 }
