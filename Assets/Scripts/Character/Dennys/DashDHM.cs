@@ -10,7 +10,7 @@ public class DashDHM : MonoBehaviour
     public float force = 16f;
     public float dashingTime = 0.2f;
     public float coolDownTime = 1.3f;
-    public TrailRenderer lineRenderer;
+    public GameObject lineRenderer;
 
     HorizontalMovementDHM target;
     Rigidbody2D rb;
@@ -28,7 +28,7 @@ public class DashDHM : MonoBehaviour
         anim = GetComponent<Animator>();
         sr = GetComponent<SpriteRenderer>();
 
-        lineRenderer.enabled = false;
+        lineRenderer.SetActive(false);
     }
 
     // Update is called once per frame
@@ -47,7 +47,7 @@ public class DashDHM : MonoBehaviour
 
         rb.gravityScale = 0;
 
-        lineRenderer.enabled = true;
+        lineRenderer.SetActive(true);
 
         anim.SetBool("isDashing", true);
         dashSoundEffect.Play();
@@ -66,7 +66,7 @@ public class DashDHM : MonoBehaviour
         rb.gravityScale = gravity;
         rb.velocity = new Vector2(0f, 0f);
 
-        lineRenderer.enabled = false;
+        lineRenderer.SetActive(false);
 
         yield return new WaitForSeconds(coolDownTime);
         canDash = true;
