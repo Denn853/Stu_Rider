@@ -28,12 +28,6 @@ public class HorizontalMovementDHM : MonoBehaviour
         dir = Directions.NONE;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     private void FixedUpdate()
     {
         //Movimiento del personaje + no entra dentro de paredes

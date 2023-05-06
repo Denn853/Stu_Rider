@@ -4,22 +4,41 @@ using UnityEngine;
 
 public class GroundDetectorDHM : MonoBehaviour
 {
+
+    [Header("Ground Detector Settings")]
     public bool grounded;
-    [SerializeField]
-    private float groundDistance = 1.5f;
+    [SerializeField] private float groundDistance = 1.5f;
     public List<Vector3> rays;
     public LayerMask groundMask;
 
-    // Start is called before the first frame update
-    void Start()
-    {
+    Rigidbody2D rb;
+    SpriteRenderer sr;
 
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
+        sr = GetComponent<SpriteRenderer>();
     }
 
-    // Update is called once per frame
     void Update()
     {
+
+        if (rb.velocity.y > 0) { return; }
+
         int count = 0;
+
+        if (sr.flipX)
+        {
+            rays[0] = new Vector3(0.5f, -0.91f, 0);
+            rays[1] = new Vector3(0.13f, -0.91f, 0);
+            rays[2] = new Vector3(-0.19f, -0.91f, 0);
+        }
+        else
+        {
+            rays[0] = new Vector3(0.19f, -0.91f, 0);
+            rays[1] = new Vector3(-0.15f, -0.91f, 0);
+            rays[2] = new Vector3(-0.5f, -0.91f, 0);
+        }
 
         //Accedemos a la lista Rays iterandola con un for
         for (int i = 0; i < rays.Count; i++)

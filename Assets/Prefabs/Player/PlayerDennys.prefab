@@ -306,11 +306,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grounded: 0
-  groundDistance: 1.1
+  groundDistance: 0.1
   rays:
-  - {x: 0, y: -0.7, z: 0}
+  - {x: 0.19, y: -0.91, z: 0}
+  - {x: 0.13, y: -0.6, z: 0}
   - {x: -0.5, y: -0.6, z: 0}
-  - {x: 0.5, y: -0.6, z: 0}
   groundMask:
     serializedVersion: 2
     m_Bits: 64
