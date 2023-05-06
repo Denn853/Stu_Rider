@@ -25,7 +25,7 @@ public class HorizontalMovementDHM : MonoBehaviour
         anim = GetComponent<Animator>();
         ground = GetComponent<GroundDetectorDHM>();
         collider = GetComponent<CapsuleCollider2D>();
-        dir = Directions.RIGHT;
+        dir = Directions.NONE;
     }
 
     // Update is called once per frame

@@ -15,6 +15,7 @@ public class DashDHM : MonoBehaviour
     HorizontalMovementDHM target;
     Rigidbody2D rb;
     Animator anim;
+    SpriteRenderer sr;
 
     [Header("Audio")]
     [SerializeField] private AudioSource dashSoundEffect;
@@ -25,6 +26,7 @@ public class DashDHM : MonoBehaviour
         target = GetComponent<HorizontalMovementDHM>();
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        sr = GetComponent<SpriteRenderer>();
 
         lineRenderer.enabled = false;
     }
@@ -50,7 +52,7 @@ public class DashDHM : MonoBehaviour
         anim.SetBool("isDashing", true);
         dashSoundEffect.Play();
 
-        if (target.dir == HorizontalMovementDHM.Directions.LEFT)
+        if (target.dir == HorizontalMovementDHM.Directions.LEFT || sr.flipX)
         {
             rb.velocity = new Vector2(Vector2.left.x * force, 0f);
         }
