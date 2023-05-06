@@ -704,7 +704,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canDash: 1
-  force: 16
+  force: 12
   dashingTime: 0.5
   coolDownTime: 1
   lineRenderer: {fileID: 4336740079295488397}
@@ -721,7 +721,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 24300002, guid: bee2fd14345feb14daa6adcc3f8390a7, type: 2}
   m_audioClip: {fileID: 8300000, guid: fddd37f7639c82143a3245bd2c95a449, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.25
   m_Pitch: 1
   Loop: 0
   Mute: 0

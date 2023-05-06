@@ -28,6 +28,7 @@ public class LevelController : MonoBehaviour
     [SerializeField] private AudioSource reciveDamageSoundEffect;
     [SerializeField] private AudioSource deathSoundEffect;
     [SerializeField] private AudioSource winSoundEffect;
+    [SerializeField] private SettingsMenu audioSettings;
 
     private void Awake()
     {
@@ -42,6 +43,8 @@ public class LevelController : MonoBehaviour
         timer = 0.0f;
 
         Time.timeScale = 0;
+
+        audioSettings.MuteAll();
     }
 
     // Update is called once per frame
@@ -56,8 +59,9 @@ public class LevelController : MonoBehaviour
 
         if (lifesMenu.active && timer > 3.0f)
         {
-            Time.timeScale = 1;
             lifesMenu.SetActive(false);
+            Time.timeScale = 1;
+            audioSettings.MuteAll();
         }
 
         if (deliversDone == deliversToMake)
