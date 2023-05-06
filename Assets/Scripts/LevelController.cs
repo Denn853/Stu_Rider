@@ -14,8 +14,8 @@ public class LevelController : MonoBehaviour
     [SerializeField] private int deliversToMake;
     [SerializeField] private GameObject winMenu;
 
-    [Header("Lose Condition")]
-    [SerializeField] private GameObject substactLifeMenu;
+    [Header("Life Menu Start")]
+    [SerializeField] private GameObject lifesMenu;
 
     [Header("Level Status")]
     [SerializeField] private int lifes;
@@ -42,7 +42,6 @@ public class LevelController : MonoBehaviour
         timer = 0.0f;
 
         Time.timeScale = 0;
-        SubstractLife();
     }
 
     // Update is called once per frame
@@ -51,13 +50,14 @@ public class LevelController : MonoBehaviour
         if (timer < 3.0f)
         {
             timer += Time.unscaledDeltaTime;
+            lifesMenu.SetActive(true);
             return;
         }
 
-        if (substactLifeMenu.active && timer > 3.0f)
+        if (lifesMenu.active && timer > 3.0f)
         {
             Time.timeScale = 1;
-            substactLifeMenu.SetActive(false);
+            lifesMenu.SetActive(false);
         }
 
         if (deliversDone == deliversToMake)
@@ -70,11 +70,6 @@ public class LevelController : MonoBehaviour
 
         Time.timeScale = 0;
         winMenu.SetActive(true);
-    }
-
-    void SubstractLife()
-    {
-        substactLifeMenu.SetActive(true);
     }
 
     private void CheckLife()
