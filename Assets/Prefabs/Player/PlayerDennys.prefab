@@ -683,12 +683,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canJump: 1
-  jumpForce: 12
+  jumpForce: 15
   jumpGravityScale: 2.2
   fallingGravityScale: 4
   jumps: 0
   jumpsLeft: 0
   coyoteTimeCounter: 0
+  jumpBufferTimeCounter: 0
   jumpParticles: {fileID: 3133768676182683321, guid: 6f66f48487c51084ca3abfb6468084ff, type: 3}
   jumpParticlesTransform: {fileID: 8970328965199816299}
   jumpSoundEffect: {fileID: 6026040014917797497}

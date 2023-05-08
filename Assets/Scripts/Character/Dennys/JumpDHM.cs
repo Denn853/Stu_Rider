@@ -18,6 +18,8 @@ public class JumpDHM : MonoBehaviour
     [SerializeField] private int jumpsLeft;
     private float coyoteTime = 0.8f;
     [SerializeField] private float coyoteTimeCounter;
+    private float jumpBufferTime = 0.5f;
+    [SerializeField] private float jumpBufferTimeCounter;
 
     [Header("Jump Particles")]
     public GameObject jumpParticles;
@@ -38,6 +40,8 @@ public class JumpDHM : MonoBehaviour
         anim = GetComponent<Animator>();
         wj = GetComponent<WalljumpDHM>();
         jumpsLeft = jumps;
+        coyoteTimeCounter = coyoteTime;
+        jumpBufferTimeCounter = jumpBufferTime;
     }
 
     // Update is called once per frame
@@ -50,18 +54,28 @@ public class JumpDHM : MonoBehaviour
         if (gd.grounded)
         {
             coyoteTimeCounter = coyoteTime;
-            jumpsLeft = jumps;
         }
         else
         {
             coyoteTimeCounter -= Time.deltaTime;
         }
+        
+        if (jumpsLeft == 0 && Input.GetButtonDown("Jump"))
+        {
+            jumpBufferTimeCounter = jumpBufferTime;
+        }
+        else
+        {
+            jumpBufferTimeCounter -= Time.deltaTime;
+        }
 
-        if (Input.GetButtonDown("Jump") && coyoteTimeCounter > 0.0f)
+        if (jumpBufferTimeCounter > 0.0f && coyoteTimeCounter > 0.0f)
         {
             Jump();
             CheckGravity();
             coyoteTimeCounter = 0.0f;
+            jumpBufferTimeCounter = 0.0f;
+            jumpsLeft = jumps;
         } 
         else if (jumpsLeft > 0 && Input.GetButtonDown("Jump"))
         {
