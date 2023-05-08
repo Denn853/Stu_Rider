@@ -27,7 +27,7 @@ public class PauseMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Time.time < 3.0f) { return; }
+        if (Time.time < 0.1f) { return; }
 
         if (Input.GetButtonDown("Cancel") && !isPaused)
             ShowPauseMenu();
