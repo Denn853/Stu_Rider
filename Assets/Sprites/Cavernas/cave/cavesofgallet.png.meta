@@ -48525,9 +48525,9 @@ TextureImporter:
       cavesofgallet_1673: 191061228
       cavesofgallet_861: 1023133483
       cavesofgallet_133: 1753663730
-      cavesofgallet_130: 1016778590
       cavesofgallet_1915: -1154521000
       cavesofgallet_932: -1060244065
+      cavesofgallet_130: 1016778590
       cavesofgallet_314: 426509335
       cavesofgallet_1178: 1614093079
       cavesofgallet_48: 206550510
@@ -48763,19 +48763,19 @@ TextureImporter:
       cavesofgallet_590: 1096693184
       cavesofgallet_2166: -871586554
       cavesofgallet_746: 214008396
+      cavesofgallet_2185: -330905312
       cavesofgallet_953: -602635821
-      cavesofgallet_674: -1723589583
-      cavesofgallet_2209: -1701754328
-      cavesofgallet_609: 1237545271
-      cavesofgallet_875: 48569233
-      cavesofgallet_775: -887710520
-      cavesofgallet_1393: -149859538
-      cavesofgallet_1480: -1768440773
-      cavesofgallet_1485: 960286179
-      cavesofgallet_2078: 1428890339
-      cavesofgallet_1705: 210096
-      cavesofgallet_194: 1347115044
       cavesofgallet_1965: -754098817
+      cavesofgallet_2078: 1428890339
+      cavesofgallet_674: -1723589583
+      cavesofgallet_1393: -149859538
+      cavesofgallet_194: 1347115044
+      cavesofgallet_2209: -1701754328
+      cavesofgallet_775: -887710520
+      cavesofgallet_609: 1237545271
+      cavesofgallet_1480: -1768440773
+      cavesofgallet_870: -752506009
+      cavesofgallet_2087: 1259732944
       cavesofgallet_1959: -1290655173
       cavesofgallet_718: -561185244
       cavesofgallet_1460: -1262959420
@@ -48791,14 +48791,13 @@ TextureImporter:
       cavesofgallet_572: 1551347150
       cavesofgallet_825: -1113649068
       cavesofgallet_2259: 1254595205
-      cavesofgallet_2185: -330905312
-      cavesofgallet_870: -752506009
       cavesofgallet_2131: -967160651
       cavesofgallet_1173: 1259950710
       cavesofgallet_1504: 1106998080
       cavesofgallet_299: -1171414868
-      cavesofgallet_2087: 1259732944
       cavesofgallet_806: -1316451639
+      cavesofgallet_1705: 210096
+      cavesofgallet_875: 48569233
       cavesofgallet_55: 1496618027
       cavesofgallet_2290: -887765167
       cavesofgallet_11: -1848223488
@@ -48844,6 +48843,7 @@ TextureImporter:
       cavesofgallet_616: -1583987019
       cavesofgallet_668: 646919460
       cavesofgallet_1955: 1723058284
+      cavesofgallet_1485: 960286179
       cavesofgallet_1610: -1468536982
       cavesofgallet_1684: 957010098
       cavesofgallet_1165: 269837124
@@ -49102,8 +49102,8 @@ TextureImporter:
       cavesofgallet_1230: 2062057876
       cavesofgallet_46: 627545518
       cavesofgallet_555: -296314913
-      cavesofgallet_687: -1386439130
       cavesofgallet_1050: 825191006
+      cavesofgallet_687: -1386439130
       cavesofgallet_1263: -1115805440
       cavesofgallet_1026: 850803272
       cavesofgallet_1352: 1995637140
@@ -49647,11 +49647,11 @@ TextureImporter:
       cavesofgallet_199: -1803570067
       cavesofgallet_2266: -554598551
       cavesofgallet_1974: -1518332062
-      cavesofgallet_1508: 1108186467
       cavesofgallet_2193: 1490508226
+      cavesofgallet_483: -430971080
       cavesofgallet_737: 1253611831
       cavesofgallet_1502: -1193992166
-      cavesofgallet_483: -430971080
+      cavesofgallet_1508: 1108186467
       cavesofgallet_2098: 1541413972
       cavesofgallet_389: 1471984686
       cavesofgallet_329: -600897274
@@ -49703,11 +49703,11 @@ TextureImporter:
       cavesofgallet_1952: -1963294811
       cavesofgallet_686: 1157781576
       cavesofgallet_1529: 1672177126
-      cavesofgallet_337: -1986393212
-      cavesofgallet_1782: -1533100742
       cavesofgallet_851: -1179777344
-      cavesofgallet_1277: 1960600339
+      cavesofgallet_1782: -1533100742
       cavesofgallet_916: 1955620153
+      cavesofgallet_337: -1986393212
+      cavesofgallet_1277: 1960600339
       cavesofgallet_2052: -2017136576
       cavesofgallet_285: -2071208526
       cavesofgallet_238: -559653787
@@ -49730,7 +49730,6 @@ TextureImporter:
       cavesofgallet_1711: -1110090322
       cavesofgallet_182: -871554808
       cavesofgallet_1317: -815078832
-      cavesofgallet_2077: -952800746
       cavesofgallet_264: 636670195
       cavesofgallet_460: 800770896
       cavesofgallet_489: -548745058
@@ -49738,39 +49737,41 @@ TextureImporter:
       cavesofgallet_418: 2051699983
       cavesofgallet_603: 1846488768
       cavesofgallet_1175: -488019513
+      cavesofgallet_2077: -952800746
       cavesofgallet_81: 918485275
       cavesofgallet_520: -792910023
       cavesofgallet_424: 1373781113
-      cavesofgallet_173: -1977248146
+      cavesofgallet_820: 866961671
       cavesofgallet_2115: -403463814
       cavesofgallet_1644: -1006728914
       cavesofgallet_631: -1167018367
       cavesofgallet_1857: -2002455526
       cavesofgallet_102: -901930689
       cavesofgallet_1929: -1148183681
-      cavesofgallet_923: 152297315
+      cavesofgallet_173: -1977248146
       cavesofgallet_139: -1844679475
       cavesofgallet_900: 2141455994
       cavesofgallet_370: -1474841108
       cavesofgallet_409: -1117517323
       cavesofgallet_457: -897690709
       cavesofgallet_1185: 870777917
-      cavesofgallet_820: 866961671
+      cavesofgallet_2208: 2137641905
       cavesofgallet_613: -2099963486
       cavesofgallet_954: -620534340
       cavesofgallet_1507: -1059526774
       cavesofgallet_1468: -1390804460
-      cavesofgallet_2208: 2137641905
       cavesofgallet_2165: -2066933575
+      cavesofgallet_923: 152297315
       cavesofgallet_358: 2075758359
       cavesofgallet_118: 1301797116
       cavesofgallet_581: -751376958
+      cavesofgallet_2265: -428790743
       cavesofgallet_793: -777570585
       cavesofgallet_1080: -1999386285
       cavesofgallet_1968: -1563207409
       cavesofgallet_877: -652849617
       cavesofgallet_1409: -997666820
-      cavesofgallet_2265: -428790743
+      cavesofgallet_810: 1004471909
       cavesofgallet_1181: 193092668
       cavesofgallet_1912: 1772494199
       cavesofgallet_2093: -1346422830
@@ -49780,7 +49781,7 @@ TextureImporter:
       cavesofgallet_1734: -1128263135
       cavesofgallet_846: -982468182
       cavesofgallet_124: -1456507420
-      cavesofgallet_810: 1004471909
+      cavesofgallet_1290: -377396073
       cavesofgallet_582: -1947592741
       cavesofgallet_1842: 1568537305
       cavesofgallet_369: 381526518
@@ -49789,7 +49790,6 @@ TextureImporter:
       cavesofgallet_2019: -1575980137
       cavesofgallet_514: 1841909348
       cavesofgallet_2240: -2121704567
-      cavesofgallet_1290: -377396073
       cavesofgallet_843: -1031694021
       cavesofgallet_1947: -1908960594
       cavesofgallet_1716: -1865860589
