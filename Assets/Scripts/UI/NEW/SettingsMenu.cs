@@ -25,11 +25,11 @@ public class SettingsMenu : MonoBehaviour
 
     private void Start()
     {
-        minVolumeMusic = -40.0f;
-        minVolumeSFX = -40.0f;
+        minVolumeMusic = -50.0f;
+        minVolumeSFX = -50.0f;
 
         mainAudioMixer.GetFloat("mainVolume", out volumeMusic);
-        mainAudioMixer.GetFloat("sfxVolume", out volumeMusic);
+        mainAudioMixer.GetFloat("sfxVolume", out volumeSFX);
 
         mainSliderBar.value = volumeMusic;
         sfxSliderBar.value = volumeSFX;
@@ -60,7 +60,7 @@ public class SettingsMenu : MonoBehaviour
             mainSliderBar.value = minVolumeMusic;
             sfxSliderBar.value = minVolumeSFX;
         }
-        else
+        else if (!muteToggle.isOn)
         {
             mainSliderBar.interactable = true;
             sfxSliderBar.interactable = true;
