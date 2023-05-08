@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class LevelController : MonoBehaviour
 {
@@ -29,6 +30,8 @@ public class LevelController : MonoBehaviour
     [SerializeField] private AudioSource deathSoundEffect;
     [SerializeField] private AudioSource winSoundEffect;
     [SerializeField] private SettingsMenu audioSettings;
+    [SerializeField] private AudioMixer musicMixer;
+    [SerializeField] private AudioMixer sfxMixer;
 
     private void Awake()
     {
@@ -44,7 +47,8 @@ public class LevelController : MonoBehaviour
 
         Time.timeScale = 0;
 
-        audioSettings.MuteAll();
+        musicMixer.SetFloat("mainVolume", -50.0f);
+        sfxMixer.SetFloat("mainVolume", -50.0f);
     }
 
     // Update is called once per frame
