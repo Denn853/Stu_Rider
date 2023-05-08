@@ -8,7 +8,6 @@ public class JumpDHM : MonoBehaviour
     GroundDetectorDHM gd;
     WalljumpDHM wj;
     Animator anim;
-    int jumpsLeft;
 
     [Header("Jump Settings")]
     public bool canJump = true;
@@ -16,6 +15,9 @@ public class JumpDHM : MonoBehaviour
     public float jumpGravityScale = 2.2f;
     public float fallingGravityScale = 3.0f;
     public int jumps;
+    [SerializeField] private int jumpsLeft;
+    private float coyoteTime = 0.8f;
+    [SerializeField] private float coyoteTimeCounter;
 
     [Header("Jump Particles")]
     public GameObject jumpParticles;
@@ -45,21 +47,31 @@ public class JumpDHM : MonoBehaviour
 
         canJump = gd.grounded;
 
-        if (canJump)
+        if (gd.grounded)
         {
+            coyoteTimeCounter = coyoteTime;
             jumpsLeft = jumps;
-
-            if (Input.GetButtonDown("Jump") && canJump)
-            {
-                Jump();
-                CheckGravity();
-            } 
         }
+        else
+        {
+            coyoteTimeCounter -= Time.deltaTime;
+        }
+
+        if (Input.GetButtonDown("Jump") && coyoteTimeCounter > 0.0f)
+        {
+            Jump();
+            CheckGravity();
+            coyoteTimeCounter = 0.0f;
+        } 
         else if (jumpsLeft > 0 && Input.GetButtonDown("Jump"))
         {
             jumpsLeft--;
             Jump();
             CheckGravity();
+        }
+        else
+        {
+            coyoteTimeCounter -= Time.deltaTime;
         }
 
         anim.SetBool("isJumping", !gd.grounded);
