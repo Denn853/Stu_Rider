@@ -27,16 +27,12 @@ public class PauseMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Time.timeScale == 0) { return; }
+        if (Time.time < 3.0f) { return; }
 
         if (Input.GetButtonDown("Cancel") && !isPaused)
-        {
             ShowPauseMenu();
-        }
-        else if (Input.GetButtonDown("Cancel") && isPaused && !areSettings)
-        {
+        else if (Input.GetButtonDown("Cancel") && isPaused)
             HidePauseMenu();
-        }
     }
 
     public void ShowPauseMenu()
@@ -49,8 +45,8 @@ public class PauseMenu : MonoBehaviour
     public void HidePauseMenu()
     {
         pauseMenu.SetActive(false);
-        Time.timeScale = 1;
         isPaused = false;
+        Time.timeScale = 1;
     }
 
     public void ShowSettingsMenu()
