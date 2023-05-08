@@ -19,6 +19,9 @@ public class SettingsMenu : MonoBehaviour
 
     float volumeMusic;
     float volumeSFX;
+    
+    float volumeMusicBackup;
+    float volumeSFXBackup;
 
     float minVolumeMusic;
     float minVolumeSFX;
@@ -29,7 +32,7 @@ public class SettingsMenu : MonoBehaviour
         minVolumeSFX = -50.0f;
 
         mainAudioMixer.GetFloat("mainVolume", out volumeMusic);
-        mainAudioMixer.GetFloat("sfxVolume", out volumeSFX);
+        sfxAudioMixer.GetFloat("sfxVolume", out volumeSFX);
 
         mainSliderBar.value = volumeMusic;
         sfxSliderBar.value = volumeSFX;
@@ -38,12 +41,14 @@ public class SettingsMenu : MonoBehaviour
     {
         mainAudioMixer.SetFloat("mainVolume", volume);
         volumeMusic = volume;
+        mainSliderBar.value = volumeMusic;
     }
 
     public void SetSFXVolume(float volume)
     {
         sfxAudioMixer.SetFloat("sfxVolume", volume);
         volumeSFX = volume;
+        sfxSliderBar.value = volumeSFX;
     }
 
     public void MuteAll()
@@ -54,22 +59,25 @@ public class SettingsMenu : MonoBehaviour
             mainSliderBar.interactable = false;
             sfxSliderBar.interactable = false;
 
-            SetMainVolume(minVolumeMusic);
-            SetSFXVolume(minVolumeSFX);
+            volumeMusicBackup = volumeMusic;
+            volumeSFXBackup = volumeSFX;
+
+            mainAudioMixer.SetFloat("mainVolume", minVolumeMusic);
+            sfxAudioMixer.SetFloat("sfxVolume", minVolumeSFX);
 
             mainSliderBar.value = minVolumeMusic;
             sfxSliderBar.value = minVolumeSFX;
         }
-        else if (!muteToggle.isOn)
+        else
         {
             mainSliderBar.interactable = true;
             sfxSliderBar.interactable = true;
 
-            SetMainVolume(volumeMusic);
-            SetSFXVolume(volumeSFX);
+            mainAudioMixer.SetFloat("mainVolume", volumeMusic);
+            sfxAudioMixer.SetFloat("sfxVolume", volumeSFX);
 
-            mainSliderBar.value = volumeMusic;
-            sfxSliderBar.value = volumeSFX;
+            mainSliderBar.value = volumeMusicBackup;
+            sfxSliderBar.value = volumeSFXBackup;
         }
     }
 }
