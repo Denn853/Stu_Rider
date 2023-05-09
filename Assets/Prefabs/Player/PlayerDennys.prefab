@@ -743,9 +743,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canDash: 1
-  force: 10
+  force: 14
   dashingTime: 0.5
-  coolDownTime: 1
+  coolDownTime: 0.3
   lineRenderer: {fileID: 4336740079295488397}
   dashSoundEffect: {fileID: 2045246925954554230}
 --- !u!82 &6026040014917797497
