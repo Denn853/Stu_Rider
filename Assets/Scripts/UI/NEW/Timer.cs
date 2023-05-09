@@ -17,6 +17,7 @@ public class Timer : MonoBehaviour
     [SerializeField] private GameObject loseMenu;
 
     [Header("Text Shake")]
+    public Animator anim;
     public float duration;
 
     // Start is called before the first frame update
@@ -44,7 +45,7 @@ public class Timer : MonoBehaviour
             }
             else
             {
-                timeElapsed = 0.0f;
+                timeElapsed = -0.1f;
                 timeRunning = false;
                 ShowLoseMenu();
             }
@@ -74,6 +75,7 @@ public class Timer : MonoBehaviour
 
     IEnumerator TextShake(float duration)
     {
+        anim.Play("shake");
         GetComponent<AudioSource>().Play();
         yield return new WaitForSeconds(duration);
         timerText.color = Color.red;
