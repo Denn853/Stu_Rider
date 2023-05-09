@@ -56,13 +56,14 @@ public class JumpDHM : MonoBehaviour
         if (gd.grounded)
         {
             coyoteTimeCounter = coyoteTime;
+            jumpsLeft = 0;
         }
         else
         {
             coyoteTimeCounter -= Time.deltaTime;
         }
         
-        if (jumpsLeft == 0 && Input.GetButtonDown("Jump"))
+        if (jumpsLeft == 0 && Input.GetButtonDown("Jump") && !gd.grounded)
         {
             jumpBufferTimeCounter = jumpBufferTime;
         }
@@ -71,7 +72,7 @@ public class JumpDHM : MonoBehaviour
             jumpBufferTimeCounter -= Time.deltaTime;
         }
 
-        if ((jumpBufferTimeCounter > 0.0f || coyoteTimeCounter > 0.0f) && Input.GetButtonDown("Jump"))
+        if (coyoteTimeCounter > 0.0f && Input.GetButtonDown("Jump"))
         {
             Jump();
             CheckGravity();

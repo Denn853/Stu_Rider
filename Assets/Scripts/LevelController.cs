@@ -26,6 +26,8 @@ public class LevelController : MonoBehaviour
     float timer;
 
     [Header("Audio")]
+    [SerializeField] private AudioSource levelMusic;
+    [SerializeField] private AudioSource levelAmbience;
     [SerializeField] private AudioSource reciveDamageSoundEffect;
     [SerializeField] private AudioSource deathSoundEffect;
     [SerializeField] private AudioSource winSoundEffect;
@@ -63,6 +65,8 @@ public class LevelController : MonoBehaviour
 
         if (lifesMenu.active && timer > 3.0f)
         {
+            levelMusic.Play();
+            levelAmbience.Play();
             lifesMenu.SetActive(false);
             Time.timeScale = 1;
             audioSettings.MuteAll();

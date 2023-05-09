@@ -66,6 +66,7 @@ public class GroundDetectorDHM : MonoBehaviour
         if (count > 0)
         {
             grounded = true;
+            rb.velocity = new Vector2(0, rb.velocity.y);
         }
         else
         {

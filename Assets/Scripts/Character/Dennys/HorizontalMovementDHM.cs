@@ -43,7 +43,6 @@ public class HorizontalMovementDHM : MonoBehaviour
         {
             sr.flipX = false;
             dir = Directions.RIGHT;
-            follower.transform.localPosition = Vector2.Lerp(follower.transform.localPosition, new Vector2(3.5f, 2.0f), 0.25f);
             collider.offset = Vector2.Lerp(collider.offset, new Vector2(-0.225f, -0.25f), 0.6f);
             //transform.localScale = new Vector3(1, 1, 1);
         }
@@ -51,7 +50,6 @@ public class HorizontalMovementDHM : MonoBehaviour
         {
             sr.flipX = true;
             dir = Directions.LEFT;
-            follower.transform.localPosition = Vector2.Lerp(follower.transform.localPosition, new Vector2(-3.5f, 2.0f), 0.25f);
             collider.offset = Vector2.Lerp(collider.offset, new Vector2(0.225f, -0.25f), 0.6f);
             //transform.localScale = new Vector3(-1, 1, 1);
         }
