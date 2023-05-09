@@ -16,10 +16,9 @@ public class Timer : MonoBehaviour
     [Header("Lose")]
     [SerializeField] private GameObject loseMenu;
 
-    [Header("Camera Shake")]
-    public CameraShake cam;
+    [Header("Text Shake")]
+    public Animator anim;
     public float duration;
-    public float magnitude;
 
     // Start is called before the first frame update
     void Start()
@@ -39,14 +38,14 @@ public class Timer : MonoBehaviour
                 timeElapsed -= Time.deltaTime;
                 DisplayTime(timeElapsed);
 
-                if (timeElapsed < timeRemaining / 4 && (int)timeElapsed % 3 == 0 && (int)timeElapsed > 0.0f)
+                if (timeElapsed < timeRemaining / 3 && Mathf.FloorToInt(timeElapsed) % 3 == 0)
                 {
-                    StartCoroutine(cam.Shake(duration, magnitude));
+                    StartCoroutine(TextShake(duration));
                 }
             }
             else
             {
-                timeElapsed = timeRemaining;
+                timeElapsed = -0.1f;
                 timeRunning = false;
                 ShowLoseMenu();
             }
@@ -72,5 +71,15 @@ public class Timer : MonoBehaviour
     {
         Time.timeScale = 0;
         loseMenu.SetActive(true);
+    }
+
+    IEnumerator TextShake(float duration)
+    {
+        anim.Play("shake");
+        GetComponent<AudioSource>().Play();
+        yield return new WaitForSeconds(duration);
+        timerText.color = Color.red;
+        yield return new WaitForSeconds(duration);
+        timerText.color = Color.white;
     }
 }
