@@ -32,7 +32,11 @@ public class PauseMenu : MonoBehaviour
         if (Input.GetButtonDown("Cancel") && !isPaused)
             ShowPauseMenu();
         else if (Input.GetButtonDown("Cancel") && isPaused)
+        {
             HidePauseMenu();
+            HideSettingsMenu();
+            HideControlsMenu();
+        }
     }
 
     public void ShowPauseMenu()
