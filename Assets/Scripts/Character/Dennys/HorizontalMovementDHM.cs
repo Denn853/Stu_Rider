@@ -10,6 +10,8 @@ public class HorizontalMovementDHM : MonoBehaviour
     public enum Directions { NONE, RIGHT, LEFT };
     public Directions dir = Directions.NONE;
 
+    public Timer timer;
+
     CapsuleCollider2D collider;
     SpriteRenderer sr;
     Animator anim;
@@ -17,6 +19,7 @@ public class HorizontalMovementDHM : MonoBehaviour
     JumpDHM jumping;
 
     Vector3 lastPosition;
+    float time;
 
     // Start is called before the first frame update
     void Start()
@@ -58,10 +61,16 @@ public class HorizontalMovementDHM : MonoBehaviour
     public void Respawn()
     {
         transform.position = lastPosition;
+        timer.ResetTime(time);
     }
 
     public void CheckPoint(Vector3 position)
     {
         lastPosition = position;
+    }
+
+    public void CheckPointTime(float time)
+    {
+        this.time = time;
     }
 }
