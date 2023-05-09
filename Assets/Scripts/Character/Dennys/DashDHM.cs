@@ -54,11 +54,11 @@ public class DashDHM : MonoBehaviour
 
         if (target.dir == HorizontalMovementDHM.Directions.LEFT || sr.flipX)
         {
-            rb.velocity = new Vector2(Vector2.left.x * force, 0f);
+            rb.velocity = new Vector2(-force, 0f);
         }
         else
         {
-            rb.velocity = new Vector2(Vector2.right.x * force, 0f);
+            rb.velocity = new Vector2(force, 0f);
         }
 
         yield return new WaitForSeconds(dashingTime);
