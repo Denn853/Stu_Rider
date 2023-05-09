@@ -16007,10 +16007,10 @@ AudioSource:
   m_GameObject: {fileID: 1003238097}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 5813149008090735628, guid: bee2fd14345feb14daa6adcc3f8390a7, type: 2}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: bee2fd14345feb14daa6adcc3f8390a7, type: 2}
   m_audioClip: {fileID: 8300000, guid: ff9db7ff6809885498030d2010f8d509, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 1
+  m_PlayOnAwake: 0
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -16238,6 +16238,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 185297817}
     - target: {fileID: 6021239107019057304, guid: e69263dd280cb644e858c9e28b982f24, type: 3}
+      propertyPath: levelMusic
+      value: 
+      objectReference: {fileID: 1139690294}
+    - target: {fileID: 6021239107019057304, guid: e69263dd280cb644e858c9e28b982f24, type: 3}
       propertyPath: musicMixer
       value: 
       objectReference: {fileID: 24100000, guid: e31a30e1d6b8bbf4b805690184e9947d, type: 2}
@@ -16249,6 +16253,10 @@ PrefabInstance:
       propertyPath: audioSettings
       value: 
       objectReference: {fileID: 1377971494}
+    - target: {fileID: 6021239107019057304, guid: e69263dd280cb644e858c9e28b982f24, type: 3}
+      propertyPath: levelAmbience
+      value: 
+      objectReference: {fileID: 1003238098}
     - target: {fileID: 6021239107019057304, guid: e69263dd280cb644e858c9e28b982f24, type: 3}
       propertyPath: substactLifeMenu
       value: 
@@ -17787,7 +17795,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 24300002, guid: e31a30e1d6b8bbf4b805690184e9947d, type: 2}
   m_audioClip: {fileID: 8300000, guid: c2d4446070b05d34aab222a7b5c660cf, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 0.15
   m_Pitch: 1
   Loop: 1
