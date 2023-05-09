@@ -144,3 +144,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   speed: 5
+  offset: {x: 0, y: 0, z: 0}
+  minValues: {x: -2, y: 0, z: 0}
+  maxValues: {x: 2, y: 0, z: 0}

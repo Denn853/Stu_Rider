@@ -9,6 +9,9 @@ public class HorizontalMovementDHM : MonoBehaviour
 
     public enum Directions { NONE, RIGHT, LEFT };
     public Directions dir = Directions.NONE;
+    public GameObject follower;
+
+    public Timer timer;
 
     CapsuleCollider2D collider;
     SpriteRenderer sr;
@@ -17,6 +20,7 @@ public class HorizontalMovementDHM : MonoBehaviour
     JumpDHM jumping;
 
     Vector3 lastPosition;
+    float time;
 
     // Start is called before the first frame update
     void Start()
@@ -39,6 +43,7 @@ public class HorizontalMovementDHM : MonoBehaviour
         {
             sr.flipX = false;
             dir = Directions.RIGHT;
+            follower.transform.localPosition = Vector2.Lerp(follower.transform.localPosition, new Vector2(3.5f, 2.0f), 0.25f);
             collider.offset = Vector2.Lerp(collider.offset, new Vector2(-0.225f, -0.25f), 0.6f);
             //transform.localScale = new Vector3(1, 1, 1);
         }
@@ -46,6 +51,7 @@ public class HorizontalMovementDHM : MonoBehaviour
         {
             sr.flipX = true;
             dir = Directions.LEFT;
+            follower.transform.localPosition = Vector2.Lerp(follower.transform.localPosition, new Vector2(-3.5f, 2.0f), 0.25f);
             collider.offset = Vector2.Lerp(collider.offset, new Vector2(0.225f, -0.25f), 0.6f);
             //transform.localScale = new Vector3(-1, 1, 1);
         }
@@ -58,10 +64,16 @@ public class HorizontalMovementDHM : MonoBehaviour
     public void Respawn()
     {
         transform.position = lastPosition;
+        timer.ResetTime(time);
     }
 
     public void CheckPoint(Vector3 position)
     {
         lastPosition = position;
+    }
+
+    public void CheckPointTime(float time)
+    {
+        this.time = time;
     }
 }

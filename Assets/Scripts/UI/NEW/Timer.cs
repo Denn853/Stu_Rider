@@ -13,6 +13,9 @@ public class Timer : MonoBehaviour
     [SerializeField] private float timeElapsed;
     [SerializeField] private bool timeRunning;
 
+    [Header("Checkpoint reset")]
+    [SerializeField] CheckPoint check;
+
     [Header("Lose")]
     [SerializeField] private GameObject loseMenu;
 
@@ -65,6 +68,11 @@ public class Timer : MonoBehaviour
     public float GetTimeRemaining()
     {
         return timeElapsed;
+    }
+
+    public void ResetTime(float time)
+    {
+        timeElapsed = time;
     }
 
     void ShowLoseMenu()
