@@ -23,7 +23,9 @@ public class JumpDHM : MonoBehaviour
 
     [Header("Jump Particles")]
     public GameObject jumpParticles;
+    public GameObject doubleJumpParticles;
     public Transform jumpParticlesTransform;
+    public Transform doubleJumpParticlesTransform;
 
     [Header("Audio")]
     [SerializeField] private AudioSource jumpSoundEffect;
@@ -80,7 +82,7 @@ public class JumpDHM : MonoBehaviour
         else if (jumpsLeft > 0 && Input.GetButtonDown("Jump"))
         {
             jumpsLeft--;
-            Jump();
+            DoubleJump();
             CheckGravity();
         }
         else
@@ -98,6 +100,18 @@ public class JumpDHM : MonoBehaviour
         rb.velocity = new Vector2(rb.velocity.x, 0);
         jumpSoundEffect.Play();
         GameObject temp = Instantiate(jumpParticles, jumpParticlesTransform.position, transform.rotation);
+        Destroy(temp, 0.5f);
+        rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+        rb.gravityScale = jumpGravityScale;
+    }
+
+    private void DoubleJump()
+    {
+        canJump = false;
+        gd.grounded = false;
+        rb.velocity = new Vector2(rb.velocity.x, 0);
+        jumpSoundEffect.Play();
+        GameObject temp = Instantiate(doubleJumpParticles, doubleJumpParticlesTransform.position, transform.rotation);
         Destroy(temp, 0.5f);
         rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         rb.gravityScale = jumpGravityScale;

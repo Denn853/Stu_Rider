@@ -19,9 +19,6 @@ public class PlayerKill : MonoBehaviour
     public float duration;
     public float magnitude;
 
-    [Header("Time reset")]
-    [SerializeField] private Timer timer;
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
         StartCoroutine(DealDamageCorrutine());
