@@ -2162,6 +2162,52 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0f224f402dbfeb04b8bd6aaeb07ca245, type: 3}
+--- !u!1 &424252506
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 424252508}
+  - component: {fileID: 424252507}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &424252507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 424252506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 621eaaae744a56a48945e348641de682, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifes: 0
+  level: 3
+--- !u!4 &424252508
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 424252506}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &478831148
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2862,7 +2908,7 @@ PrefabInstance:
       objectReference: {fileID: 1174814847}
     - target: {fileID: 5039841956383207750, guid: 0c82b5047ec2ce946afb52f73e1372c5, type: 3}
       propertyPath: duration
-      value: 0.08
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5039841956383207750, guid: 0c82b5047ec2ce946afb52f73e1372c5, type: 3}
       propertyPath: loseMenu
@@ -2870,7 +2916,7 @@ PrefabInstance:
       objectReference: {fileID: 970728151}
     - target: {fileID: 5039841956383207750, guid: 0c82b5047ec2ce946afb52f73e1372c5, type: 3}
       propertyPath: magnitude
-      value: 0.2
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 5039841956383207750, guid: 0c82b5047ec2ce946afb52f73e1372c5, type: 3}
       propertyPath: timeRemaining
