@@ -50,7 +50,7 @@ public class LevelController : MonoBehaviour
         Time.timeScale = 0;
 
         musicMixer.SetFloat("mainVolume", -50.0f);
-        sfxMixer.SetFloat("mainVolume", -50.0f);
+        sfxMixer.SetFloat("sfxVolume", -50.0f);
     }
 
     // Update is called once per frame
