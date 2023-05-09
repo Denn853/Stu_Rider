@@ -69,7 +69,7 @@ public class JumpDHM : MonoBehaviour
             jumpBufferTimeCounter -= Time.deltaTime;
         }
 
-        if (jumpBufferTimeCounter > 0.0f && coyoteTimeCounter > 0.0f)
+        if (jumpBufferTimeCounter > 0.0f && coyoteTimeCounter > 0.0f && Input.GetButtonDown("Jump"))
         {
             Jump();
             CheckGravity();
