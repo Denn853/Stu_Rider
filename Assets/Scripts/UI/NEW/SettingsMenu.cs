@@ -28,8 +28,8 @@ public class SettingsMenu : MonoBehaviour
 
     private void Start()
     {
-        minVolumeMusic = -50.0f;
-        minVolumeSFX = -50.0f;
+        minVolumeMusic = -80.0f;
+        minVolumeSFX = -80.0f;
 
         mainAudioMixer.GetFloat("mainVolume", out volumeMusic);
         sfxAudioMixer.GetFloat("sfxVolume", out volumeSFX);
