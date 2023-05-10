@@ -19,7 +19,7 @@ public class SettingsMenu : MonoBehaviour
 
     float volumeMusic;
     float volumeSFX;
-    
+
     float volumeMusicBackup;
     float volumeSFXBackup;
 
@@ -34,8 +34,12 @@ public class SettingsMenu : MonoBehaviour
         mainAudioMixer.GetFloat("mainVolume", out volumeMusic);
         sfxAudioMixer.GetFloat("sfxVolume", out volumeSFX);
 
+        volumeMusicBackup = volumeMusic;
+        volumeSFXBackup = volumeSFX;
+
         mainSliderBar.value = volumeMusic;
         sfxSliderBar.value = volumeSFX;
+
     }
     public void SetMainVolume(float volume)
     {
@@ -56,28 +60,54 @@ public class SettingsMenu : MonoBehaviour
 
         if (muteToggle.isOn)
         {
-            mainSliderBar.interactable = false;
-            sfxSliderBar.interactable = false;
-
-            volumeMusicBackup = volumeMusic;
-            volumeSFXBackup = volumeSFX;
-
-            mainAudioMixer.SetFloat("mainVolume", minVolumeMusic);
-            sfxAudioMixer.SetFloat("sfxVolume", minVolumeSFX);
-
-            mainSliderBar.value = minVolumeMusic;
-            sfxSliderBar.value = minVolumeSFX;
+            SetToMin();
         }
         else
         {
-            mainSliderBar.interactable = true;
-            sfxSliderBar.interactable = true;
-
-            mainAudioMixer.SetFloat("mainVolume", volumeMusic);
-            sfxAudioMixer.SetFloat("sfxVolume", volumeSFX);
-
-            mainSliderBar.value = volumeMusicBackup;
-            sfxSliderBar.value = volumeSFXBackup;
+            SetBack();
         }
+    }
+
+    public void SetToMin()
+    {
+        mainSliderBar.interactable = false;
+        sfxSliderBar.interactable = false;
+
+        volumeMusicBackup = volumeMusic;
+        volumeSFXBackup = volumeSFX;
+
+        mainAudioMixer.SetFloat("mainVolume", minVolumeMusic);
+        sfxAudioMixer.SetFloat("sfxVolume", minVolumeSFX);
+
+        mainSliderBar.value = minVolumeMusic;
+        sfxSliderBar.value = minVolumeSFX;
+
+        GameManager.instance.musicAudio = minVolumeMusic;
+        GameManager.instance.sfxAudio = minVolumeSFX;
+    }
+
+    public void SetBack()
+    {
+        mainSliderBar.interactable = true;
+        sfxSliderBar.interactable = true;
+
+        mainAudioMixer.SetFloat("mainVolume", volumeMusic);
+        sfxAudioMixer.SetFloat("sfxVolume", volumeSFX);
+
+        mainSliderBar.value = volumeMusicBackup;
+        sfxSliderBar.value = volumeSFXBackup;
+
+        GameManager.instance.musicAudio = volumeMusicBackup;
+        GameManager.instance.sfxAudio = volumeSFXBackup;
+    }
+
+    public float GetValuesMain()
+    {
+        return volumeMusicBackup;
+    }
+
+    public float GetValuesSFX()
+    {
+        return volumeSFXBackup;
     }
 }

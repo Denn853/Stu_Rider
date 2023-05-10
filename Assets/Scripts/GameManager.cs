@@ -11,6 +11,9 @@ public class GameManager : MonoBehaviour
     public int lifes;
     public int level;
 
+    public float musicAudio;
+    public float sfxAudio;
+
     private void Awake()
     {
         if (instance == null)

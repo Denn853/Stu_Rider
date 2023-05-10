@@ -743,7 +743,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canDash: 1
-  force: 14
+  force: 10
   dashingTime: 0.5
   coolDownTime: 0.3
   lineRenderer: {fileID: 4336740079295488397}

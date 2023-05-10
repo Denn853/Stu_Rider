@@ -48,9 +48,6 @@ public class LevelController : MonoBehaviour
         timer = 0.0f;
 
         Time.timeScale = 0;
-
-        musicMixer.SetFloat("mainVolume", -50.0f);
-        sfxMixer.SetFloat("sfxVolume", -50.0f);
     }
 
     // Update is called once per frame
@@ -58,6 +55,8 @@ public class LevelController : MonoBehaviour
     {
         if (timer < 3.0f)
         {
+            musicMixer.SetFloat("mainVolume", -80.0f);
+            sfxMixer.SetFloat("sfxVolume", -80.0f);
             timer += Time.unscaledDeltaTime;
             lifesMenu.SetActive(true);
             return;
@@ -65,11 +64,12 @@ public class LevelController : MonoBehaviour
 
         if (lifesMenu.active && timer > 3.0f)
         {
+            musicMixer.SetFloat("mainVolume", GameManager.instance.musicAudio);
+            sfxMixer.SetFloat("sfxVolume", GameManager.instance.sfxAudio);
             levelMusic.Play();
             levelAmbience.Play();
             lifesMenu.SetActive(false);
             Time.timeScale = 1;
-            audioSettings.MuteAll();
         }
 
         if (deliversDone == deliversToMake)
