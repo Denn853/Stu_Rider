@@ -13,6 +13,7 @@ public class PlayerKill : MonoBehaviour
     [Header("Player Animator")]
     [SerializeField] private Animator anim;
     [SerializeField] private HorizontalMovementDHM hm;
+    [SerializeField] private Rigidbody2D rb;
 
     [Header("Camera Shake")]
     public CameraShake cam;
@@ -34,6 +35,7 @@ public class PlayerKill : MonoBehaviour
     IEnumerator DealDamageCorrutine()
     {
         hm.enabled = false;
+        rb.bodyType = RigidbodyType2D.Static;
 
         LevelController.instance.TakeDamage();
 
@@ -70,6 +72,7 @@ public class PlayerKill : MonoBehaviour
 
             hm.enabled = true;
             hm.Respawn();
+            rb.bodyType = RigidbodyType2D.Dynamic;
 
             yield return null;
         }
