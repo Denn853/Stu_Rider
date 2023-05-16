@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.UI;
 
 public class LevelController : MonoBehaviour
 {
@@ -20,7 +21,7 @@ public class LevelController : MonoBehaviour
 
     [Header("Level Status")]
     [SerializeField] private int lifes;
-    [SerializeField] private GameObject[] hearts;
+    [SerializeField] public List<Image> hearts = new List<Image>();
     [SerializeField] private int deliversDone;
 
     float timer;
@@ -44,7 +45,7 @@ public class LevelController : MonoBehaviour
     void Start()
     {
         deliversDone = 0;
-        lifes = hearts.Length;
+        lifes = hearts.Count / 3;
         timer = 0.0f;
 
         Time.timeScale = 0;
@@ -88,27 +89,27 @@ public class LevelController : MonoBehaviour
     {
         if (lifes < 6)
         {
-            Destroy(hearts[0].gameObject);
+            StartCoroutine(UnfillBarCorrutine(17, 15));
         }
         if (lifes < 5)
         {
-            Destroy(hearts[1].gameObject);
+            StartCoroutine(UnfillBarCorrutine(14, 12));
         }
         if (lifes < 4)
         {
-            Destroy(hearts[2].gameObject);
+            StartCoroutine(UnfillBarCorrutine(11, 9));
         }
         if (lifes < 3)
         {
-            Destroy(hearts[3].gameObject);
+            StartCoroutine(UnfillBarCorrutine(8, 6));
         }
         if (lifes < 2)
         {
-            Destroy(hearts[4].gameObject);
+            StartCoroutine(UnfillBarCorrutine(5, 3));
         }
         if (lifes < 1)
         {
-            Destroy(hearts[5].gameObject);
+            StartCoroutine(UnfillBarCorrutine(2, 0));
         }
     }
 
@@ -128,5 +129,17 @@ public class LevelController : MonoBehaviour
     public int GetLifes()
     {
         return lifes;
+    }
+
+    IEnumerator UnfillBarCorrutine(int max, int min)
+    {
+        for (int i = max; i >= min; i--)
+        {
+            for(float j = 1.0f; j >= -1.0f; j -= 0.10f)
+            {
+                hearts[(int)i].fillAmount = j;
+            }
+            yield return new WaitForSeconds(0.15f);
+        }
     }
 }
