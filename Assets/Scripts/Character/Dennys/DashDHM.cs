@@ -7,10 +7,12 @@ using static UnityEngine.GraphicsBuffer;
 public class DashDHM : MonoBehaviour
 {
     public bool canDash = true;
+    public bool cooldown = false;
     public float force = 16f;
     public float dashingTime = 0.2f;
     public float coolDownTime = 1.3f;
     public GameObject lineRenderer;
+
 
     HorizontalMovementDHM target;
     Rigidbody2D rb;
@@ -62,6 +64,7 @@ public class DashDHM : MonoBehaviour
         }
 
         yield return new WaitForSeconds(dashingTime);
+        cooldown = true;
         anim.SetBool("isDashing", false);
         rb.gravityScale = gravity;
         rb.velocity = new Vector2(0f, 0f);
@@ -69,6 +72,7 @@ public class DashDHM : MonoBehaviour
         lineRenderer.SetActive(false);
 
         yield return new WaitForSeconds(coolDownTime);
+        cooldown = false;
         canDash = true;
     }
 }
