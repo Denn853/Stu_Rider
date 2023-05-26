@@ -94708,6 +94708,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 351777845899343747, guid: 71f93095d891f84449986e82179fb5cb, type: 3}
+      propertyPath: coolDownTime
+      value: 0.65
+      objectReference: {fileID: 0}
     - target: {fileID: 1783901873155850994, guid: 71f93095d891f84449986e82179fb5cb, type: 3}
       propertyPath: jumps
       value: 1
