@@ -8,9 +8,9 @@ public class DashDHM : MonoBehaviour
 {
     public bool canDash = true;
     public bool cooldown = false;
-    public float force = 16f;
-    public float dashingTime = 0.2f;
-    public float coolDownTime = 1.3f;
+    public float force = 13.0f;
+    public float dashingTime = 0.5f;
+    public float coolDownTime = 0.65f;
     public GameObject lineRenderer;
 
 

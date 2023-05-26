@@ -10,12 +10,16 @@ public class DashBar : MonoBehaviour
     [SerializeField] private List<Image> dashBar = new List<Image>();
     float timeToVoid;
     float timeToFill;
+    private bool isFilling = false;
 
     private void Start()
     {
 
-        timeToVoid = dash.dashingTime / (200 * dashBar.Count);
-        timeToFill = dash.coolDownTime / (200 * dashBar.Count);
+        timeToVoid = dash.dashingTime / (500 * dashBar.Count);
+        timeToFill = dash.coolDownTime / dashBar.Count;
+
+        Debug.Log("timeToVoid: " + timeToVoid);
+        Debug.Log("timeToFill: " + timeToFill);
 
     }
 
@@ -26,7 +30,7 @@ public class DashBar : MonoBehaviour
             VoidBar();
         }
 
-        if (dash.cooldown)
+        if (dash.cooldown && !isFilling && !dash.canDash)
         {
             StartCoroutine(FillBar());
         } 
@@ -43,19 +47,29 @@ public class DashBar : MonoBehaviour
 
     IEnumerator FillBar()
     {
+        isFilling = true;
+
+        float fillIncrement = 1f / dashBar.Count;
+        float currentFill = 0f;
 
         yield return new WaitForSeconds(timeToVoid);
 
-        for (int i = 0; i <= dashBar.Count - 2; i += 3)
+        for (int i = 0; i < dashBar.Count; i++)
         {
-            dashBar[i].fillAmount = 1;
-            dashBar[i + 1].fillAmount = 1;
-            dashBar[i + 2].fillAmount = 1;
+            float targetFill = currentFill + fillIncrement;
+            float t = 0f;
 
-            yield return new WaitForSeconds(timeToFill);
+            while (t < 1f)
+            {
+                t += Time.deltaTime / timeToFill;
+                dashBar[i].fillAmount = 1f; //Establecer el sprite completo
+
+                yield return null;
+                currentFill += targetFill;
+            }
+
         }
 
-        dashBar[dashBar.Count - 1].fillAmount = 1;
-
+        isFilling = false;
     }
 }
