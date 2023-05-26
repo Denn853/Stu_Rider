@@ -56,7 +56,7 @@ public class JumpDHM : MonoBehaviour
         if (gd.grounded)
         {
             coyoteTimeCounter = coyoteTime;
-            jumpsLeft = 0;
+            jumpsLeft = 1;
         }
         else
         {
