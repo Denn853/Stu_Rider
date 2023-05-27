@@ -11,6 +11,7 @@ public class DashBar : MonoBehaviour
     float timeToVoid;
     float timeToFill;
     private bool isFilling = false;
+    private bool isVoiding = false;
 
     private void Start()
     {
@@ -25,15 +26,17 @@ public class DashBar : MonoBehaviour
 
     private void Update()
     {
-        if (!dash.canDash)
+        if (!dash.canDash && !isVoiding)
         {
             VoidBar();
         }
 
-        if (dash.cooldown && !isFilling && !dash.canDash)
+        if (dash.cooldown && !isFilling && isVoiding)
         {
             StartCoroutine(FillBar());
-        } 
+        }
+
+        isFilling = false;
     }
 
     void VoidBar()
@@ -42,6 +45,8 @@ public class DashBar : MonoBehaviour
         {
             dashBar[i].fillAmount = -1;
         }
+        
+        isVoiding = true;
     }
 
 
@@ -62,14 +67,14 @@ public class DashBar : MonoBehaviour
             while (t < 1f)
             {
                 t += Time.deltaTime / timeToFill;
-                dashBar[i].fillAmount = 1f; //Establecer el sprite completo
-
-                yield return null;
-                currentFill += targetFill;
+                dashBar[i].fillAmount = 1; //Establecer el sprite completo
             }
+
+            yield return null;
+            currentFill += targetFill;
 
         }
 
-        isFilling = false;
+        isVoiding = false;
     }
 }

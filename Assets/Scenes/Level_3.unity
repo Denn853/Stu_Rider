@@ -94136,7 +94136,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 351777845899343747, guid: 71f93095d891f84449986e82179fb5cb, type: 3}
       propertyPath: coolDownTime
-      value: 1
+      value: 0.85
       objectReference: {fileID: 0}
     - target: {fileID: 351777845899343747, guid: 71f93095d891f84449986e82179fb5cb, type: 3}
       propertyPath: lineRenderer

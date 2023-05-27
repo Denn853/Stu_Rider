@@ -18,6 +18,7 @@ public class HorizontalMovementDHM : MonoBehaviour
     Animator anim;
     GroundDetectorDHM ground;
     JumpDHM jumping;
+    DashDHM dash;
 
     Vector3 lastPosition;
     float time;
@@ -29,11 +30,19 @@ public class HorizontalMovementDHM : MonoBehaviour
         anim = GetComponent<Animator>();
         ground = GetComponent<GroundDetectorDHM>();
         collider = GetComponent<CapsuleCollider2D>();
+        dash = GetComponent<DashDHM>();
         dir = Directions.NONE;
     }
 
     private void FixedUpdate()
     {
+
+        
+        if (!dash.cooldown && !dash.canDash) { 
+            Debug.Log("Cooldown: " + dash.cooldown + " - Dash: " + dash.canDash);
+            return;
+        }
+
         //Movimiento del personaje + no entra dentro de paredes
         float horizontal = Input.GetAxis("Horizontal");
         transform.position += new Vector3(horizontal * speed * Time.fixedDeltaTime, 0, 0); // El deltTime de las físicas

@@ -48,6 +48,7 @@ public class DashDHM : MonoBehaviour
         float gravity = rb.gravityScale;
 
         rb.gravityScale = 0;
+        rb.velocity = Vector2.zero;
 
         lineRenderer.SetActive(true);
 
