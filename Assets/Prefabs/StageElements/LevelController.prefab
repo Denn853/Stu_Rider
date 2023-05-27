@@ -51,13 +51,30 @@ MonoBehaviour:
   currentLevel: Attica
   deliversToMake: 1
   winMenu: {fileID: 0}
-  substactLifeMenu: {fileID: 0}
+  lifesMenu: {fileID: 0}
   lifes: 0
-  hearts: []
+  hearts:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   deliversDone: 0
+  levelMusic: {fileID: 0}
+  levelAmbience: {fileID: 0}
   reciveDamageSoundEffect: {fileID: 8958353502524413523}
   deathSoundEffect: {fileID: 8415002823813242144}
   winSoundEffect: {fileID: 3795930149033857084}
+  audioSettings: {fileID: 0}
+  musicMixer: {fileID: 0}
+  sfxMixer: {fileID: 0}
 --- !u!82 &8958353502524413523
 AudioSource:
   m_ObjectHideFlags: 0

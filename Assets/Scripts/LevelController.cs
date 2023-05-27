@@ -45,7 +45,7 @@ public class LevelController : MonoBehaviour
     void Start()
     {
         deliversDone = 0;
-        lifes = hearts.Count / 3;
+        lifes = hearts.Count / 2;
         timer = 0.0f;
 
         Time.timeScale = 0;
@@ -89,27 +89,27 @@ public class LevelController : MonoBehaviour
     {
         if (lifes < 6)
         {
-            StartCoroutine(UnfillBarCorrutine(17, 15));
+            StartCoroutine(UnfillBarCorrutine(11, 10));
         }
         if (lifes < 5)
         {
-            StartCoroutine(UnfillBarCorrutine(14, 12));
+            StartCoroutine(UnfillBarCorrutine(9, 8));
         }
         if (lifes < 4)
         {
-            StartCoroutine(UnfillBarCorrutine(11, 9));
+            StartCoroutine(UnfillBarCorrutine(7, 6));
         }
         if (lifes < 3)
         {
-            StartCoroutine(UnfillBarCorrutine(8, 6));
+            StartCoroutine(UnfillBarCorrutine(5, 4));
         }
         if (lifes < 2)
         {
-            StartCoroutine(UnfillBarCorrutine(5, 3));
+            StartCoroutine(UnfillBarCorrutine(3, 2));
         }
         if (lifes < 1)
         {
-            StartCoroutine(UnfillBarCorrutine(2, 0));
+            StartCoroutine(UnfillBarCorrutine(1, 0));
         }
     }
 
