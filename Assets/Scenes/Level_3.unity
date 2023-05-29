@@ -92285,6 +92285,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.x
       value: 384.58
       objectReference: {fileID: 0}
+    - target: {fileID: 3184171776002233805, guid: 03d01df73251564438f4f1b8491f40a3, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 101.5
+      objectReference: {fileID: 0}
     - target: {fileID: 3184171777474527007, guid: 03d01df73251564438f4f1b8491f40a3, type: 3}
       propertyPath: m_RootOrder
       value: 5
