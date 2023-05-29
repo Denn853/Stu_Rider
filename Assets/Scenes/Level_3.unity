@@ -280,7 +280,7 @@ GameObject:
   - component: {fileID: 25706141}
   - component: {fileID: 25706140}
   - component: {fileID: 25706143}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Death
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93250,6 +93250,8 @@ MonoBehaviour:
   level: 3
   musicAudio: 0
   sfxAudio: 0
+  introPlayed: 0
+  isImmortal: 0
 --- !u!4 &1219137151
 Transform:
   m_ObjectHideFlags: 0

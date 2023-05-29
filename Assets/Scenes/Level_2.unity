@@ -74986,6 +74986,8 @@ MonoBehaviour:
   level: 3
   musicAudio: 0
   sfxAudio: 0
+  introPlayed: 0
+  isImmortal: 0
 --- !u!4 &1376722535
 Transform:
   m_ObjectHideFlags: 0
@@ -88946,7 +88948,7 @@ GameObject:
   - component: {fileID: 2070583578}
   - component: {fileID: 2070583580}
   - component: {fileID: 2070583581}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: DeathNeon
   m_TagString: Trap
   m_Icon: {fileID: 0}
