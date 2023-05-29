@@ -357,6 +357,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &100131769 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1728333839572434691, guid: 44a4113a64b8c664abc60578875ededf, type: 3}
+  m_PrefabInstance: {fileID: 1206563799}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &101113924 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3920773462091116909, guid: 25ef734dc25d2ef4ab90d782d42bc7ba, type: 3}
@@ -1401,9 +1406,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 157543694}
     - target: {fileID: 4137658428933283746, guid: 71f93095d891f84449986e82179fb5cb, type: 3}
+      propertyPath: time
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 4137658428933283746, guid: 71f93095d891f84449986e82179fb5cb, type: 3}
       propertyPath: timer
       value: 
       objectReference: {fileID: 989044171}
+    - target: {fileID: 4137658428933283746, guid: 71f93095d891f84449986e82179fb5cb, type: 3}
+      propertyPath: endPosition
+      value: 
+      objectReference: {fileID: 1464382638}
     - target: {fileID: 4336740079295488397, guid: 71f93095d891f84449986e82179fb5cb, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -2767,6 +2780,8 @@ MonoBehaviour:
   musicAudio: 0
   sfxAudio: 0
   introPlayed: 0
+  isImmortal: 0
+  isJumpInifinite: 0
 --- !u!4 &424252508
 Transform:
   m_ObjectHideFlags: 0
@@ -4212,7 +4227,7 @@ PrefabInstance:
     - target: {fileID: 6021239107019057304, guid: e69263dd280cb644e858c9e28b982f24, type: 3}
       propertyPath: lifesMenu
       value: 
-      objectReference: {fileID: 1313465773}
+      objectReference: {fileID: 100131769}
     - target: {fileID: 6021239107019057304, guid: e69263dd280cb644e858c9e28b982f24, type: 3}
       propertyPath: levelMusic
       value: 
@@ -17313,11 +17328,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2287100428924466419, guid: 1a24ba69a79423d44b0d0d68266da2ba, type: 3}
   m_PrefabInstance: {fileID: 1241101768}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1313465773 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3920773462719645681, guid: 25ef734dc25d2ef4ab90d782d42bc7ba, type: 3}
-  m_PrefabInstance: {fileID: 3920773462057996585}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1325970747
 GameObject:
   m_ObjectHideFlags: 0
@@ -17619,7 +17629,7 @@ GameObject:
   - component: {fileID: 1414953034}
   - component: {fileID: 1414953033}
   - component: {fileID: 1414953032}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Kill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
