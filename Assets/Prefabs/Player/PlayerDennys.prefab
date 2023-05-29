@@ -704,6 +704,8 @@ MonoBehaviour:
   dir: 0
   follower: {fileID: 5848978288907556033}
   timer: {fileID: 0}
+  time: 0
+  endPosition: {fileID: 0}
 --- !u!114 &1783901873155850994
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -725,9 +727,9 @@ MonoBehaviour:
   coyoteTimeCounter: 0
   jumpBufferTimeCounter: 0
   jumpParticles: {fileID: 3133768676182683321, guid: 6f66f48487c51084ca3abfb6468084ff, type: 3}
-  doubleJumpParticles: {fileID: 3133768676182683321, guid: 7fbfac152b94ddb46aaedbe17abe0e02, type: 3}
+  doubleJumpParticles: {fileID: 3133768676182683321, guid: 6f66f48487c51084ca3abfb6468084ff, type: 3}
   jumpParticlesTransform: {fileID: 8970328965199816299}
-  doubleJumpParticlesTransform: {fileID: 4807141040688347820}
+  doubleJumpParticlesTransform: {fileID: 8971248826521320387, guid: 6f66f48487c51084ca3abfb6468084ff, type: 3}
   jumpSoundEffect: {fileID: 6026040014917797497}
   pauseMenu: {fileID: 0}
 --- !u!114 &351777845899343747
@@ -743,6 +745,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canDash: 1
+  cooldown: 0
   force: 13
   dashingTime: 0.5
   coolDownTime: 0.3
