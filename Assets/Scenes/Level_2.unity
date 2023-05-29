@@ -74988,6 +74988,7 @@ MonoBehaviour:
   sfxAudio: 0
   introPlayed: 0
   isImmortal: 0
+  isJumpInifinite: 0
 --- !u!4 &1376722535
 Transform:
   m_ObjectHideFlags: 0
@@ -77799,6 +77800,10 @@ PrefabInstance:
       propertyPath: timer
       value: 
       objectReference: {fileID: 2143080115}
+    - target: {fileID: 4137658428933283746, guid: 71f93095d891f84449986e82179fb5cb, type: 3}
+      propertyPath: endPosition
+      value: 
+      objectReference: {fileID: 652452222}
     - target: {fileID: 4336740079295488397, guid: 71f93095d891f84449986e82179fb5cb, type: 3}
       propertyPath: m_IsActive
       value: 0

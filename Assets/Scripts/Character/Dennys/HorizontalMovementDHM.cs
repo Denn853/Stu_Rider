@@ -22,6 +22,7 @@ public class HorizontalMovementDHM : MonoBehaviour
 
     Vector3 lastPosition;
     public float time;
+    public GameObject endPosition;
 
     // Start is called before the first frame update
     void Start()
@@ -40,6 +41,11 @@ public class HorizontalMovementDHM : MonoBehaviour
     {
         if (Input.GetButtonDown("CheckpointCheat"))
             Respawn();
+
+        if (Input.GetButtonDown("ToEndLevel"))
+        {
+            ToEndLevel();
+        }
     }
 
     private void FixedUpdate()
@@ -90,5 +96,10 @@ public class HorizontalMovementDHM : MonoBehaviour
     public void CheckPointTime(float time)
     {
         this.time = time;
+    }
+
+    void ToEndLevel()
+    {
+        transform.position = endPosition.transform.position;
     }
 }
