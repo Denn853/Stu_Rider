@@ -59,6 +59,7 @@ public class JumpDHM : MonoBehaviour
         if (GameManager.instance.isJumpInifinite && Input.GetButtonDown("Jump"))
         {
             Jump();
+            return;
         }
         
         canJump = gd.grounded;
