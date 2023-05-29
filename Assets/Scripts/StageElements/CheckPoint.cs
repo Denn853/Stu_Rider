@@ -13,12 +13,14 @@ public class CheckPoint : MonoBehaviour
     [SerializeField] private Timer timer;
 
     Animator anim;
+    bool isActive;
 
 
 
     private void Start()
     {
-        anim = GetComponent<Animator>();    
+        anim = GetComponent<Animator>();
+        isActive = true;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -29,7 +31,8 @@ public class CheckPoint : MonoBehaviour
         hm.CheckPoint(transform.position);
         hm.CheckPointTime(time);
 
-        anim.SetTrigger("isActive");
+        anim.SetTrigger("isActivating");
+
     }
 
 }
