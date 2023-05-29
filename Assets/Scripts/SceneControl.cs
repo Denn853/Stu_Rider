@@ -4,7 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public enum Scenes { MAINMENU, SELECTOR, LEVEL1, LEVEL2, LEVEL3, LEVEL4, CREDITS }
+public enum Scenes { MAINMENU, INTRO, SELECTOR, LEVEL1, LEVEL2, LEVEL3, LEVEL4, CREDITS }
 
 public class SceneControl : MonoBehaviour
 {
@@ -25,9 +25,18 @@ public class SceneControl : MonoBehaviour
         SceneManager.LoadScene(sceneList[(int)Scenes.LEVEL1], LoadSceneMode.Single);
     }
 
+    public void Intro()
+    {
+        SceneManager.LoadScene(sceneList[(int)Scenes.INTRO], LoadSceneMode.Single);
+    }
+
     public void LevelSelector()
     {
-        SceneManager.LoadScene(sceneList[(int)Scenes.SELECTOR], LoadSceneMode.Single);
+        if (GameManager.instance.introPlayed)
+            SceneManager.LoadScene(sceneList[(int)Scenes.SELECTOR], LoadSceneMode.Single);
+
+        GameManager.instance.introPlayed = true;
+        Intro();
     }
 
     public void Level1()

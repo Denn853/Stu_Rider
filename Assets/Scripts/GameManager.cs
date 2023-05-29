@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour
     public float musicAudio;
     public float sfxAudio;
 
+    public bool introPlayed;
+
     private void Awake()
     {
         if (instance == null)
@@ -32,6 +34,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         lifes = 3;
+        introPlayed = false;
         //level = 1;
     }
 

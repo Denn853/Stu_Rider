@@ -1193,6 +1193,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneList:
   - MainMenu
+  - Intro
   - LevelSelector
   - Level_1
   - Level_2
@@ -2430,6 +2431,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifes: 0
   level: 1
+  musicAudio: 0
+  sfxAudio: 0
+  introPlayed: 0
 --- !u!4 &2067600322
 Transform:
   m_ObjectHideFlags: 0
