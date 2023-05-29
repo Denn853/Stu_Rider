@@ -21,7 +21,7 @@ public class HorizontalMovementDHM : MonoBehaviour
     DashDHM dash;
 
     Vector3 lastPosition;
-    float time;
+    public float time;
 
     // Start is called before the first frame update
     void Start()
@@ -32,6 +32,14 @@ public class HorizontalMovementDHM : MonoBehaviour
         collider = GetComponent<CapsuleCollider2D>();
         dash = GetComponent<DashDHM>();
         dir = Directions.NONE;
+
+        lastPosition = transform.position;
+    }
+
+    private void Update()
+    {
+        if (Input.GetButtonDown("CheckpointCheat"))
+            Respawn();
     }
 
     private void FixedUpdate()
