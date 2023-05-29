@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     public bool introPlayed;
 
     public bool isImmortal;
+    public bool isJumpInifinite;
 
     private void Awake()
     {
