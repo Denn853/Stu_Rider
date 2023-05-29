@@ -173,7 +173,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 910034373552184153}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.4, z: 0}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -727,9 +727,9 @@ MonoBehaviour:
   coyoteTimeCounter: 0
   jumpBufferTimeCounter: 0
   jumpParticles: {fileID: 3133768676182683321, guid: 6f66f48487c51084ca3abfb6468084ff, type: 3}
-  doubleJumpParticles: {fileID: 3133768676182683321, guid: 6f66f48487c51084ca3abfb6468084ff, type: 3}
+  doubleJumpParticles: {fileID: 3133768676182683321, guid: 7fbfac152b94ddb46aaedbe17abe0e02, type: 3}
   jumpParticlesTransform: {fileID: 8970328965199816299}
-  doubleJumpParticlesTransform: {fileID: 8971248826521320387, guid: 6f66f48487c51084ca3abfb6468084ff, type: 3}
+  doubleJumpParticlesTransform: {fileID: 4807141040688347820}
   jumpSoundEffect: {fileID: 6026040014917797497}
   pauseMenu: {fileID: 0}
 --- !u!114 &351777845899343747
