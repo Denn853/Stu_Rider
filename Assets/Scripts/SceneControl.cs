@@ -33,10 +33,15 @@ public class SceneControl : MonoBehaviour
     public void LevelSelector()
     {
         if (GameManager.instance.introPlayed)
+        {
             SceneManager.LoadScene(sceneList[(int)Scenes.SELECTOR], LoadSceneMode.Single);
+        }
+        else
+        {
+            GameManager.instance.introPlayed = true;
+            Intro();
+        }
 
-        GameManager.instance.introPlayed = true;
-        Intro();
     }
 
     public void Level1()
