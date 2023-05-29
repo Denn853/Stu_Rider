@@ -280,7 +280,7 @@ GameObject:
   - component: {fileID: 25706141}
   - component: {fileID: 25706140}
   - component: {fileID: 25706143}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Death
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93250,6 +93250,9 @@ MonoBehaviour:
   level: 3
   musicAudio: 0
   sfxAudio: 0
+  introPlayed: 0
+  isImmortal: 0
+  isJumpInifinite: 0
 --- !u!4 &1219137151
 Transform:
   m_ObjectHideFlags: 0
@@ -94155,9 +94158,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1196449226}
     - target: {fileID: 4137658428933283746, guid: 71f93095d891f84449986e82179fb5cb, type: 3}
+      propertyPath: time
+      value: 270
+      objectReference: {fileID: 0}
+    - target: {fileID: 4137658428933283746, guid: 71f93095d891f84449986e82179fb5cb, type: 3}
       propertyPath: timer
       value: 
       objectReference: {fileID: 1122179360}
+    - target: {fileID: 4137658428933283746, guid: 71f93095d891f84449986e82179fb5cb, type: 3}
+      propertyPath: endPosition
+      value: 
+      objectReference: {fileID: 568147725}
     - target: {fileID: 4189578684209659494, guid: 71f93095d891f84449986e82179fb5cb, type: 3}
       propertyPath: m_Offset.x
       value: 0.225

@@ -51,6 +51,16 @@ public class JumpDHM : MonoBehaviour
     {
         if (pauseMenu.GetIsPaused()) { return; }
 
+        if (Input.GetButtonDown("InfiniteJump"))
+        {
+            GameManager.instance.isJumpInifinite = !GameManager.instance.isJumpInifinite;
+        }
+
+        if (GameManager.instance.isJumpInifinite && Input.GetButtonDown("Jump"))
+        {
+            Jump();
+        }
+        
         canJump = gd.grounded;
 
         if (gd.grounded)

@@ -20,20 +20,34 @@ public class PlayerKill : MonoBehaviour
     public float duration;
     public float magnitude;
 
+    private void Update()
+    {
+        if (Input.GetButtonDown("Immortality"))
+            GameManager.instance.isImmortal = !GameManager.instance.isImmortal;
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
+
+        if (GameManager.instance.isImmortal)
+            return;
+
         StartCoroutine(DealDamageCorrutine());
         StartCoroutine(cam.Shake(duration, magnitude));
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (GameManager.instance.isImmortal)
+            return;
+
         StartCoroutine(DealDamageCorrutine());
         StartCoroutine(cam.Shake(duration, magnitude));
     }
 
     IEnumerator DealDamageCorrutine()
     {
+
         hm.enabled = false;
         rb.bodyType = RigidbodyType2D.Static;
 

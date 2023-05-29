@@ -16,6 +16,9 @@ public class GameManager : MonoBehaviour
 
     public bool introPlayed;
 
+    public bool isImmortal;
+    public bool isJumpInifinite;
+
     private void Awake()
     {
         if (instance == null)
@@ -34,7 +37,9 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         lifes = 3;
-        introPlayed = false;
+        introPlayed = false
+            ;
+        isImmortal = false;
         //level = 1;
     }
 
